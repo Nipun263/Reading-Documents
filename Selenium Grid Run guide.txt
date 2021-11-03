@@ -1,0 +1,120 @@
+Selenium grid 
+
+Ans : Steps for parallel execution running slave and master 
+
+1.Download selenium standalone server jar 
+
+
+2.Keep it in any folder and open cmd prompt and go to that path jaha standalone wali jar padhi hai 
+
+
+3.To make your working machine as hub 
+in cmd line - write cmd 
+java -jar filename(standalone server file ) -role hub , for example --->  java -jar selenium-server-standalone-3.9.1.jar -role hub
+
+On executing logs will be like 
+C:\Users\nipunverma\Downloads\Selenium Project_Dnt Delete>java -jar selenium-server-standalone-3.9.1.jar -role hub
+16:08:26.302 INFO - Selenium build info: version: '3.9.1', revision: '63f7b50'
+16:08:26.302 INFO - Launching Selenium Grid hub on port 4444
+2021-11-02 16:08:27.288:INFO::main: Logging initialized @1194ms to org.seleniumhq.jetty9.util.log.StdErrLog
+2021-11-02 16:08:27.365:INFO:osjs.Server:main: jetty-9.4.7.v20170914, build timestamp: 2017-11-22T02:57:37+05:30, git hash: 82b8fb23f757335bb3329d540ce37a2a2615f0a8
+2021-11-02 16:08:27.388:INFO:osjs.session:main: DefaultSessionIdManager workerName=node0
+2021-11-02 16:08:27.388:INFO:osjs.session:main: No SessionScavenger set, using defaults
+2021-11-02 16:08:27.390:INFO:osjs.session:main: Scavenging every 600000ms
+2021-11-02 16:08:27.396:INFO:osjsh.ContextHandler:main: Started o.s.j.s.ServletContextHandler@6dc17b83{/,null,AVAILABLE}
+2021-11-02 16:08:27.421:INFO:osjs.AbstractConnector:main: Started ServerConnector@6d763516{HTTP/1.1,[http/1.1]}{0.0.0.0:4444}
+2021-11-02 16:08:27.421:INFO:osjs.Server:main: Started @1327ms
+16:08:27.422 INFO - Selenium Grid hub is up and running
+16:08:27.422 INFO - Nodes should register to http://192.168.29.127:4444/grid/register/
+16:08:27.422 INFO - Clients should connect to http://192.168.29.127:4444/wd/hub
+16:09:04.617 INFO - Registered a node http://192.168.29.127:5555
+
+Note : I used selenium standalone server version as 3.9.1
+ 
+ 
+****To check hub is up and running 
+Go to browser and type it 
+http://localhost:4444/grid/console
+
+You will see the UI , es mein 5 firefox logo hain , ek ie , 4 firefox ..eska matlab yeh parallel ek IE par chal sakta hai , 4 firefox and son on 
+
+
+
+
+
+4.)Execute cmd on point # 3 , your machine will be now machine as hub .Check the output in cmd prompt .yaha confirm ho jaeyga ki aapki machine hub hai ab 
+
+We are using same machine as hub as well as node 
+
+5.)Now register the node machine with hub 
+Go to cmd prompt , jaha aapka selenium standaloner server hai  and run the command 
+
+java -DwebDriver.chrome.driver="C:\Users\nipunverma\Downloads\Selenium Project_Dnt Delete\Drivers\chromedriver.exe" -jar selenium-server-standalone-3.9.1.jar -role node -hub http://192.168.29.127:4444/grid/register/
+
+Note : In above command "C:\Users\nipunverma\Downloads\Selenium Project_Dnt Delete\Drivers\chromedriver.exe"  yeh path woh jaha aapka driver padha hai , agar aapko firefox mlaunch karna hai node par to webdriver.gecko,driver karo 
+http://192.168.29.127:4444/grid/register/ yeh aapko upar logs se milega jab aapne hub register kiya tha step 3 mein 
+
+
+
+Post running this , logs dekh lo yaar cmd prompt par 
+C:\Users\nipunverma\Downloads\Selenium Project_Dnt Delete>java -DwebDriver.chrome.driver="C:\Users\nipunverma\Downloads\Selenium Project_Dnt Delete\Drivers\chromedriver.exe" -jar selenium-server-standalone-3.9.1.jar -role node -hub http://192.168.29.127:4444/grid/register/
+14:28:42.500 INFO - Selenium build info: version: '3.9.1', revision: '63f7b50'
+14:28:42.501 INFO - Launching a Selenium Grid node on port 5555
+2021-11-01 14:28:43.434:INFO::main: Logging initialized @1176ms to org.seleniumhq.jetty9.util.log.StdErrLog
+2021-11-01 14:28:43.512:INFO:osjs.Server:main: jetty-9.4.7.v20170914, build timestamp: 2017-11-22T02:57:37+05:30, git hash: 82b8fb23f757335bb3329d540ce37a2a2615f0a8
+2021-11-01 14:28:43.528:WARN:osjs.SecurityHandler:main: ServletContext@o.s.j.s.ServletContextHandler@41c2284a{/,null,STARTING} has uncovered http methods for path: /
+2021-11-01 14:28:43.531:INFO:osjsh.ContextHandler:main: Started o.s.j.s.ServletContextHandler@41c2284a{/,null,AVAILABLE}
+2021-11-01 14:28:43.548:INFO:osjs.AbstractConnector:main: Started ServerConnector@59af0466{HTTP/1.1,[http/1.1]}{0.0.0.0:5555}
+2021-11-01 14:28:43.548:INFO:osjs.Server:main: Started @1289ms
+14:28:43.548 INFO - Selenium Server is up and running on port 5555
+14:28:43.549 INFO - Selenium Grid node is up and ready to register to the hub
+14:28:43.561 INFO - Starting auto registration thread. Will try to register every 5000 ms.
+14:28:43.561 INFO - Registering the node to the hub: http://192.168.29.127:4444/grid/register
+14:28:43.778 INFO - Updating the node configuration from the hub
+14:28:43.786 INFO - The node is registered to the hub and ready to use
+
+
+
+6.)Hope aapne apni scripts likhi hongi else likh lo selenium mein , jo aapne run karni hai 
+
+
+7.)If you see the logs of the hub machine ( in step 3) - there is a line  in the logs at last (second last line)
+16:54:00.114 INFO - Clients should connect to http://192.168.29.127:4444/wd/hub
+
+this means ki es address par aapke progm ko connect karna hai .Yaha client means selenium ya aapka progm 
+
+
+Aur agar aap HI  ke logs dekhoge to it also has a line at the last 
+http://192.168.29.127:5555
+thats means this is your node URL 
+
+
+8.)Now where ever you are writing your code , ayaha jaha aap browser intialization ka intial code likhte hain yaha you have to add 
+nodeURL jo ki hoga jaise http://192.168.29.127:5555(found from logs of hub)
+browsername 
+machine jis par coe run karna hai 
+
+All this can be done using desired cap 
+
+
+Example : 
+String nodeURL = "http://192.168.29.127:5555";
+ else if (browserName.equalsIgnoreCase("Remote")) {
+			DesiredCapabilities dcap = new DesiredCapabilities();
+			dcap.setBrowserName("chrome");
+			dcap.setPlatform(Platform.WIN10);
+			String driverPath1 = System.getProperty("user.dir") + "\\Drivers\\chromedriver.exe";
+			System.setProperty("webdriver.chrome.driver", driverPath1);
+			dcap.setAcceptInsecureCerts(true);
+
+			driver = new RemoteWebDriver(new URL(nodeURL), dcap);
+			System.out.println("Chrome driver used");
+		}
+
+
+
+Note yaha chromedriver nahe lena yaha remote webdriver lena hai es line mein driver = new RemoteWebDriver(new URL(nodeURL), dcap);
+Node URL - mujhe hib ke notes mein se he mila hai sabse neeche dekh lo
+
+
+8.))))

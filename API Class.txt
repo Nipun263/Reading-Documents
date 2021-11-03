@@ -1,0 +1,2005 @@
+API-Application Programming Interface 
+it acts between UI and DB layer and is present in Business layer 
+
+API can work between two  different technologies 
+API can work between two  different Platform (Mobile and Web)-Example mobile mein whatspp par aap location share karte ho , us vase mein whatsapp is using goole API
+API can work between frontend and Backend (DB)
+
+example
+MMT par aap kuch seach karte ho , do you think MMT aapko flights ki info deta hai- No 
+MMT takes the info from different different airlies and MMT uses diff diff flight airlines API'seach
+In the above case diff diff flights are exposing the API's and MMT is consuming the API's .
+
+Whatever action we perform using the API's we are getting status code in return (200/201...)
+
+
+Status codes - client specific : 400 series ---> 400 /401/403/407
+			-Server Spcific :500 series --> 500 /501/503
+
+
+API advantage - you can find the bug at very early stage 
+--------------------------------------------------------------------------------------------------------------
+
+--API structire : Base +End point + parameter 
+example ::: https://www.google.com/sum/?a=10
+https://www.google.com----base 
+/sum---end point 
+a=10----parameter 
+--------------------------------------------------------------------------------------------------------------
+1.API types 
+
+SOAP Services -  can take input in form of wdsl file ( this file developer provides us and has all information about the services (heavy hoti hai)
+Rest Services - can take input in form of XML , JSON or plain text (Light hoti h )--each action will have sepertae URL/URI
+
+--------------------------------------------------------------------------------------------------------------
+Postman - manual +automation testing 
+rest assured - rest api's 
+
+--------------------------------------------------------------------------------------------------------------
+Methods in API's 
+
+put 
+post 
+get 
+patch  -----for update
+delete 
+
+--------------------------------------------------------------------------------------------------------------
+In which https method data will go 
+put 
+post
+patch 
+
+-----------------------------------------------------Lecture 2---------------------------------------------------------
+-->In real time , dev team provides us the URL/URI .In this case we are trying to create fake API's for learn purpose .
+-->for this we are using NPM(Node package manager) - NPM helps to install any  of node js package 
+
+Install node.js 
+from the installed folder of node.js you will get npm path as well -npm ka ek folder ban jaeyga 
+-now set the path in env variables for both node js and npm 
+-to check if nodejs and npm is install : run the mentioned command in command line 
+1.node --version
+2.npm --version 
+--now you need install the server (JSON server)
+run the mentioned command in the cmd prompt 
+---->>>> npm install json-server
+
+--------------------------------------------------------------------------------------------------------------
+JSON format 
+"Key":"Value"
+[]------------------------Array notation
+{}------------------------Object notation
+
+example of JSON 
+
+{
+"APIBatch" :[],
+"SeleniumBatch" :[],
+"EmployeeData" :[],
+"DevOpsBatch" :[]
+}
+
+to get the API ---start the server (JSON) using the command in the cmd prompt--->
+cmd -----> json-server --watch yourjsonfile
+			json-server --watch yourjsonfile
+			
+			
+Note : if facing issue run this command to start the server 
+npx json-server --watch filename
+
+
+Output will be API's 
+
+Resources
+  http://localhost:3000/APIBatch
+  http://localhost:3000/SeleniumBatch
+  http://localhost:3000/EmployeeData
+  http://localhost:3000/DevOpsBatch
+-----------------------------------------------------Lecture 3 Dated 01-May ---------------------------------------------------------
+What is URI?
+Uniform resource identifier and has Base + End point + Parameter 
+--------------------------------
+Postman is tool for api automation and manual testing (Rest API's)/Rest Services .
+---------------------------------
+Collection is like folder in windows and it has various requests 
+We can share our request with anyone ..
+---------------------------------
+In case of Post request - Body data will go 
+---------------------------------
+JSOOn format
+
+Key:Value 
+
+{}==================================Object Notation 
+[]===================================Array Notation
+
+example of body data ------koi bhe operation karna se pehle json server on kar lo else nahe chalega kuch bhe postman par 
+{
+	"firstname": "sourabh ",
+	"Lastname": "Jain",
+	"Age": "27",
+	"id": "sourabh"
+}
+
+--------------------------
+upar wali json mein id primary key hai , agar aap socho id nahe deoge to postman apne aap id banna dega ..see below example (id json server ne banaya hai we didnot created it ).
+In real time dev will tell you which is primary key .
+
+Example 
+{
+    "firstname": "Nipun_Updated ",
+    "Lastname": "Verma1234",
+    "Age": "35",
+    "Field": "Information Tech",
+    "Id": "Verma",
+    "id": 1--------------------------------------------------------------------yeh postman ne kiya hai generate ID
+}
+
+--------------------------
+What is URI?
+Uniform resource identifier and has Base + End point + Parameter 
+
+Type of  Parameters - Query and Path parameters 
+
+Query paramters -------------------->  when there is a question mark(?) this is query parameter 
+Path parameter --------------------------> when there is a / -- this is query parameter 
+
+http://localhost:3000/EmployeeData/DC
+
+Base - http://localhost:3000
+End point ------ /EmployeeData
+Path Parameter ------ /DC
+
+--------------------------
+Agar normal URIl mein http://localhost:3000/EmployeeData aap parameter append kar doge that is  /Nverma43 to instaed of getting all the records you will get record for Nverma43
+
+w/o using parameter 
+URI----> http://localhost:3000/EmployeeData
+Response --->
+[
+    {
+        "firstname": "Nipun ",
+        "Lastname": "Verma",
+        "Age": "34",
+        "id": "Nverma"
+    },
+    {
+        "firstname": "Nipun ",
+        "Lastname": "Verma",
+        "Age": "35",
+        "id": "Nverma43"
+    },
+    {
+        "firstname": "Nipun ",
+        "Lastname": "Verma",
+        "Age": "35",
+        "id": "fUYw9du"
+    },
+    {
+        "firstname": "Nipun_Updated ",
+        "Lastname": "Verma1234",
+        "Age": "35",
+        "Field": "Information Tech",
+        "Id": "ABCD",
+        "id": "37SCTgl"
+    },
+    {
+        "firstname": "Nipun_Updated ",
+        "Lastname": "Verma1234",
+        "Age": "35",
+        "Field": "Information Tech",
+        "Id": "Verma",
+        "id": "Jz-OBli"
+    }
+]
+
+
+When using parameter 
+URI --->http://localhost:3000/EmployeeData/Nverma (you can only pass primary key in the parameter)
+Response --->
+{
+    "firstname": "Nipun ",
+    "Lastname": "Verma",
+    "Age": "34",
+    "id": "Nverma"
+}
+
+---------------------------------------------------------------------------
+Note **
+(you can only pass primary key in the parameter)
+---------------------------------------------------------------------------
+Lets say there is one example 
+
+[
+    {
+        "firstname": "Nipun ",
+        "Lastname": "Verma",
+        "Age": "34",
+        "id": "Nverma"
+    },
+    {
+        "firstname": "Nipun ",
+        "Lastname": "Verma",
+        "Age": "35",
+        "id": "Nverma43"
+    },
+    {
+        "firstname": "Nipun ",
+        "Lastname": "Verma",
+        "Age": "35",
+        "id": "fUYw9du"
+    },
+    {
+        "firstname": "Nipun_Updated ",
+        "Lastname": "Verma1234",
+        "Age": "35",
+        "Field": "Information Tech",
+        "Id": "ABCD",
+        "id": "37SCTgl"
+    },
+    {
+        "firstname": "Nipun_Updated ",
+        "Lastname": "Verma1234",
+        "Age": "35",
+        "Field": "Information Tech",
+        "Id": "Verma",
+        "id": "Jz-OBli"
+    }
+]
+
+
+I want all the records having first name Nipun
+
+In that case query paramter will be used 
+URI ----->http://localhost:3000/EmployeeData?firstname=Nipun
+
+
+Output will be 
+
+[
+    {
+        "firstname": "Nipun ",
+        "Lastname": "Verma",
+        "Age": "34",
+        "id": "Nverma"
+    },
+    {
+        "firstname": "Nipun ",
+        "Lastname": "Verma",
+        "Age": "35",
+        "id": "Nverma43"
+    },
+    {
+        "firstname": "Nipun ",
+        "Lastname": "Verma",
+        "Age": "35",
+        "id": "fUYw9du"
+    }
+]
+
+URI ----->http://localhost:3000/EmployeeData?firstname=Nipun
+Base :http://localhost:3000
+End Point : /EmployeeData
+Query Parameter : firstname=Nipun
+
+------------------------------------------------------------------------------------------
+Example of path parameter 
+
+http://localhost:3000/APIBatch/4
+
+Output ill be 
+
+{
+    "firstname": "Nipun_Updated_5555 ",
+    "Lastname": "Verma1234",
+    "Age": "35",
+    "Field": "Information Tech",
+    "Id": "Verma",
+    "id": 4
+}
+
+In above we have passed id (as path paramter) as id is primary key and we pass primary key 
+
+
+
+--------------------------------------------------------------------------------------------
+Primary key you are passing as path paramter 
+
+rest of the keys you pass in form of query parameter
+--------------------------------------------------------------------------------------------
+Lecture 4 : 4th May 
+
+Variable - That stors some value 
+
+Types of varibles -Global and environmental (In postman)
+
+Global - Jo sab use kar sake (can be used in multiple environments)
+Env - 
+
+
+Note - you can import and export the collection and advatage it can be shared with anyone 
+
+----------------------------------------------------------------------------------------------
+How to use variable 
+
+{{Variable name}}
+
+Go to eye --> Click edit and save the env/global variables 
+
+See example 
+Varible			IntialValue 					CurrentValue (yeh apne aap pick karega)
+Base			http://localhost:3000			http://localhost:3000
+EndPoint		APIBatch						APIBatch
+
+Get address pehle tha ---http://localhost:3000/APIBatch
+Now it became 			{{Base}}/{{EndPoint}}
+
+----------------------------------------------------------------------------------------------
+Firstly it will check inside the env variables - if there will  be value then it will pick that valuse else it will look into global variables 
+
+Whatever is same -- always keep it in global variables 
+whatever is changed for all environments ---make it as environmental variable 
+----------------------------------------------------------------------------------------------
+Patch vs put request 
+
+Put - In put request , one has to pass all the body content (whether usko update karna ho ya nahe , jaise ek body hai )
+
+{
+    "firstname": "Nipun_FR",
+    "Lastname": "Verma_FR",
+    "Designation": "Senior Software Engineer",
+    "Company": "Information Tech",
+    "Id": "Verma"
+}
+
+Now in this request you want to update LastName to Say ABCD , ab agar put request use karoge to saari body deni padegi else , patch mein sirf yeh statement he ayegi.
+
+{
+    "firstname": "Nipun_FR",
+    "Lastname": "ABCD",
+    "Designation": "Senior Software Engineer",
+    "Company": "Information Tech",
+    "Id": "Verma"
+}
+
+
+
+PAtch - onyl part of the bidy which needs to be updated is passed here ,example last name he update karna h to use the below body
+
+{
+    "Lastname": "Verma_FR"
+    
+}
+----------------------------------------------------------------------------------------------
+What is Rest Asssured ?
+Rest assured is a java library for rest API automation.
+
+----------------------------------------------------------------------------------------------
+What is library ?
+which  provides the built in classes and methods 
+
+For each library there is a corrosponsding jar and har jar file there is corrosponding maven dependency
+----------------------------------------------------------------------------------------------
+Ways to add jar files in your project 
+
+1.You can download from google and put in lib folder
+2.Using maven dependency of the jar and maven will download the jar files
+----------------------------------------------------------------------------------------------
+5th Lecture -8th May =========>>>>
+
+Maven , what is maven 
+
+Dependency to download --testNG , restAssured , json schema validator , json path , 
+
+---if any problem comes up - delete the m2 folder , update the project in eclipse 
+
+--All the classes will be created under src/test/java 
+
+========================================Dependency=================================
+<dependency>
+		    <groupId>io.rest-assured</groupId>
+		    <artifactId>rest-assured</artifactId>
+		    <version>4.3.3</version>
+		    <scope>test</scope>
+		</dependency>
+	
+		
+		<dependency>
+		    <groupId>org.json</groupId>
+		    <artifactId>json</artifactId>
+		    <version>20210307</version>
+		</dependency>
+		
+				
+		<dependency>
+		    <groupId>org.testng</groupId>
+		    <artifactId>testng</artifactId>
+		    <version>6.10</version>
+		    <scope>test</scope>
+		</dependency>
+		
+				
+		<dependency>
+		    <groupId>io.rest-assured</groupId>
+		    <artifactId>json-schema-validator</artifactId>
+		    <version>4.3.3</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>io.rest-assured</groupId>
+		    <artifactId>json-path</artifactId>
+		    <version>4.3.3</version>
+		</dependency>
+		
+
+========================================================================================
+In Automation 
+
+1.Firstly we need to import all the static methods
+
+import static io.restassured.RestAssured.*;------------This is very very imp----------------
+
+*****given ----> what is given to us (pre condition)----kis form mein data chaiye 
+*****when ---->  which http method we are going to hit ----Konsa method hit karna hai ---jaise ki :: get/post/put/delete/patch
+*****Then ---->  what is the validation ------ 
+
+
+We use three keywords - given , when then
+
+given mein primary condition is content type should be of json type 
+
+Note - then is not mandatory , es mein aapne validations daalni hai .this is not mandatory ,however the when and given is mandatory
+========================================================================================
+if a method is returning int value - it needs to be saved in int variable 
+if a method is returning response object  - it needs to be saved in response reference  variable 
+
+Sample of get request 
+
+package APIAutomation;
+
+import static io.restassured.RestAssured.*;
+
+import io.restassured.http.ContentType;
+import io.restassured.response.Response;
+
+public class GetRequest {
+	
+//Given Request - Content type must be 	of JSOn type
+	
+	//Three keywords to be used Given(kis tarah ka chaiye) , When(kis type ki request hit karni hai) , Then (what is the vaidation
+	
+	public static void main(String[] args) {
+		
+		Response res =  given().contentType(ContentType.JSON).when().get("http://localhost:3000/APIBatch");
+		
+		System.out.println("Status code of get is  : "  +  res.statusCode());
+		System.out.println("Data is   : "  +  res.asString());
+		
+
+	}
+
+}
+
+========================================================================================
+	--Get  Request
+	given -content type
+	when - Get method jaeyga
+	then - mein aap validate karoge - status check karna 200 hai ke nahe 
+	
+	
+	--Post Request::
+	given -content type ,  body data in given
+	when - Post method jaeyga
+	then - mein aap validate karoge - status check karna 201 hai ke nahe 
+	
+	
+	--Put Request/Patch Request
+	given -content type ,  body data in given
+	when - put method jaeyga
+	then - mein aap validate karoge - status check karna 201 hai ke nahe 
+	
+	
+	
+	--Delete Request
+	given -content type 
+	when - Delete method jaeyga
+	then - mein aap validate karoge - status check karna 200 hai ke nahe 
+	
+========================================================================================
+Example : http://localhost:3000/APIBatch
+
+Variables - Global  --------jo sabke liye same rhe - like in above case it will be http://localhost:3000
+		  -Environment ----- Jo har environment ke liye alag ho ---jaise ---APIBatch
+		  
+========================================================================================
+Lecture 6 : 9th May
+	  
+		  
+    "firstname": "Nipun_FR",
+    "Lastname": "Verma_FR",
+    "Designation": "Senior Software Engineer",
+    "Company": "Information Tech",
+    "Id": "Verma"
+
+
+For automation we use key words 
+given,when,then 
+
+
+	/*
+	 * import static io.restassured.RestAssured.*;V.V.Imp to import this
+	 * 	Given--------------Pre conditon 
+		When---------------Http method(Get/Put/Patch/delete) 
+		Then---------------Validations
+	 */
+	 
+1.First of all you need to import static io.restassured.RestAssured.;
+2.In given method pass the content type - like JSON 
+3.when method - pass the http method and URI
+4.Then method is used to validate the result 
+
+example of get method using automation 
+
+package APIAutomation;
+
+import static io.restassured.RestAssured.*;
+
+import io.restassured.http.ContentType;
+import io.restassured.response.Response;
+
+public class RequestsFromPostman {
+	
+	/*
+	 * import static io.restassured.RestAssured.*;V.V.Imp to import this
+	 * Given--------------Pre conditon When---------------Http
+	 * method(Get/Put/Patch/delete) Then---------------Validations
+	 */
+	
+	
+		public void getRequest() {
+		Response res = 	given().contentType(ContentType.JSON).when().get("http://localhost:3000/APIBatch");
+		
+		System.out.println("Status code is" + res.statusCode());
+		System.out.println("Data extracted from request is " + res.asPrettyString());
+		}
+	
+	
+	
+	
+	public static void main(String[] args) {
+		RequestsFromPostman RP = new RequestsFromPostman();
+		RP.getRequest();
+	}
+	
+	
+	/*
+	 * public static void main(String[] args) {
+	 * given().contentType(ContentType.JSON).when().post(
+	 * "http://localhost:3000/APIBatch").body({ "firstname": "Automation_Post",
+	 * "Lastname": "Verma_FR", "Designation": "Senior Software Engineer", "Company":
+	 * "Information Tech", "Id": "Verma"});
+	 * 
+	 * 
+	 * }
+	 */
+	
+	
+}
+
+===========================================May 9 : Lecture 5th===========================================
+May 9 : Lecture 5th 
+
+Put request - we need URI, body and In return we will get response .
+
+=====>Ways to Maintain/Create the body data ::::
+1.Keep the data in JSON file 
+2.Create the body data using org.JSON lib
+3.Create body data using pojo classes
+
+===========================================================================================================
+In real time , dev gives the body data and URI 
+
+Types of JSON Data :
+
+1.Simple JSON 
+2.Complex JSON 
+3.In for of Arary 
+
+Simple JSON 
+{
+"FirstName":"Nipun",
+"LastName":"Verma"
+}
+
+==Simple json can be maintained in form of JSON file , Pojo class and org.java 
+------------------------------
+Complex JSON
+
+{
+	{
+	}
+}
+
+==Complex  json can be maintained in form of JSON file , Pojo class and org.java 
+------------------------------
+In form of Array 
+
+{
+	[
+	{
+	}
+	
+	{
+	}
+	
+	{
+	}
+	
+	]
+
+}
+
+==In form of Array  json can be maintained in form of JSON file , Pojo class and org.java 
+
+------------------------------------------------------------------------------------------------------------------------	
+We have saved simple json file in framwork , ek simple file create ki aur us mein yeh neeche diya hua data de diya , sile extension .json rakhni h 
+
+{
+"FirstName" : "Nipun" ,
+"LastName" : "Verma" ,
+"Designation" : "Sr software engineer" 
+
+}
+
+Next we need librarry file for jason (maven ki dependecy download kar lo-org.json)
+
+<!-- https://mvnrepository.com/artifact/org.json/json -->
+<dependency>
+    <groupId>org.json</groupId>
+    <artifactId>json</artifactId>
+    <version>20210307</version>
+</dependency>
+
+
+
+For reading the json we need to create connection - we will use java class (File Class ) to read JSON data
+
+Note - JSON file apne framework mein he rakhna so path in that case will be 
+String JSONBodyDataPath = "../FirstProjectAPIAutomation/PostBodyData1.json
+**This is a rlative path - click on file where ever you have put in framework -- copy the path **
+
+JSONTokener - This is a java class to read json from the file 
+
+
+*******When you are writing code for post request *******
+1.Create a JSOn file within your framework 
+New->File->GIvename any.JSON
+
+{
+"FirstName" : " ",
+"LastName" : " " ,
+"Designation" : " " ,
+"Company" : " " 
+
+}
+
+2.Now get the path of this by right clicking on file , copy path 
+
+3.User java class , file , filereader,JSONTokener .JSONOBject 
+
+--File file = new File(-----Pass the JSON file path here------);
+example "../FirstProjectAPIAutomation/PostBodyData1.json"
+
+--FileReader FR = new FileReader(file);
+
+--JSONTokener JT = new JSONTokener(FR);
+
+--JSONOBject JO = mew JSONOBject(JT);
+
+
+		System.out.print("Body Data is " +  JO.toString());
+
+--------->given().contentType(ContentType.JSON).body(JO.toString()).when().post("http://localhost:3000/APIBatch"); <-----------------
+		
+
+before JSON Token add dependency org.JSON 
+------------------------------------------------------------------------------------------------------------------------
+Example of Post request 
+
+public void postRequestWithComplexJSON() throws FileNotFoundException {
+	String FilePathForComplexJSON = System.getProperty("user.dir");
+	File file = new File(FilePathForComplexJSON + "//Complex.json");
+	
+	FileReader FR = new FileReader(file);
+	JSONTokener JT = new JSONTokener(FR);
+	JSONObject JO = new JSONObject(JT);
+	
+	
+	
+	Response Res = 	given().contentType(ContentType.JSON).body(JO.toString()).when().post("http://localhost:3000/APIBatch");
+	
+	System.out.println("Response Code is " + Res.getStatusCode());
+	System.out.println("Response  is " +  Res.toString());
+	
+	}
+	
+-----------------------------------------------------Lecture 7 - 15 May 2021-------------------------------------------------------------
+Will discuss about 
+
+--How to create body data using JSON file , Pojo class and org.json librarg
+
+--When body data / payload is large - its good pratcive to keep them in json file (Real time we use this approach only)
+
+--When body data / payload is small  - its good pratcive to keep them in other two options
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+Body data to prepeared in form of simple json .complex and Array form using org.json library
+
+Class by org,json--->JSONObject/JSONArray 
+
+JSONObject ----------------------------------{ }
+JSONArray ------------------------------------[ ]
+
+put() ---------------------used for adding Key:Value
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+Create  JSOn with simple JSON 
+
+{
+
+
+}
+
+Example :
+	
+ public void postRequestWithOrgJSONWithSimpleJSON() {
+		JSONObject JO = new JSONObject();
+		Double  workingEmpDummyData = Math.random();
+		
+		JO.put("FirstName", "Nipun");
+		JO.put("LastName", "Verma");
+		JO.put("Number Of Cars", "5");
+		JO.put("Number of Employees working ", workingEmpDummyData.floatValue());
+		
+		Response Res = given().contentType(ContentType.JSON).body(JO.toString()).when().post("http://localhost:3000/PersonalData");
+		
+		System.out.println("Print the value of the Response");
+		System.out.println(Res.asPrettyString());
+		
+		System.out.println(Res.statusCode());
+		
+		
+ }
+ 
+--------------------------------------------------------------------------------------------------------------------------------------------
+Create  JSOn with Complex  JSON 
+
+{
+	{
+	
+	}
+	
+
+}
+
+Ek outer object hai jismein inner object hogi , to inner wali ko outer ke aander call kar lena 
+
+Example :
+public void postRequestWithOrgJSONWithComplexSON() {
+	 JSONObject inner  = new JSONObject();
+	 
+	 inner.put("House number", "263");
+	 inner.put("Sector", "26");
+	 inner.put("City", "Panchkula");
+	 
+		/*
+		 * Inner is a part of outer object { {
+		 * 
+		 * } }
+		 */
+	 
+	 
+	 JSONObject Outer = new JSONObject();
+		Double  workingEmpDummyData = Math.random();
+		
+		Outer.put("FirstName", "Nipun_New");
+		Outer.put("LastName", "Verma_New");
+		Outer.put("Number Of Cars", "5");
+		Outer.put("Number of Employees working ", workingEmpDummyData.floatValue());
+		Outer.put("Address", inner); //yeh upar se aaya h 		
+		
+		Response Res = given().contentType(ContentType.JSON).body(Outer.toString()).when().post("http://localhost:3000/PersonalData");
+		
+		System.out.println("Print the value of the Response");
+		System.out.println(Res.asPrettyString());
+		
+		System.out.println("Status code is "  + Res.statusCode());
+
+ }
+ 
+ Note :: upar wale json ka order ka koi issue nahe chahe pehle inner wala data aa jaey ya outer wala 
+--------------------------------------------------------------------------------------------------------------------------------------------
+Passing data to json object in form of Array 
+
+{-----------------------------------------------------------Outer Object 
+	[-----------------------------------------------------------------------Array
+
+
+		{----------------------------------------------------------------------------------Inner Object 1
+
+
+		},
+
+		{---------------------------------------------------------------------------------------------Inner Object 2
+		
+		
+		
+		}
+
+
+
+	]
+}
+
+Method ::::::
+ public void postRequestWithOrgJSONWithArray() {
+		
+	 	JSONArray arrayData  = new JSONArray();
+	
+		JSONObject innerOb2 = new JSONObject(); //-------------------------------------------------------------InnerMost Object
+		
+		innerOb2.put("Address", "HouseNum-263");
+		innerOb2.put("Sector", "Sector 26");
+		innerOb2.put("City", "Panchkula");
+		innerOb2.put("ZipCode","134116");
+		
+
+	 	JSONObject innerOb1 = new JSONObject();//-------------------------------------------------------------Object just outside InnerMostObject
+		Double  workingEmpDummyData = Math.random();
+		
+		innerOb1.put("FirstName", "Nipun_New_ArrayData");
+		innerOb1.put("LastName", "Verma_New_ArrayData");
+		innerOb1.put("Number Of Cars", "15");
+		innerOb1.put("Number of Employees working ", workingEmpDummyData.floatValue());
+		innerOb1.put("CompleteAddress", innerOb2);
+		
+		arrayData.put(0, innerOb2); //-------------------------------------------------------------ArrayData 
+		arrayData.put(0, innerOb1);
+		
+		JSONObject outermostObj = new JSONObject();
+		
+		outermostObj.put("ClubData", arrayData);//-------------------------------------------------------------OuterMost Object 
+		
+		Response Res = given().contentType(ContentType.JSON).body(outermostObj.toString()).when().post("http://localhost:3000/PersonalData");
+		System.out.println("Response from the post request is ::" + Res.asPrettyString());
+		System.out.println("Statuc code  ::" + Res.statusCode());
+		
+		
+ }
+ 
+ 
+Output :::::
+Response from the post request is ::{
+    "ClubData":
+	[
+        {
+            "FirstName": "Nipun_New_ArrayData",
+            "Number Of Cars": "15",
+            "LastName": "Verma_New_ArrayData",
+            "CompleteAddress": 
+			{
+                "Address": "HouseNum-263",
+                "Sector": "Sector 26",
+                "ZipCode": "134116",
+                "City": "Panchkula"
+            }
+			,
+            "Number of Employees working ": 0.2491038
+        }
+    ]
+	,
+    "id": 1
+}
+Statuc code :: 201
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+New Lecture :: 16 May 21
+
+how to prepare the payload the body data using pojo classes 
+
+--we will create simple JSON , complex JSON and Array JSON 
+
+POJO - Plaon old java Object
+
+-------------------------------------------------------------------Simple ----------------------------------------------------------
+{
+
+
+}
+
+-------------------------------------------------------------------Complex ----------------------------------------------------------
+{
+	{
+
+	}
+
+}
+
+-------------------------------------------------------------------In form of Array ----------------------------------------------------------
+{
+	[
+		{
+		
+		},
+		
+		{
+		
+		}
+
+
+
+
+	]
+}
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+POJO - Plain old java Object
+
+Simple JSON creation usign POJO classes ------->
+
+{
+"FirstName" : "Nipun" ,
+"LastName" : "Verma" ,
+"Designation " : "Senior Software Engineer" ,
+"Company" : "FIS" ,
+
+}
+
+
+
+--Define all the variables mentioned above in the class as private variables and access them using encapsulation using getter and setter 
+
+public class Test{
+
+private String FirstName;
+private String LastName;
+private String Designation;
+private String Company;
+
+}
+
+Why we used private access modifier ?
+Ans - Pojo claases ka concept kehta hai whatever variables you will use you can define in form of private only and you can use it in form of setter and getter .
+
+-------------------------------------------Example of simple JSON usinf POJO classes------------------------------------------------------------------------------------
+1.We will be creating two classes , pehli class mein variables private kar de ---to use them in another classes we can use setter and getter 
+2.In second class create object of first class and then use the variables using setter 
+3.At last call post/get /put method whatever you want 
+
+FirstClass --------------->
+public class SimpleJSON {
+	
+	private String FirstName;
+	private String LastName;
+	private String Designation;
+	private String Company;
+	
+	
+	public String getFirstName() {
+		return FirstName;
+	}
+	
+	
+	public void setFirstName(String firstName) {
+		FirstName = firstName;
+	}
+	
+	
+	public String getLastName() {
+		return LastName;
+	}
+	
+	
+	public void setLastName(String lastName) {
+		LastName = lastName;
+	}
+	
+	
+	public String getDesignation() {
+		return Designation;
+	}
+	
+	
+	public void setDesignation(String designation) {
+		Designation = designation;
+	}
+	
+	
+	public String getCompany() {
+		return Company;
+	}
+	
+	
+	public void setCompany(String company) {
+		Company = company;
+	}
+	
+	
+}
+
+
+Second Class ------------->
+package POJOClasses;
+
+import static io.restassured.RestAssured.*;
+
+import io.restassured.http.ContentType;
+import io.restassured.response.Response;
+
+public class ParentClass_SimpleJSON  {
+	
+	
+	
+	public static void main(String[] args) {
+		SimpleJSON SJObj = new SimpleJSON();
+		SJObj.setFirstName("Nipun_PojoClass");
+		SJObj.setLastName("Verma");
+		SJObj.setDesignation("SSE");
+		SJObj.setCompany("Nagaro");
+		
+		
+		
+		Response Res = given().contentType(ContentType.JSON).body(SJObj).when().post("http://localhost:3000/data");
+		
+		System.out.println("Status code is " + Res.statusCode());
+	}
+	
+	
+
+}
+------------------------------------------------------------------------------------------------------------------------------------------
+
+Complex JSON ==POJO Class 
+
+
+
+
+
+<<<<<---------------------------------------------------------------*****Self Practice*******---------------------------------------------------------------->>>>
+
+Method using JSON to be read from file , yar file framework mein he padh hai waha se padh ke post request ki hai and finally status code check kiya h 
+
+package OrgJSON;
+
+import static io.restassured.RestAssured.*;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+
+import org.json.JSONObject;
+import org.json.JSONTokener;
+import java.io.FileReader;
+import io.restassured.http.ContentType;
+
+import io.restassured.response.Response;
+
+public class readDataFromJSON {
+	
+	public void postMethod() throws FileNotFoundException {
+		String jsonFile = System.getProperty("user.dir");
+		String jsonFilePathToBePassed = (jsonFile + "\\JSONWithArray.json");
+		
+		File file = new File(jsonFilePathToBePassed);
+		FileReader FR = new FileReader(file);
+		JSONTokener JT = new JSONTokener(FR);
+		JSONObject JO = new JSONObject(JT);
+		
+		
+		Response res = given().contentType(ContentType.JSON).body(JO.toString()).when().post("http://localhost:3000/data");
+		
+		System.out.println("Post Request sent is ");
+		System.out.println(res.asPrettyString());
+		
+		System.out.println("Status code of the Response is :: " + res.statusCode());
+		
+	}
+	
+	
+	public static void main(String[] args) throws FileNotFoundException {
+		readDataFromJSON RJJ = new readDataFromJSON();
+		RJJ.postMethod();
+		
+	}
+
+}
+------------------------------------------------------------*******JSON Reading from org.json*********----------------------------------------------------
+yaha { } ---------------Object 
+[] ---------------------------------array 
+
+object is read using jsonobject 
+array is handled using jsonarray
+
+
+package OrgJSON;
+
+import static io.restassured.RestAssured.*;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import io.restassured.http.ContentType;
+import io.restassured.response.Response;
+
+public class orgJSON {
+
+
+	public void dataFromOrgJSON() {
+		
+	JSONObject InnerObject1 = new JSONObject();	
+	InnerObject1.put("id", "1");
+	InnerObject1.put("email", "abc@test.com");
+	InnerObject1.put("FirstName", "ABCD");
+	InnerObject1.put("LastName", "EFGH");
+	InnerObject1.put("avatar", "https://reqres.in/img/faces/7-image.jpg");
+	
+	
+	JSONObject InnerObject2 = new JSONObject();	
+	InnerObject2.put("id", "2");
+	InnerObject2.put("email", "ghj@test.com");
+	InnerObject2.put("FirstName", "IJKL");
+	InnerObject2.put("LastName", "MNOP");
+	InnerObject2.put("avatar", "https://reqres.in/img/faces/8-image.jpg");
+	
+	
+	JSONObject InnerObject3 = new JSONObject();	
+	InnerObject3.put("id", "3");
+	InnerObject3.put("email", "qwe@test.com");
+	InnerObject3.put("FirstName", "Qwrtyu");
+	InnerObject3.put("LastName", "aaasa");
+	InnerObject3.put("avatar", "https://reqres.in/img/faces/9-image.jpg");
+	
+	
+	JSONObject InnerObject4= new JSONObject();	
+	InnerObject4.put("id", "4");
+	InnerObject4.put("email", "testqaer@test.com");
+	InnerObject4.put("FirstName", "KKLJS");
+	InnerObject4.put("LastName", "LOKIJS");
+	InnerObject4.put("avatar", "https://reqres.in/img/faces/10-image.jpg");
+	
+	
+	JSONObject InnerObject5 = new JSONObject();	
+	InnerObject5.put("id", "5");
+	InnerObject5.put("email", "ioooi@test.com");
+	InnerObject5.put("FirstName", "OLKIJ");
+	InnerObject5.put("LastName", "QQWWE");
+	InnerObject5.put("avatar", "https://reqres.in/img/faces/11-image.jpg");
+	
+	
+	JSONObject InnerObject6 = new JSONObject();	
+	InnerObject6.put("id", "6");
+	InnerObject6.put("email", "POOP@test.com");
+	InnerObject6.put("FirstName", "UUYYTT");
+	InnerObject6.put("LastName", "NNHHDG");
+	InnerObject6.put("avatar", "https://reqres.in/img/faces/12-image.jpg");
+		
+	JSONArray JA = new 	JSONArray();
+	JA.put(InnerObject1);
+	JA.put(InnerObject2);
+	JA.put(InnerObject3);
+	JA.put(InnerObject4);
+	JA.put(InnerObject5);
+	JA.put(InnerObject6);
+	
+	JSONObject OuterSeperate = new JSONObject();
+	OuterSeperate.put("url", "https://reqres.in/#support-heading");
+	OuterSeperate.put("text", "To keep ReqRes free, contributions towards server costs are appreciated!");
+	
+	
+	JSONObject OuterMost = new JSONObject();
+	OuterMost.put("Page", "12");
+	OuterMost.put("Per_Page", "121");
+	OuterMost.put("total", "1111");
+	OuterMost.put("total_Pages", "2222");
+	OuterMost.put("data", JA);
+	OuterMost.put("support", OuterSeperate);
+	
+	System.out.print(OuterMost.toString());
+	
+	Response res = given().contentType(ContentType.JSON).body(OuterMost.toString()).when().post("http://localhost:3000/data");
+	
+	System.out.println("Post Request sent is ");
+	System.out.println(res.asPrettyString());
+	
+	System.out.println("Status code of the Response is :: " + res.statusCode());
+	
+		
+	}
+	
+	
+	
+	
+	
+	
+	public static void main(String[] args) {
+		orgJSON DA = new orgJSON();
+		DA.dataFromOrgJSON();
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+}
+
+--------------------------------------------------------------------------------------------------------------------
+22-May-2021
+============
+Parsing/Extracting something from response .
+
+Why we need extraction ?
+For API chaining .Lets suppose we are hitting a request (GET) , in return you will get response .From that data you are extracting something .Ab response to bht bada hota hai , us mein se apni requirement ke hisaab se data extract kar lo
+
+API chaining -lets suppose ek request hai GET request waha se data/response aaya and us meinse aapne response ko use karke ek aur request post karni hai -this is called API chaining 
+
+For extraction - there are two ways 
+1.using JSONPath
+2.using org.json Library
+
+
+Data extraction - https://jsonpath.com/
+Lets take an example of 
+{
+  "firstName": "John",
+  "lastName" : "doe",
+  "age"      : 26,
+  "address"  : {
+    "streetAddress": "naist street",
+    "city"         : "Nara",
+    "postalCode"   : "630-0192"
+  },
+  "phoneNumbers": [
+    {
+      "type"  : "iPhone",
+      "number": "0123-4567-8888"
+    },
+    {
+      "type"  : "home",
+      "number": "0123-4567-8910"
+    }
+  ]
+}
+
+now in above you want to gave city 
+then do like 
+$.address.city
+
+Now you want to extract numbers 
+$.phoneNumbers[0].type
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+**Suppose you want to extract all the id's from below response , what should be done ?
+
+{
+    "per_page": 6,
+    "total": 12,
+    "data": [
+        {
+            "last_name": "Lawson",
+            "id": 7,
+            "avatar": "https://reqres.in/img/faces/7-image.jpg",
+            "first_name": "Michael",
+            "email": "michael.lawson@reqres.in"
+        },
+        {
+            "last_name": "Ferguson",
+            "id": 8,
+            "avatar": "https://reqres.in/img/faces/8-image.jpg",
+            "first_name": "Lindsay",
+            "email": "lindsay.ferguson@reqres.in"
+        },
+        {
+            "last_name": "Funke",
+            "id": 9,
+            "avatar": "https://reqres.in/img/faces/9-image.jpg",
+            "first_name": "Tobias",
+            "email": "tobias.funke@reqres.in"
+        },
+        {
+            "last_name": "Fields",
+            "id": 10,
+            "avatar": "https://reqres.in/img/faces/10-image.jpg",
+            "first_name": "Byron",
+            "email": "byron.fields@reqres.in"
+        },
+        {
+            "last_name": "Edwards",
+            "id": 11,
+            "avatar": "https://reqres.in/img/faces/11-image.jpg",
+            "first_name": "George",
+            "email": "george.edwards@reqres.in"
+        },
+        {
+            "last_name": "Howell",
+            "id": 12,
+            "avatar": "https://reqres.in/img/faces/12-image.jpg",
+            "first_name": "Rachel",
+            "email": "rachel.howell@reqres.in"
+        }
+    ],
+    "page": 2,
+    "total_pages": 2,
+    "support": {
+        "text": "To keep ReqRes free, contributions towards server costs are appreciated!",
+        "url": "https://reqres.in/#support-heading"
+    },
+    "id": 4
+}
+
+
+Ans - Solution to this is using org.json library instead of jsonpath*************
+
+
+--------------------------------->Way to extract Single and multiple elements<-----------------------------------------------------------------------
+
+	Response res = given().contentType(ContentType.JSON).body(JO.toString()).when().post("http://localhost:3000/PersonalData");
+		
+		System.out.println("Post Request sent is ");
+		System.out.println(res.asPrettyString());
+		
+		System.out.println("Status code of the Response is :: " + res.statusCode());
+		
+***************************************************Extracting single element**************************************************************************
+
+		String lastName_Extracted = res.jsonPath().getString("data[2].last_name").toString();
+		System.out.println("*******Data Extracted from response is*******");
+		System.out.println(lastName_Extracted);
+		
+		
+**********************************************************Extracting multiple elements****************************************************************
+		
+	public void extractResponseOrgJSON() throws FileNotFoundException {
+		String jsonFile = System.getProperty("user.dir");
+		String jsonFilePathToBePassed = (jsonFile + "\\JSONWithArray.json");
+		
+		File file = new File(jsonFilePathToBePassed);
+		FileReader FR = new FileReader(file);
+		JSONTokener JT = new JSONTokener(FR);
+		JSONObject JO = new JSONObject(JT);
+		
+		
+		Response res = given().contentType(ContentType.JSON).body(JO.toString()).when().post("http://localhost:3000/PersonalData");
+		
+		System.out.println("Post Request sent is ");
+		System.out.println(res.asPrettyString());
+		
+		System.out.println("Status code of the Response is :: " + res.statusCode());
+		
+		//*******************Extracting single element*************************//
+		String lastName_Extracted = res.jsonPath().getString("data[2].last_name").toString();
+		System.out.println("*******Data Extracted from response is*******");
+		System.out.println(lastName_Extracted);
+		
+		
+		//***************Extracting multiple elements***********************//
+		
+		JSONObject obj = new JSONObject(res.asPrettyString());
+		int size_object = obj.length();
+		
+		System.out.println(obj.get("per_page"));
+		
+		JSONArray arrayData = obj.getJSONArray("data");
+	    int size_array = arrayData.length();
+			
+		for(int i = 0 ;i < size_array ; i++) {
+		JSONObject inner_Obj = arrayData.getJSONObject(i);
+			System.out.println("Value of LastName is :: ");
+			System.out.println(inner_Obj.get("last_name"));
+		}
+	}
+		
+**********************************************************************************************************************************************************************
+How to exract single vlue ising jsonpath 
+How to extract multiple values using org.json
+How to extract data from an object 
+
+
+*****************
+Set<String>  anyName = #######.KeySet();//KeySet will return all the keys in that object 
+
+for(String S : anyName){
+SOP("Key is " + S + "Value is " + #######.get(S));
+
+**********************************************************************************************************************************************************************
+29-May-21 
+						**********************************Framework Development***********************************
+						==========================================================================================
+						
+Packages 
+org.testing.TestScripts =====================================> All test cases to be defined here 
+org.testing.TestSteps =======================================> All http methods like post,put,get,put 
+org.testing.utility =========================================> JSON parsner, XML to JSON , JSONreader , JSONReplacement , XML prsing 
+org.testing.ResponseVaidation ===============================> Status code , response data 
+URI.Properties ==============================================> All URI's to be stored here 
+org.testing.Assertions ======================================> Compare expected and actual
+org.testing.Resurces   ======================================> JSON or XML file 
+
+
+Examples to steps to be followed in framework or while doing practical work 
+1.Read the JSON Data / XML data 
+2.Change the id using JSONReplacement method 
+3.Hit the post request (you need body and URI)
+4.Get the status code and response 
+5.Validate the response 
+6.Use the ExtentReports and log4J for capturing the result to be shared with anyone 
+
+
+---------------------------------TestNG + Maven to be used for all the above case ----------------------------------------------------------------
+For unit testing - TestNG 
+Framwrok : BDD 
+Report : ExtentReport 
+Schema Validation (We will create schema file & then compare it with actual result)
+Authentication 
+Git Hub + Jenkins 
+
+---------------------------------------------------------------------------------------------------
+31-May-21 
+*************Framework develp from Scratch*****************
+															***********Maven Project************
+															
+POM - Dependencies ::  All the above mentioned , org.json 
+
+1.Add properties file .Any filename.properties and pass all the URI's inside it .Give name as key value say QA_URI: https://www.personalData.com
+
+
+***For JSON file reading - system was usign JSONTokener 
+****For property file - system will use property class 
+
+Example : 
+
+	public Properties readProperyFile(String FilePath) throws IOException {// Instead of void we have created properties
+		String path = System.getProperty("user.dir");
+		File file = new File(path + FilePath);
+		FileInputStream FR = new FileInputStream(file);
+
+		Properties PR = new Properties();//Properties is one of the class , we have created object for the same*************************************
+		PR.load(FR);
+		
+		return PR;
+		
+
+	}
+
+2.Add another package ->com.testing.Resources 
+here in this we will maintain all the bidy data in form of JSON..example---> ABC.JSON
+
+3.
+
+
+-------------------------------------------------------------------------5th June----------------------------------------------------------------------------------------
+you can ftech the value of URIL through key:value , jaise aapne URI.properties file mein diya hai na ..example QA_URI:https://localhost:3000/students 
+
+URI consists of Base + Endpoint + parameter 
+
+*we will discuss 2 test case 
+1.Get Request and use the Id of Post Request
+2.Post Request jo pehle kiya tha  , us mein enhancement karni hai -pass id value means we will declare varibale in payload and give value to that variable 
+
+
+We are genearting randown number and passing to id 
+
+-- we have 
+Test case 
+Test suite (HTTP)
+Resources 
+Utility 
+Porperty file having URI
+
+
+--------
+We will now use the response of post request ,extract some element and use it inanother test case (Get Request) and This concept is call API chaining 
+
+-------------------------
+For above we have to extract ID value fro post request and then use it in get request 
+
+Data extract kaene ke liye use JSONPath  use karoge jab JSON librarry se data nikalna ho else use , org.json using JSONTokener and JSOBObject 
+
+
+======================================================================06-June-21==============================================================
+
+Packages 
+
+TestScripts 
+Utilities 
+Test cases 
+Resources 
+Properties(URI)
+
+
+
+In TC1 - we have hit the post request and storing id value of response 
+
+in next test case we will , we will do get request .Ab hum TC1 se input le ke secnd test case ko denge 
+
+URI---> Base + End point + parameter 
+Example : https://localhost:3000/SeleniumBatch----------->   Here https://localhost:3000 is baseURL , End point is SeleniumBtach and paramter eske peeche kuch bhe ho sakta h 
+
+
+
+--URI structire : Base +End point + parameter 
+example ::: https://www.google.com/sum/?a=10
+https://www.google.com----base 
+/sum---end point 
+a=10----parameter 
+
+
+
+-----------------------------------------------------------------------------------------------
+
+TestNG - To run all the test cases you need to install this unit testing tool 
+
+We need to install plugin testnG from eclipse market place , maven dependency for testNG in POM.XML file .
+
+How to Install the TestNG ??
+1.Using elipse market place 
+2.Using new software 
+
+
+---Create TestNG.XML file 
+
+===========================================================13-June-21=========================================================================
+
+Packages prepared till date are 
+
+com.Resources --- JSON file 
+Com.TestSuite -----Http Methods - Post,Put,Delete,Get
+Com.TestCases ----- Test Cases
+Com.Utility------ jSON and Property Reader 
+URI.property----File ---This has got the URL(Base+Endpoint+parameter)
+
+We are using TestNG.XML file 
+
+------Today we will do ------
+
+1.JSONparsing 
+2.Add one more test case 
+3/Response validation 
+4/Trigger using maven 
+
+
+======================================================================20-June-21===============================================================
+Topics to cover today 
+
+Response Validation + Assertion 
+Intergration with Git and Jenkins 
+Authentication in Framework
+Reports in Framework 
+
+Schema Validtions 
+XML Support
+
+
+--------------Jenkins Details --------------
+Jenkins Details ::
+
+java -jar jenkins.war
+
+password : 3e2d5b21c7024aa498d6a254f8d20d35
+
+To Start Jenkins Server 
+java -jar jenkins.war
+
+username : nipun263
+password : 43434343
+
+http://localhost:8080/
+
+
+*******Note ====================================Jenkins Installation=================================
+Jab pehli baarjenkins use karoge to after jenkins installation ---> jenkins server run karna use above command ---> it will ask you for password ---> password cmd promt mein yeh paath dega yaha se copy karke daal dena 
+
+1.Go to Jenkins portl / UI 
+2.Click on Manage jenkins 
+3.Go to global tool configuration 
+4.Provide path of JDK 
+5.Also configure and provide path of GIT 
+6.Maven path to be given 
+7.Plugins need to be installed - Go to manage jenkins -> Manage plugins :: Please add plugins like git , github ,maven intergration , github integration 
+8.
+
+
+=======================================================26-June-21======================================================
+
+Validations in Postman 
+
+Postman -- language used is java script 
+
+
+We are going to cover postman UI -- neeche sab postman UI ki baar hoeygi ab 
+
+
+Pre request script --> Before hitting a request if require something from previous request or need to take from variable it will be mentioned in pre request section 
+
+
+Test -- What ever validations we want to put , we will keep in Test section in postman .Test ke aander already snippets banane hote hain jaise compare the Status code .Click on Test tab and look for snippets on the right side 
+
+
+
+Example 
+
+In postman -- we want to create a random number and pass the same to id in the body of the post request 
+Now generating the randow number will happen in pre requist and then passing the id will work in body .Note we will write random number generation code in post man in javascript language 
+Below is small code for random number generation in javascript - which we will pass in id of the body like {{randomNum}}
+
+
+var  r = Math.random();
+postman.setEnvironmentVariable("RandomNum",r);
+
+After this click on eye button on postman and check environment variables - you will see random number getting generated there 
+
+
+Parse the data (extract id from post request) and then send this id in the URL of get request 
+
+
+var data = JSON.parse(responseBody);
+postman.setEnvironmentVariable("Id_Extracted", data.id);
+
+
+-----------------------------------Postman Request with Jenkins---------------------------------------
+1.Firtly run the collections in the postman using cmd prompt
+2.For step 1 - javascript package install karna hoga .Package name - newman
+
+
+3.To install newman 
+open cmd prompt --> type npm install -g newman 
+
+4.Now run your collection using 
+
+newman run collectionfile 
+
+Note - collectionfile ko export karlo kahi bhe system mein (right click on collection in postmn ->export)
+
+
+5.Go to jenkins 
+Open jenkins 
+Create free style job 
+under build textbox give command newman run collectionfile     ex :newman run C:\Users\e5584133\Desktop\API_Chainn.postman_collection.json
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------04-July-21----------------------------------------------------------------------------------------------------
+
+Soap UI - tool used for rest and soap UI testing .Soap UI manual aur automation ke liye use hoga .
+
+1.Go to google -> Download open version of soap UI 
+
+
+
+Soap UI work hierarchy ::
+
+
+Project --------------> it can hav multiple test suite ----------------> each test suite will have multiple test cases .
+
+
+In case of soap service , we require WSDL file .Wdsl file has all the operations 
+
+Right click on project -> create Test suite ---> Right click on Test Suite - Create Test Case.Under test case , rgiht click and add test step & add operation like (add/sub/divide).woh es liye kyn ki we are working on calculator app.
+
+
+For wdsl file - google mein type karo wdsl for calculator ..yaha se aapko sab data milega 
+
+
+There is a cncept of property which stores values like we have variables in case of programming language .  Basically yaha variables save honge in property .
+
+
+here we can declare different type of properties 
+1.Global properties-------------------that multiple project can use
+2.Project level  properties ----------------------------------------------that multiple suite can used inside that project 
+3.Test Suite level  properties-------------------------------------------------------that multiple test case  can used inside that project 
+4.Test case level  properties-----------------------------------------------------------------------that multiple steps can used inside that project 
+
+
+222
+123
+
+
+To create global variable ---> go to file ---> perference ----> global variable ----> add it 
+
+
+to use global property  ${propertyname}   example ${globalA}
+
+to use Propject level property   ${#Project#NameofProperty}   example ${Proj#Prop1}      ============>Note Name mein Proj humne property define karte hue diya h 
+
+
+
+
+================================================================== 10-Aug -21 =======================================================================================
+Topics left for this batch 
+
+Authentication in Rest Assured 
+Reports in Rest Assured 
+SoapUI Pro SetUp 
+Data Driven Testing 
+End to End Request in Soap UI 
+
+************************************ ****************************** ****************************** ******************************* ************************ **********************
+************************************ ****************************** ****************************** ******************************* ************************ **********************
+************************************ ****************************** ****************************** ******************************* ************************ **********************
+************************************ ****************************** ****************************** ******************************* ************************ **********************
+************************************ ****************************** ****************************** ******************************* ************************ **********************
+
+Authentication / Authorization 
+
+Authorization - user has rights or not 
+
+
+
+for example 
+ek hamari application hai ----aur ek outer application hai say Indigo ya british airlines --ab british airlines ya indogo ne apni API's expose ki hui hai so that koi bhe use kar sake , jaise hum (MMT ) hain we can also use the exposed api of indigo or british airlines 
+
+
+Ab Britsh auirlines ya indogo ki api's hum directly use nahe kar sake , we should have the rights to consume it .
+
+
+Types of Authentication ::
+
+---- Basic authentication --------- username and password 
+---- oAuth Authentication ----> you need to pass -----> Consumer Key , Consumer Secret ,Access Token ,Token Secret
+---- Token Id / Bearer Token --- Ek API hit karke -> token id milegi --> you have to use it in API-Application ---here we need to pass the token in the postman_collection
+---- oAuth2 ----> Only token need to be passed 
+
+
+
+---------------------------------------------------------------------------------************************--------------------------------------------------------------------
+===================================================================Authentication in Rest Assured ============================================================================
+
+1.Lets take an example of twitter 
+2.For twitter we need oAuth 
+3.OAuth needs mentioned infor to be passed ---> Consumer key , consumer Secret , Access Token ,Token Secret
+4.Firstly you need to create App 
+5.Now you can get the oAuth information 
+6.Also add maven dependency in POM for Scribe as mentioned below 
+
+<!-- https://mvnrepository.com/artifact/org.scribe/scribe -->
+<dependency>
+    <groupId>org.scribe</groupId>
+    <artifactId>scribe</artifactId>
+    <version>1.3.7</version>
+</dependency>
+
+7.Now you want to post tweet on twitter account 
+8.All oAuth parameters (Consumer key , consumer Secret , Access Token ,Token Secret) has already been genearted for your account .
+9.Do in Rest Assured 
+
+
+String Consumer key = "*****************",
+String  consumer Secret = "*****************",
+String  Access Token =  "*****************",
+String Token Secret =  "*****************" ;
+
+
+Response Res = given().contentType(ContentType.JSON).auth().oauth(Consumer key , consumer Secret , Access Token ,Token Secret).queryparam("status" , "this is my tweet").when().get(URL);
+
+
+
+https://api.twitter.com/1.1/status/update.son?status="tweetvalue"
+
+
+Base - https://api.twitter.com/1.1/status/
+End Point - update.son
+Qeuery Parameter -  status="tweetvalue"
+
+
+
+
+========================Same aap Jira ke liye bhe dekh sakte ho , might be woh oauth na use kare kuch aur use karta ho authentication ke liye ========
+Always go to offcial document like jira api documentation 
+
+Example of basic Authentication ::::
+
+given().auth()
+  .basic("user1", "user1Pass")
+  .when()
+  .get("http://localhost:8080/spring-security-rest-basic-auth/api/foos/1")
+  .then()
+  .assertThat()
+  .statusCode(HttpStatus.OK.value());
+  
+  
+  
+  Ex 2 : 
+  
+  given().auth()
+  .oauth2(accessToken)
+  .when()
+  .// ...
+  
+=============================================================================================================================================================================
+Reporting 
+
+Using extent report 
+
+1.Add dependency for extent report
+
+<!-- https://mvnrepository.com/artifact/com.relevantcodes/extentreports -->
+<dependency>
+    <groupId>com.relevantcodes</groupId>
+    <artifactId>extentreports</artifactId>
+    <version>2.41.2</version>
+</dependency>
+
+
+2.Create one class as utility , which will return object of extent report 
+3.Ab eshe har test method mein bulate rehna 
+4.
+
+ExtentReports reports = new ExtentReports("Yaha path do jaha save krni hai",true/false);  ----Here true means existing reports ko replace karega , by default true he hota h 
+
+ExtentTest test = reports.startTest("TestName");
+
+
+5.Hara jagah jaha reports ko call karna h do 
+ExtentTest test = reports.startTest("TestName");
+
+
+
+6.jaha bhe assertion ya kis step mein bulana hai do it 
+
+test.Log(LogStatus.Pass,"Status is passed");
+
+
+test.Log(LogStatus.Fail,"Status is passed");
+
+report.endTest(test);
+
+report.flush();
+
+
+Note : report.endTest(test);
+
+report.flush();
+
+yeh har test case mein dena h 
+
+
+
+===================================================================================================================================================================================
+===================================================================================================================================================================================
+===================================================================================================================================================================================
+================================================================================17-July-21==================================================================================
+Topics to cover today 
+
+1.Data Driven Testing 
+2.End to end request 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

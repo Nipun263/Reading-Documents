@@ -1,0 +1,41 @@
+Salesforces 
+
+It is based on CRM - Customer relationship manager , basically salaesforces is based on cloud 
+
+
+Models in Cloud world ::
+===================================
+
+IAAS - Infrastructire as a serviuce ---Theyprovide you hardware and we need to manage those hardware like AWS , we need to buy more capacity as per our ususga .In IAAS , they will provide you with virtual machines and you can work on them 
+
+
+PAAS - Platform  as a serviuce - It provides infrastructure + platform to work on .We dnt need to manage space here like we need to do it in IAAS .Just you need to think about the platform .eg salesforce.Here they provide you platform on which you can create app / dashboards as per your requirement
+PAAS - Platform  as a serviuce - It provides infrastructure + platform to work on .We dnt need to manage space here like we need to do it in IAAS .Just you need to think about the platform .eg salesforce.Here they provide you platform on which you can create app / dashboards as per your requirement.Devs can create their app on the provided platform .exmaple - salesforce , google app engine 
+
+
+SAAS -Software  as a serviuce - Its more about software is build and setup for you , you need to configure it and use it (eg gmail).This shas multiple inbuild applicatio that organisation.Providing software and you can used it .example salesforce ,googledocs 
+
+==============================================
+
+Salesforce is PAAS , Sales team in company is going to use salesforce and 
+
+
+Languages used in salesforce is apex and ligtening .Apex is used in the backend and Ligtening is like html language and is used for front end .At the top javascript is used
+
+There are 2 profiles in Salesforce : Developer and Admin 
+Dev - who devs the ap for each company and Admin - who manages the app 
+
+Salesforce----> uses api to load data on cloud .It basically is used to maintain  customer data , maintain opportunity , , maintain profits , maintain  sales and so on .It can be used by any hospital , school , college , company , grocery stores , online portals .aapko pta chal sakta hai kitna kharcha hua , kitna revenue generate hua , kitni sales hui , yeh aapko help karega weak areas mein forcus karne ko.
+
+
+Some of the ommon objects in Salesforce jo jyada tar har company woh to use karti he karti hai --sales , contacts , opportunity , accounts , products 
+
+It is a webbased tool , which is linked with cloud .And anyone can use it from any where .
+-------------------------------------------------------------------------------------------------------------------------------
+Salesforce is used by all the companies (from small scale to large scale).They customise salesforce software as per their requirement.This software is so useful that it can be used for diff aspects like managing sales , customer database , profits 
+
+
+Using salesforce you can create platform , reports and analytics as per your requirement 
+
+Salesforce product : Sales cloud , Service cloud , marketing cloud  , Mulesoft , force.com , Communities 
+
