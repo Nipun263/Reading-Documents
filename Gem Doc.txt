@@ -1,6 +1,4 @@
 Q:Explain Framework normal and API framework ?
-
-==Changes on Nipun Bracnh
 ===============================================================================
 77. Is it allowed to declare main method as final?
 
@@ -5371,14 +5369,6 @@ Ans - Kal kya kiya , aaj kya karna hai , road blocks and other things
 Q:Why Jira 
 
 Ans - Bug management , Agile process management , Project management tool, helps tp create backlogs , create sprints , create tasks , create bugs , manage multiple release , can be integrated with CI tools , helps to update tasks , code integrate , manage tasks on the board
-===============================================================================================================================================
-Q:What is Product Backlog ?
-Ans : 
-A product backlog is a prioritized list of work for the development team that is derived from the roadmap and its requirements. The most important items are shown at the top of the product backlog so the team knows what to deliver first. The development team doesn't work through the backlog at the product owner's pace and the product owner isn't pushing work to the development team. Instead, the development team pulls work from the product backlog as there is capacity for it, either continually (kanban) or by iteration (scrum).  
-
-
-In Agile development, a product backlog is a prioritized list of deliverables (such as new features) that should be implemented as part of a project or product development. It's a decision-making artifact that helps you estimate, refine, and prioritize everything you might sometime in the future want to complete.
-
 ===============================================================================================================================================
 Q:Example of EPIc , story and tasks 
 
@@ -14737,20 +14727,7 @@ white box testing are:
 • Decision Coverage.
 
 ===============================================================================================================================================
-Q:Principles of API Test design 
-
-Ans : 1.SetUp - URI/ environment set , create objects 
-2.Execution - Firing the api/hitting the api's 
-3.Verification 
-4.Reporting 
-5.Clean Up - Pre test state 
-
-===============================================================================================================================================
-Q:Spring backlog 
-
-Ans : The sprint backlog is a list of tasks identified by the Scrum team to be completed during the Scrum sprint. During the sprint planning meeting, the team selects some number of product backlog items, usually in the form of user stories, and identifies the tasks necessary to complete each user story.
-===============================================================================================================================================
-Q:7. How do you run scenario2 before running scenario8? Is it possible during parallel execution too?
+un scenario2 before running scenario8? Is it possible during parallel execution too?
 
 Ans : Integrate cucumber with testNG and give priority as per your requirement .
 
@@ -14766,14 +14743,6 @@ Daily status
 Sprint retrospective
 
 ===============================================================================================================================================Q:
-Q:Q:What is Product Backlog ?
-Ans : 
-A product backlog is a prioritized list of work for the development team that is derived from the roadmap and its requirements. The most important items are shown at the top of the product backlog so the team knows what to deliver first. The development team doesn't work through the backlog at the product owner's pace and the product owner isn't pushing work to the development team. Instead, the development team pulls work from the product backlog as there is capacity for it, either continually (kanban) or by iteration (scrum).  
-
-
-In Agile development, a product backlog is a prioritized list of deliverables (such as new features) that should be implemented as part of a project or product development. It's a decision-making artifact that helps you estimate, refine, and prioritize everything you might sometime in the future want to complete.
-
-===============================================================================================================================================
 Q:Q:Differenve between beformethod and beforetest ?
 
 Ans : 
@@ -14795,8 +14764,24 @@ Ans : Two ways
 1.By extending Thread class
 2.By implementing Runnable interface
 ===============================================================================================================================================
-Q:
+Q:Q:Principles of API Test design 
 
+Ans : 1.SetUp - URI/ environment set , create objects 
+2.Execution - Firing the api/hitting the api's 
+3.Verification 
+4.Reporting 
+5.Clean Up - Pre test state 
+===============================================================================================================================================
+Q:Q:Spring backlog 
+
+Ans : The sprint backlog is a list of tasks identified by the Scrum team to be completed during the Scrum sprint. During the sprint planning meeting, the team selects some number of product backlog items, usually in the form of user stories, and identifies the tasks necessary to complete each user story.
+===============================================================================================================================================
+Q:What is Product Backlog ?
+Ans : 
+A product backlog is a prioritized list of work for the development team that is derived from the roadmap and its requirements. The most important items are shown at the top of the product backlog so the team knows what to deliver first. The development team doesn't work through the backlog at the product owner's pace and the product owner isn't pushing work to the development team. Instead, the development team pulls work from the product backlog as there is capacity for it, either continually (kanban) or by iteration (scrum).  
+
+
+In Agile development, a product backlog is a prioritized list of deliverables (such as new features) that should be implemented as part of a project or product development. It's a decision-making artifact that helps you estimate, refine, and prioritize everything you might sometime in the future want to complete.
 
 ===============================================================================================================================================
 Q:
