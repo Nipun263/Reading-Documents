@@ -1081,16 +1081,6 @@ Q:Is it possible to use this() and super() both in same constructor?
 
 
 ===============================================================================================================================================
-Q:What is type conversion in Java?
-
-🅰 The process of converting a value from one data type to another is known as type conversion.
-
-===============================================================================================================================================
-What is class casting in Java?
-
-🅰 The process of converting a class type into another class type having relationship between them through inheritance is called class casting.
-
-===============================================================================================================================================
 31. What is upcasting and downcasting in Java?
 
 🅰 When the reference variable of super class refers to the object of sub class, it is known as upcasting.
@@ -1129,15 +1119,7 @@ When to use abstract class and abstract method in Java?
 An abstract class is used when we need to share the same method to all non-abstract subclasses with their own specific implementations.
 
 ===============================================================================================================================================
-*************Why abstract class has constructor even though you cannot create object?
-
-🅰 We cannot create an object of abstract class but we can create an object of subclass of abstract class. When we create an object of subclass of an abstract class, it calls the constructor of subclass.
-
-This subclass constructor has super in the first line that calls constructor of an abstract class. Thus, the constructors of an abstract class are used from constructor of its subclass.
-
-If the abstract class doesn’t have constructor, a class that extends that abstract class will not get compiled.
-
-===============================================================================================================================================
+==========================================================
 Can a class be declared as final in Java?
 
 🅰 Yes, a class can be declared as final in Java. Once a class is declared final, it cannot be extended.
@@ -1376,37 +1358,6 @@ class Testimmutablestring{
 Output:Sachin
 
 Now it can be understood by the diagram given below. Here Sachin is not changed but a new object is created with sachintendulkar. That is why string is known as immutable.
-===============================================================================================================================================
-
-Q: Colour Code 
-
-
-Ans - 
-RGB Value
-In CSS, a color can be specified as an RGB value, using this formula:
-
-rgb(red, green, blue)
-
-Each parameter (red, green, and blue) defines the intensity of the color between 0 and 255.
-
-For example, rgb(255, 0, 0) is displayed as red, because red is set to its highest value (255) and the others are set to 0.
-
-To display black, set all color parameters to 0, like this: rgb(0, 0, 0).
-
-To display white, set all color parameters to 255, like this: rgb(255, 255, 255).
-
-Experiment by mixing the RGB values below:
-
-*****************************************************element.getCssValue("color")*********************************
-
-===============================================================================================================================================
-31. Git commands.. diff between stash and stage. How to create branch.
-Stash will move your modified files into a stack. So, later in the same or in another branch, you will be able to bring them back and see those modifications in your project. Stage is the step before to make a commit, you add modified files to "Staged files" to create your next commit.
-
-===============================================================================================================================================
-7. What will happen if I insert duplicate value in a Hashset and Hashmap ?
-HashSet doesn't allow duplicates. If you try to add a duplicate element in HashSet, the old value would be overwritten
-HashMap doesn't allow duplicate keys but allows duplicate values. That means A single key can't contain more than 1 value but more than 1 key can contain a single value. HashMap allows null key also but only once and multiple null values
 ===============================================================================================================================================
 What is saop and rest api?
 Soap uses -- wdsl file which dev provides , while Rest Api's uses URI (whihc dev provides )
@@ -2173,18 +2124,7 @@ Q: how to concat two matrics?
 
 Ans - using array *= see code
 ===============================================================================================================================================
-Q: Star pattern 
 
-
-	public void starPattern() {
-		for(int i = 0 ; i <5 ; i++) {
-			for(int j = 0 ;j<i ;j++) {
-				System.out.print("* ");   
-			}   
-			System.out.println();   
-			}
-		}
-	
 ===============================================================================================================================================
 Q: Duplicates from the given array 
 
@@ -3700,19 +3640,6 @@ for (WebElement option : options) {
         HSS.add(option.getText());
 }
 ===============================================================================================================================================
-Q: Star pattern 
-
-
-	public void `Pattern() {
-		for(int i = 0 ; i <5 ; i++) {
-			for(int j = 0 ;j<i ;j++) {
-				System.out.print("* ");   
-			}   
-			System.out.println();   
-			}
-		}
-
--
 
 --------------------------------------------------Interview Q/A -------------------------------------------------------------
 Q:Explain how hashmap works ?
@@ -7280,14 +7207,6 @@ No. Once a try block throws an exception, remaining statements will not be execu
 
 
 ================================================Latest Questions added on 6th Aprl===============================
-7. What will happen if I insert duplicate value in a Hashset and Hashmap ?
-Remember, HashMap can not have duplicate keys. Behind the scene HashSet uses a HashMap.
-
-When you attempt to add any object into a HashSet, this entry is actually stored as a key in the HashMap - the same HashMap that is used behind the scene of HashSet. Since this underlying HashMap needs a key-value pair, a dummy value is generated for us.
-
-Now when you try to insert another duplicate object into the same HashSet, it will again attempt to be insert it as a key in the HashMap lying underneath. However, HashMap does not support duplicates. Hence, HashSet will still result in having only one value of that type
-
-===============================================================================
 Q:How many test will run at a time in parallel execution?
 Ans : depends on thread count, basically test case count/ threadcount.
 
@@ -13128,12 +13047,7 @@ Ans : Before collections we use to use array , which has a limitation that whate
 To overcome this concern we have collections like arraylist , linkedlist 
 
 ===============================================================================================================================================
-Q:Basic methods present in collection interface 
-
-Ans : add , remove , addall , removeall , retainall , size(), clear(), isempty()
-
-All the interfaces like set , queue , list which extends interface(collection) will have all the metnhods which collection interface has 
-===============================================================================================================================================
+===============================================================================================
 Q:Will this be diff List list = new ArrayList<>(); and  List<String> list = new ArrayList<String>()
 
 Ans : No doubt there is not any diff , hwoever it is always suggeted to pass the generic 
@@ -13691,13 +13605,6 @@ An empty website directory
 No index page
 Permission / Ownership error
 ===============================================================================================================================================
-Q:4. Difference between serialization and deserialization
-
-when ever you create a class , you create a object for that .Once you execute/run the object gets destroyed by itself .But if you want to reruse the class then you use the concept of serialization and deserialization.
-
-Serialization : converts  object to bytes and store them in some DB 
-Deserialization : converts  Bytes  to Object  
-===============================================================================================================================================
 Q:What Is Caching?
 
 Answer: Caching refers to storing server responses in the client itself so that a client needs not to make a server request for the same resource again and again. A server response should have information about how caching is to be done so that a client caches the response for some time or never caches the server response.
@@ -13773,17 +13680,7 @@ Ans :
         int ImageHeight = Image.getSize().getHeight();        
         System.out.println("Image height Is "+ImageHeight+" pixels");
 ----------------------------------------------------------------------------------------------------------------------------------------------
-Q: Star pattern 
 
-
-	public void `Pattern() {
-		for(int i = 0 ; i <5 ; i++) {
-			for(int j = 0 ;j<i ;j++) {
-				System.out.print("* ");   
-			}   
-			System.out.println();   
-			}
-		}
 ===============================================================================================================================================
 Q:suppose child class extends parent class , child class has method B , C and parent class has method A,B 
 
@@ -14784,105 +14681,286 @@ A product backlog is a prioritized list of work for the development team that is
 In Agile development, a product backlog is a prioritized list of deliverables (such as new features) that should be implemented as part of a project or product development. It's a decision-making artifact that helps you estimate, refine, and prioritize everything you might sometime in the future want to complete.
 
 ===============================================================================================================================================
-Q:
+Q:Q:Basic methods present in collection interface 
+
+Ans : add , remove , addall , removeall , retainall , size(), clear(), isempty()
+
+All the interfaces like set , queue , list which extends interface(collection) will have all the metnhods which collection interface has 
+===============================================================================================================================================
+Q:Java reflection API -----> Reflection is used to describe code that is able to inspect other code in the same system. Reflection API is maily used in servers like tomcat , apache
+===============================================================================================================================================
+Q:4. Difference between serialization and deserialization
+
+when ever you create a class , you create a object for that .Once you execute/run the object gets destroyed by itself .But if you want to reruse the class then you use the concept of serialization and deserialization.
+
+Serialization : converts  object to bytes and store them in some DB 
+Deserialization : converts  Bytes  to Object  
+===============================================================================================================================================
+Q:Q: Star pattern 
+
+
+	public void `Pattern() {
+		for(int i = 0 ; i <5 ; i++) {
+			for(int j = 0 ;j<i ;j++) {
+				System.out.print("* ");   
+			}   
+			System.out.println();   
+			}
+		}
+===============================================================================================================================================
+Q:Scroll down a page by some pixels 
+
+Ans :Scroll Page by pixels :
+((JavascriptExecutor)driver).executeScript(“window.scrollBy(200,300)”); 
+Where ‘200,300’ are the coordinates.
+
+
+Scroll page right ::
+If you want to scroll horizontally in the right direction, use the following JavaScript. ((JavascriptExecutor)driver).executeScript(“window.scrollBy(2000,0)”);
+
+
+Scroll page Left ::
+If you want to scroll horizontally in the left direction, use the following JavaScript. ((JavascriptExecutor)driver).executeScript(“window.scrollBy(-2000,0)”);
+
+
+Scroll till the visibility of element ::
+WebElement element = driver.findElement(By.xpath("//a[text() = 'Health']")); 
+JavascriptExecutor js = (JavascriptExecutor)driver; 
+js.executeScript("arguments[0].scrollIntoView();", element); // It will scroll down the page by visibility of element "Health". 
+===============================================================================================================================================
+Q:Can we declare a class as static?
+We can’t declare a top-level class as static however an inner class can be declared as static. If inner class is declared as static, it’s called static nested class.
+===============================================================================
+Q:237. Using which keyword we acquire the behavior of one class to another class
+If a class extends another class, then we say that it has acquired all the properties and behavior of the parent class. We use the extends keyword in Java between two class names that we want to connect in the Inheritance relationship.
+===============================================================================================================================================
+
+===================================================Added on 08-Nov-21 =========================================================================
+Q:Q:What is the difference between fileinputstream and fileoutpustream.
+
+FileInputStream
+This class reads the data from a specific file (byte by byte). It is usually used to read the contents of a file with raw bytes, such as images.
+
+FileOutputStream
+This writes data into a specific file or, file descriptor (byte by byte). It is usually used to write the contents of a file with raw bytes, such as images.
+
+===============================================================================================================================================
+Q:is it possible to do overridding in java for methods having different return type
+
+Ans : Yes 
+===============================================================================================================================================
+Q:is it possible to do overridding in java for methods having different Signature 
+
+Ans : No, while overriding a method of the super class we need to make sure that both methods have same name, same parameters
+===============================================================================================================================================
+Q:Basic requirements for over ridding method in java ?
+
+Ans : 1.There should be two classes 
+2.Both should have same methods with same method name , signature 
+3.CHild <--> Parent relation between two classes should be there 
+===============================================================================================================================================
+Q:219. What is the diff b/w WebDriver Listener and TestNG Listener
+
+WebDriver works on different automation events whereas TestNG works on different test's related events. The main reason for WebDriver listeners is "Logging" before / after events like click / SendKeys etc
+===============================================================================================================================================
+Q:225. Scenario: manually u opened a firefox browser window with Gmail login, now with selenium you opened a firefox browser window with Facebook login. what happens when we use the quit method? will it close all windows including Gmail one?
+
+Ans : Yes 
+===============================================================================================================================================
+Q:72. Where did u use multithreading in ur project?
+
+Ans :  HomeFree Selenium TutorialsAutomation FrameworkMultithreading helps to run test cases in parallel in Selenium
+MULTITHREADING HELPS TO RUN TEST CASES IN PARALLEL IN SELENIUM
+
+We create the thread by following techniques:
+
+By extending the thread class
+By implementing the Runnable interface
+===============================================================================================================================================
+Q:83. Why you are using a file buffer reader
+
+Ans :BufferedReader is a class in Java that reads text from a character-input stream, buffering characters so as to provide for the efficient reading of characters, lines and arrays. The buffer size may be specified. If not, the default size, which is predefined, may be used.
+
+FileReader reader = new FileReader(“MyFile.txt”);
+BufferedReader bufferedReader = new BufferedReader(reader);
+
+===============================================================================================================================================
+Q:Use of file reader ?
+
+Ans : Java FileReader class is used to read data from the file. It returns data in byte format like FileInputStream class.
+===============================================================================================================================================
+Q:Q:What is type conversion in Java?
+
+🅰 The process of converting a value from one data type to another is known as type conversion.
+
+===============================================================================================================================================
+What is class casting in Java?
+
+🅰 The process of converting a class type into another class type having relationship between them through inheritance is called class casting.
+
+===============================================================================================================================================
+Q:*************Why abstract class has constructor even though you cannot create object?
+
+🅰 We cannot create an object of abstract class but we can create an object of subclass of abstract class. When we create an object of subclass of an abstract class, it calls the constructor of subclass.
+
+This subclass constructor has super in the first line that calls constructor of an abstract class. Thus, the constructors of an abstract class are used from constructor of its subclass.
+
+If the abstract class doesn’t have constructor, a class that extends that abstract class will not get compiled.
+===============================================================================================================================================
+Q:What is blank final variable? Can we initialize the blank final variable?
+
+🅰 A variable that is declared as final and not initialized at a time of declaration is known as a blank final variable.
+
+Yes, if it is non-static then we can declare in the constructor. If it is static blank final variable, it can be initialized only in the static block.
+===============================================================================================================================================
+Q:*****Can we use this or super keyword in static method in Java?
+
+🅰 In entire core java, this and super keyword is not allowed inside the static method or static area.
+===============================================================================================================================================
+Q:What is constructor chaining in Java?
+
+🅰 Constructor chaining is a technique of calling one constructor from another constructor using this and super keyword. The keyword “this” is used to call a constructor from another constructor within the same class whereas, keyword “super” is used to call parent (super) class constructor from child (subclass) class constructor. It occurs through inheritance.
+===============================================================================================================================================
+Q:Q:What is the difference between argument and parameter in Java?
+
+🅰 A parameter is a variable in the definition of a method whereas an argument is an actual value of this variable that is passed to the method’s parameter.
+
+===============================================================================================================================================
+What will happen if we make a constructor of class private?
+
+🅰 If we make any constructor as a private, we cannot create the object of that class from another class and also cannot create the subclass of that class.
+
+106. Can we create an object of class if we make a constructor protected?
+
+🅰 Yes, if we make constructor as protected then we can create the subclass of that class within the same package but not outside the package.
+===============================================================================================================================================
+Q:Q: Colour Code 
+
+
+Ans - 
+RGB Value
+In CSS, a color can be specified as an RGB value, using this formula:
+
+rgb(red, green, blue)
+
+Each parameter (red, green, and blue) defines the intensity of the color between 0 and 255.
+
+For example, rgb(255, 0, 0) is displayed as red, because red is set to its highest value (255) and the others are set to 0.
+
+To display black, set all color parameters to 0, like this: rgb(0, 0, 0).
+
+To display white, set all color parameters to 255, like this: rgb(255, 255, 255).
+
+Experiment by mixing the RGB values below:
+
+*****************************************************element.getCssValue("color")*********************************
+===============================================================================================================================================
+Q:31. Git commands.. diff between stash and stage. How to create branch.
+Stash will move your modified files into a stack. So, later in the same or in another branch, you will be able to bring them back and see those modifications in your project. Stage is the step before to make a commit, you add modified files to "Staged files" to create your next commit.
+
+===============================================================================================================================================
+7. What will happen if I insert duplicate value in a Hashset and Hashmap ?
+HashSet doesn't allow duplicates. If you try to add a duplicate element in HashSet, the old value would be overwritten
+HashMap doesn't allow duplicate keys but allows duplicate values. That means A single key can't contain more than 1 value but more than 1 key can contain a single value. HashMap allows null key also but only once and multiple null values
+===============================================================================================================================================
+Q:Q:Auto It use ?
+Sometimes selenium is helpless to handle the window related stuff , as when you click on some download option lets say a pdf file , you can view it in browser , however download nahe ho pati windows mein 
+
+us cheez ke liye we use Auto it 
+
+1.Install the Auto it in your machine 
+2.After installation it will go to c:/program(x86)/autoit
+3.There is a file - Au3Info_x64 - which is basically a finder 
+4.Scite is a file which is a editior 
+
+--Commands : controlfocus , controlsetTest,ControlClick(These two be used in AutoIt)
+
+Note : InetGet is used in Auto it to Downloads a file from the internet using the HTTP, HTTPS or FTP protocol.
+
+Run auto it script in selenium
+Runtime.getRuntime().exe
+===============================================================================================================================================
+Q:Difference git pull and git fetch ?
+
+git fetch pulls latest changes done by other devs from remote reporsiroty to local repo and then you have to run merge command to merge the changes in your local
+
+git pull -Download and merges the changes in your local.
+
 
 
 ===============================================================================================================================================
-Q:
+Q:What happens if constructor is declared as final ?
+
+Ans : Compile type error it will give 
+===============================================================================================================================================
+Q:Is Git centralized or distributed systems
+
+Ans : Distributed , centralised mein all the resoirces are connected on same server , agar power failure hua ya koi hardware crash saare person ek dusre se out of contact ho jate hai . par distributed mein aisa nahe hai 
+===============================================================================================================================================
+Q:Git commands to set global username and email 
+
+Ans 
+nipunverma@nipunverma MINGW64 ~ (master)
+$ git config --global user.name "Nipun Verma"
+
+nipunverma@nipunverma MINGW64 ~ (master)
+$ git config --global user.email "nipunverma60@gmail.com"
+
+nipunverma@nipunverma MINGW64 ~ (master)
+$ git config user.name
+Nipun Verma
+
+nipunverma@nipunverma MINGW64 ~ (master)
+$ git config user.email
+nipunverma60@gmail.com
+
+nipunverma@nipunverma MINGW64 ~ (master)
+git config --global core.editor "code --wait"
+
+
+nipunverma@nipunverma MINGW64 ~ (master)
+git config --global e
+
+Last wali will open editior which will show jo jo aapne edit karna hai to 
+
+Yeh saara kuch karne ka faeyda hai na , ki pta chal jaeyga kisne kisne change kiye hain 
+===============================================================================================================================================
+Q:How to skip the staging area in git , means how can you directly commit the chznges without using add command 
+
+Ans : Ideally wht happens 
+git status 
+git add .
+git commit -m "Initial commit"
+
+
+Solution to above is :::
+
+git status 
+git commit -a -m  "Initial commit"
+
+===============================================================================================================================================
+Q:how to rename file in git 
+
+Ans : git mv oldfilename newfilename 
+
+ex
+git mv file1.txt  main.js 
 
 
 ===============================================================================================================================================
-Q:
+Q:Comand in git to check all the Viewing the Staged and Unstaged Changes   ypoi have done so far 
+
+Ans : git log 
+===============================================================================================================================================
+Q:Agar ek he line mein show karna hai kya kya Viewing the Staged and Unstaged Changes  kiya hai to 
+
+Ans : git log --oneline
 
 
 ===============================================================================================================================================
-Q:
+Q:Checking the commits as of now 
 
-
-===============================================================================================================================================
-Q:
-
-
-===============================================================================================================================================
-Q:
-
-
-===============================================================================================================================================
-Q:
-
-
-===============================================================================================================================================
-Q:
-
-
-===============================================================================================================================================
-Q:
-
-
-===============================================================================================================================================
-Q:
-
-
-===============================================================================================================================================
-
-
-===============================================================================================================================================
-Q:
-
-
-===============================================================================================================================================
-Q:
-
-
-===============================================================================================================================================
-===============================================================================================================================================
-Q:
-
-
-===============================================================================================================================================
-Q:
-
-
-===============================================================================================================================================
-Q:
-
-
-===============================================================================================================================================
-Q:
-
-
-===============================================================================================================================================
-Q:
-
-
-===============================================================================================================================================
-Q:
-
-
-===============================================================================================================================================
-Q:
-
-
-===============================================================================================================================================
-
-
-===============================================================================================================================================
-Q:
-
-
-===============================================================================================================================================
-Q:
-
-
-===============================================================================================================================================
-===============================================================================================================================================
-Q:
-
-
-===============================================================================================================================================
-Q:
-
-
+Ans : git show (filename)
 ===============================================================================================================================================
 Q:
 
