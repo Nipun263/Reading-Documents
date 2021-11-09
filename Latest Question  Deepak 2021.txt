@@ -1,92 +1,29 @@
 29. What is the Executor framework?
-72. Where did u use multithreading in ur project?
+
+
 79. Which type is used in collections to add all the primitive data types?
-83. Why you are using a file buffer reader
+
+
 85. Example: With the help of Scanner class, we have to take five inputs(u can take any random number) Like 5, 45, 50, 52, 91
 88. Write a code where there are 2 set’s of a key-value pair, print the value only if keys and values are the same
 112. Write a program to print the values of an array using any loop?
 120. What is bubble sort can you write one program. .?
 128. How to handle elements like Ajax?
 175. Can you write a build.Xml
-
-
-
-
-
-178. How to handle merge conflict in GiT
-178.How to scroll down till a particular element 
-179. Where do you use java in selenium webdriver
-180. Scenario: der is grid table 1st column contains links to the same names in all rows.
-181. Explain your framework.
-182. What is TestNG?and its annotations?
-183. how will you validate this scenario?
-184. Which testing have you performed?
-185. What is a protractor?
-186. How to generate logs?
-187. How to launch browsers(IE,  Chrome & Mozilla). write code?
-188. How do you handle alert popups?
-189. Where did u use the hashmap in ur project?
-190. Explain about the bug life cycle and if the developer is not accepting that bug then who to resolve that issue
-191. Where do you create the framework?
-192. How to capture screenshots in webdriver? write code
-193. Questions about JS executor
-194. Difference between interface and abstract
-195. Write a program using a hashmap to add and retrieve data and print it in the console.
-196. What is the exception you get in selenium?
-197. write a code to open an application in the firefox browser?
-198. What is a repository in Maven? Types?
 199. How to Verify palindrome or not?
-200. Tell me about your roles and responsibilities.
 201. How do you handle keystrokes in Selenium?
-202. You have a link to the main window. When you click on that link, it opens 3 new windows. One of the windows consists of an iframe. How you will navigate there?
-203. What is an interface? Explain with a live example
-204. Write code to read data from excel?
-205. Have you worked on Unix?
-206. What do public and void mean in public static void main()?
-207. what are click(),sendKeys(),findElements() methods?
-208. what is the Alert interface? when to use?
-
-209. What are the challenges that you faced while automating test cases?
-210. What about your productivity
-211. How do you launch a browser in Selenium?
-212. Limitations of Selenium?
-213. How to handle checked exceptions?
 214. When we execute test cases in the grid where results will be stored in node or hub?
 215. which selenium web driver version you have used in your project?
 216. What is the port no? We use and why is it used?
-217. What are your roles and responsibilities for automation?
-218. what is an Exception? How to handle Exceptions?
-219. What is the diff b/w WebDriver Listener and TestNG Listener
-220. Data table vs scenario outline with example keyword
-221. Explain four pillars of OOPS.
 222. so first you have to sort it in some order & then print the missing numbers
-223. What is parameterization in TestNG?
-224. What do you do on a daily basis?
-225. Scenario: manually u opened a firefox browser window with Gmail login, now with selenium you opened a firefox browser window with Facebook login. what happens when we use the quit method? will it close all windows including Gmail one?
-226. Output String: tool source open is Web driver Selenium
-227. Your Roles in the project?
 228. How to configure proxy explicitly.
-229. Diff b/w String and StringBuffer?
-230. Actions are class or interface?
-231. What is the final keyword?
-232. How to generate user-defined exceptions, write syntax.
-233. Explain polymorphism in java.
-234. Explain inheritance concept with an example
-235. Explain your project framework architecture?
-236. Parallel execution
-237. Using which keyword we acquire the behavior of one class to another class
-238. Explain the architecture of your framework and why that approach was taken instead of others?
-239. Where did u use the collection in your project?
-240. Soap and UI testing?
-241. Why do we write a string[]args in the main method?
-242. What is the difference between collections and ArrayList?
-243. What is the difference between interface, class & abstract class?
-244. What is exploratory testing?
+
+
+
+
+
+
 245. Now you have to print the missing numbers between all the numbers. Like 6 to 44 then 46 to 49 than 51 than 53 to 90.
-246. What are the annotations in TestNG and it’s the sequence
-247. Automation test life cycle
-248. DIfference between this and super?
-249. What is the difference between product backlog and sprint backlog?
 250. There are five tabs on the home page of a Website. You need to navigate to each tab and verify the page is loaded. Write optimal logic.
 251. What is your role in this framework explain it in detail?
 252. Write Swapping of numbers
@@ -116,6 +53,7 @@
 275. Features of Java.
 276. write a code to read data from excel?
 277. What are Different types of locators are available in selenium?
+249. What is the difference between product backlog and sprint backlog?
 278. Scenario: there is a submit button on the page it has an id property. by using id we got element not found an exception, how will you handle this situation. what might be the problem in this case.
 279. What is the interface?
 280. Where do you use a hashmap?
@@ -304,6 +242,90 @@
 461. Whats is build.xml?
 462. How to run a test case for multiple data in cucumber? how to pass multiple data for a test case in step definition?
 
+
+*MANUAL TESTING INTERVIEW QUESTION*
+
+*Following are the some basic and advanced Top Manual Testing Interview Question and answer for both beginner and experience Manual Tester.*
+
+What is Manual Testing ?
+What is Regression Testing ?
+What is JSON wire protocol
+What is JSON ?
+What is Automation Testing ?
+What is Re-Testing ?
+What is Smoke Testing?
+What is Functional Testing?
+What is Unit Testing ?
+What is User Acceptance Testing ?
+What is F rule is Web Testing?
+What is life cycle of Testing ?
+What is Sanity testing ?
+What tool is used for Manual Testing?
+What is Build ?
+What is Release?
+What is Sprint in agile?
+What is Sprint Backlog?
+What is Product backlog?
+What is the time limit of a sprint in Agile ?
+What is Agile ?
+What is User story in Manual Testing ?
+What is Test case ?
+What is Bug in Manual Testing?
+What is Epic ?
+What is Change request ?
+What is Enhancement Request?
+What are the types of bug?
+What is static testing ?
+What is Black box testing?
+What is white box testing ?
+What is Test Plan ?
+What are the contents of Test Plan ?
+What is Verification and validation ?
+What is SDLC and STLC?
+What is Equivalent Testing ?
+What is boundary testing?
+What is dynamic Testing ?
+What is difference between static testing and dynamic testing ?
+What is Integration testing ?
+What is top – bottom approach ?
+What is Bottom – Top approach ?
+What is System Testing?
+How system Testing is differed from UAT?
+What is Data Driven Testing?
+What is Test Scenario?
+What is Test Case ?
+What is Test Script ?
+What is defect ?
+What is Latent defect ?
+What is Mutation testing?
+What is Risk Analysis?
+How we can eliminate risk?
+What is Grey box Testing ?
+What is Acceptance Testing ?
+What is Non-Functional testing ?
+What is Alpha Testing ?
+What is Beta – Testing ?
+What is the difference Between Alpha Testing and Beta testing?
+What is Visual Testing?
+What is Decision Testing?
+What is Statement Testing ?
+What is Branch Testing?
+What is Control Flow Testing?
+What is Data Flow Testing ?
+What is Error Guessing?
+What is State Transition ?
+What is Decision Table ?
+What is Boundary value ?
+What is Cause – Effect ?
+What is SDLC?
+What is STLC?
+What is Advantage of manual Testing ?
+What are disadvantages od Manual testing ?
+What is Code Redundancy?
+What is Bug Leakage?
+
+
+
 Interview ques:
 
 1. java programming on array or string
@@ -336,3 +358,77 @@ Comparator :
 1.we can sort the collection on the basis of multiple elements such as id, name, and price etc.
 2.Comparator doesn't affect the original class, i.e., the actual class is not modified.
 3.Comparator provides compare() method to sort elements.
+
+
+
+
+
+
+
+*Questions set for the day 8 Nov*
+*UST global interview questions:*
+*Exp 5-9yrs*
+
+1. Introduce urself
+2. Explain ur project
+3. Run time polymorphism
+4. Write a program to reverse the string and cal the each chars and print the numbers. given String S1= I am a software tester
+5. can we declare constructor as private?
+6. super keyword
+7. explain Maven and how u r using it in ur project
+8. how r u preparing report in ur project
+9. Scenario: in a webpage we have one product and need to give review for the particular products. What type of testing will u perform and how many scenarios u can write from this?
+10.Localisation, globalisation and security testing.
+11 Program String are given
+Input: 4(ES)6(ESD)2(DK)
+Output: ESESESESESDESDESDESDESDESDESDDKDK
+
+
+*Difference between Git pull and Git clone?*
+We use these two commands to get changes from central repository. For the first time if you want whole central repository in your local server, we use git clone. It brings entire repository to your local server. Next time onwards you might want only changes instead of whole repository. In this case, we use Git
+pull.
+Git clone is to get whole copy of central repository
+Git pull is to get only new changes from central repository (Incremental data)
+
+*What is the difference between Git pull and Fetch?*
+We use Git pull command to get changes from central repository. In this operation, internally two commands will get executed. One is Git fetch and
+another one is Git merge.
+Git fetch means, only bringing changes from central repo to local repo. But these changes will not be integrated to local repo which is there in your server. Git merge means, merging changes to your local repository which is there in your server. Then only you can see these changes.
+So Git pull is the combination of Git pull and Git merge.
+ 
+*What is the difference between Git merge and rebase?*
+We often use these commands to merge code in multiple branches. Both are almost same but few differences. When you run Git merge, one new merge commit will be generated which is having the history of both development branches. It preserves the history of both branches. By seeing this merge
+commit, everyone will come to know that we merged two branches. If you do Git rebase, commits in new branch will be applied on top of base branch tip. There won’t be any merge commit here. It appears that you started working in one single branch form the beginning. This operation will not preserves the history of new branch.
+ 
+*What is Git Bisect?*
+Git Bisect we use to pick bad commit out of all good commits. Often developers do some mistakes. For them it is very difficult to pick that commit where mistake is there. They go with building all commits one by one to pick bad commit. But Git bisect made their lives easy. Git bisect divides all commits
+equally in to two parts (bisecting equally). Now instead of building each commit, they go with building both parts. Where ever bad commit is there, that part build will be failed. We do operation many times till we get bad commit. So Git bisect allows you to find a bad commit out of good commits. You don’t have to trace down the bad commit by hand; git-bisect will do that for you.
+ 
+
+*What is Git squash?*
+To move multiple commits into its parent so that you end up with one commit.
+If you repeat this process multiple times, you can reduce “n” number of commits to a single one. Finally we will end up with only one parent commit. We use this operation just to reduce number of commits.
+ 
+*What is Git hooks?*
+We often call this as web hooks as well. By default we get some configuration
+files when you install git. These files we use to set some permissions and notification purpose. We have different types of hooks (pre commit hooks & post commit hooks)
+Pre-commit hooks:- Sometimes you would want every member in your team to follow certain pattern while giving commit message. Then only it should allow
+them to commit. These type of restrictions we call pre-commit hooks.
+Post-commit hooks:- Sometimes, being a manager you would want an email notification regarding every commit occurs in a central repository. This kind of things we call post-commit hooks.
+In simple terms, hooks are nothing but scripts to put some restrictions.
+ 
+*What is Git cherry-pick?*
+When you go with git merge, all commits which are there in new development branch will be merged into current branch where you are. But sometimes, requirement will be in such that you would want to get only one commit form development branch instead of merging all commits. In this case we go with git cherry-pick. Git cherry-pick will pick only one commit whatever you select and merges with commits which are there in your current branch. So picking
+particular commit and merging into your current branch we call git cherry-pick.
+ 
+*What is the difference between Git and SVN?*
+SVN:-
+It is centralized version control system (CVCS) where back up copy will be placed in only one central repository.
+There is no branching strategy in SVN. You can’t create branches. So no parallel development.
+There is no local repository. So can’t save anything locally. Every time after writing code you need to push that code to central repository immediately to save changes.
+Git:-
+It is a Distributed version control system where back up copy is available in everyone’s machine’s local repository as well as a central repository.
+We can create any no of branches as we want. So we can go in parallel development simultaneously.
+Every Git repository will have its own local repository. So we can save changes
+locally. At the end of our work finally, we can push code to a central repository.
+
