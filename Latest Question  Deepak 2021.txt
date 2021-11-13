@@ -432,3 +432,131 @@ We can create any no of branches as we want. So we can go in parallel developmen
 Every Git repository will have its own local repository. So we can save changes
 locally. At the end of our work finally, we can push code to a central repository.
 
+
+
+
+
+
+
+
+*Technical round*
+1. Tell me about your previous experiences and projects?
+2. Explain me about your recent project?
+3. What is the difference between regression and retesting
+4. What is smoke and sanity?
+5. What are the techniques you follow to write test cases?
+6. What is the process u follow in your project?
+7. What is the defect tracking tool u use?
+8. Explain the agile process?
+9. How do u write the test cases for gmail application?
+10. What are the testing types your involved in?
+11. As a qa what's your role in the project?
+12. Do u perform white box testing?
+13. Are u involved in preparing test plan?
+14. Do u have any idea on cognos?
+15. Do u have any questions for me?
+16. Why negative testing is important?
+17. How do u ensure that 100 percent test coverage is done?
+18. How negative testing is useful?
+19. What if there are still open defects in rtm do u say 100 percent testing coverage is
+done?
+20. What is rtm?
+21. If u have less time and have too many test cases to cover then what would u do? 22. Do u have any questions for me?
+
+*Manager round*
+   Tell me something about urself?
+1. Explain me the previous experience u have ?
+2. What is ur role as qa?
+3. How close do u work with developer?
+4. What is the process used in ur project?
+5. Do u have knowledge on java/selenium?
+6. Why did u choose to be qa (tester)?
+7. Explain me the current project?
+8. Is there any particular reason for ur job change?
+9. Do u have any questions for me?
+
+
+
+*Company name:Capgemini*
+
+
+1. Roles & responsibilities.
+2. Framework explanation.
+3. What is interface
+4. What is inheritance
+5. How u achieve multiple inheritance in java.
+6. Write program to reverse a number.
+7. How you select an option in drop down.
+8. What is iframe. Write code to click on a button which is in a nested iframe.
+9. How to handle file downloading & uploading
+10. Difference between implicit wait and explicit wait.
+11. Total number of rows in a webtable.
+12. How to select a check box present in a webtable.
+13. What r webdriver exceptions
+14. How to read data from an excel file
+15. How many testing environments u have in ur organization.
+16. Write an xpath to get all the links.
+17. How to read the text on a tooltip.
+18. Check whether an element is displayed or not.
+19. There are 3 classes a b c. How to access the methods of b and c in class a.
+
+
+
+
+
+
+
+1. Tell me about yourself?
+2. Tell me about your roles and responsibilities?
+3. which framework you are using?
+4. Which jar file you are using for Datadriven and explain?
+5. How to get column from excel 3 coloumn, 2 row?
+6. How to write and send the values to text box?
+7. What is the difference between single / and // explain?
+8. How many ways identify the filed in selenium?
+9. Which is fastest?
+10. What is difference between implicit wait and explicit wait?
+11. Xpath questions?
+12. What is interface? What is the use of interface?
+13. What is abstract class?
+14. What is the difference between interface and abstract?
+15. What is static block?
+16. What is purpose of static in main method? Without static main method class will be
+working or not?
+17. One static block, one main method, one constructor what is the execution flow? 18. What is web driver? Why we use web driver?
+19. Which jar file you are using for web driver?
+20. Webdriver define in which class?
+21. What is difference between list and set?
+22. Which class define in list and set?
+23. How to select a particular value from drop down with examples and what is the
+difference between select by value and select by visible text? 24. What is hash map and hash table in collections?
+25. Class a {
+result()
+}
+Class b extends a {
+Result()
+}
+• In this scenario we calling class b method what is the output?
+• In this case how to define super keyword in your class?
+26. How to create/ call obj in interface?
+27. How to create object for static class?
+28. How to call/invoke the method of class b from your program?
+29. What are the different methods in mouse events?
+30. How to handle hover menus?
+31. What is the difference between final and finally and finalize?
+
+
+
+https://www.softwaretestingo.com/restful-api-web-services-interview-questions/
+https://www.softwaretestingo.com/java-selenium-programs/
+https://www.softwaretestingo.com/testing-interview-questions/
+https://www.softwaretestingo.com/basic-selenium-interview-questions/
+https://www.softwaretestingo.com/selenium-real-time-interview-questions/
+https://www.softwaretestingo.com/selenium-webdriver-interview-questions/
+https://www.softwaretestingo.com/testng-interview-questions/
+https://www.softwaretestingo.com/framework-interview-questions/
+https://www.softwaretestingo.com/core-java-interview-questions/
+https://www.softwaretestingo.com/java-interview-questions/
+https://www.softwaretestingo.com/selenium-tutorial/
+https://www.softwaretestingo.com/java-selenium-programs/
+https://www.softwaretestinghelp.com/api-testing-interview-questions-and-answers/

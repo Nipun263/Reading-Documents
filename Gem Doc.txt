@@ -1,4 +1,7 @@
 Q:Explain Framework normal and API framework ?
+
+
+##########
 ===============================================================================
 77. Is it allowed to declare main method as final?
 
@@ -1513,12 +1516,7 @@ Firstly it will check inside the env variables - if there will  be value then it
 Whatever is same -- always keep it in global variables 
 whatever is changed for all environments ---make it as environmental variable 
 ===============================================================================================================================================
-Q:What is difference between Class and Structure?
-
-Ans - A class is a user-defined blueprint or prototype from which objects are created. Basically, a class combines the fields and methods(member function which defines actions) into a single unit.
-
-A structure is a collection of variables of different data types under a single unit. It is almost similar to a class because both are user-defined data types and both hold a bunch of different data types.
-===============================================================================================================================================
+==============================================================================================
 Difference between Stack and Heap memory?
 In a stack, the allocation and de-allocation are automatically done by the compiler whereas in heap, it needs to be done by the programmer manually.
 
@@ -1559,38 +1557,6 @@ Yes, you can define an interface inside a class and it is known as a nested inte
 1) Difference between String, StringBuffer, and StringBuilder in Java? (detailed answer)
 String is immutable while both StringBuffer and StringBuilder are mutable, which means any change e.g. converting String to upper case or trimming white space will produce another instance rather than changing the same instance. In later two, StringBuffer is synchronized while StringBuilder is not, in fact, it's a ditto replacement of StringBuffer added in Java 1.5.
 ===============================================================================================================================================
-140.Can we re-throw an Exception in Java?
-
-Ans -
-When an exception is cached in a catch block, you can re-throw it using the throw keyword (which is used to throw the exception objects).
-
-Ex1 - 
-try {
-   int result = (arr[a])/(arr[b]);
-   System.out.println("Result of "+arr[a]+"/"+arr[b]+": "+result);
-}
-catch(ArithmeticException e) {
-   throw e;
-}
-
-
-Ex 2 -
-try {
-   int result = (arr[a])/(arr[b]);
-   System.out.println("Result of "+arr[a]+"/"+arr[b]+": "+result);
-}
-catch(ArrayIndexOutOfBoundsException e) {
-   throw new IndexOutOfBoundsException();
-}
-===============================================================================================================================================
-Q:146.What are the disadvantages of Multithreading?
-
-And - Difficult in debussing 
-Difficult in writing code 
-Difficulty of managing concurrency
-The task of managing concurrency among threads is difficult and has the potential to introduce new problems into an application.
-
-===============================================================================================================================================
 Q:Take screenshot of failed test cases in TestNG 
 
 Ans - 
@@ -1607,185 +1573,7 @@ Ans -
 2.
 
 ===============================================================================================================================================
-Q: When to use  concat and when to use plus in strings ?
 
-===============================================================================================================================================
-
-Q: How to take screen shot of failed test cases in testNG 
-
-
-#####Class 1 - create simple class and esmein screenshot ka as usual wala code likho 
-
-
-public class CaptureScreenShot {
-
-public static  WebDriver driver;
-	
-	
-	public static WebDriver takeScreenShot(WebDriver driver) throws IOException, InterruptedException
-	{
-		try {
-	    File scr=((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-	    
-	    String pathToCollectSS = System.getProperty("user.dir");
-	    
-	    File dest= new File(pathToCollectSS + "/ScreenShots/" +timestamp()+".png");
-	    
-	    FileUtils.copyFile(scr, dest);
-	
-	}
-	catch (Exception e) {
-		System.out.println("Handle Exception");
-	}
-		return driver;
-		
-	}
-	
-	public static String timestamp() {
-	    return new SimpleDateFormat("yyyy-MM-dd HH-mm-ss").format(new Date());
-	}
-
-}
-
-
-
-
-#####Class 2 - ek naey class banao -> by any name : implements ItestListner .Now right click on ItestListner in the class name and go to source ---> override implemented 
-
-
-public class CustomListener implements ITestListener {
-
-	public static WebDriver driver;
-	
-	// Not all the methods are abstarct and are from interface ITestListner -> Right
-	// click on ItestListner and go to source and Override/implement
-	
-	
-
-	public void onTestStart(ITestResult result) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	public static  WebDriver  onTestSuccess(ITestResult result,WebDriver driver) {
-		System.out.println("Pass Test Case!!!!");
-		
-		try {
-			CaptureScreenShot.takeScreenShot(driver);
-		} catch (Exception e) {
-			
-			e.printStackTrace();
-		}
-		return driver ;
-	}
-	
-
-	public void onTestFailure(ITestResult result) {
-		System.out.println("Failed Test Case!!!!");
-		
-		try {
-			CaptureScreenShot.takeScreenShot(driver);
-		} catch (Exception e) {
-			
-			e.printStackTrace();
-		}
-	}
-
-	public void onTestSkipped(ITestResult result) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	public void onTestFailedButWithinSuccessPercentage(ITestResult result) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	public void onTestFailedWithTimeout(ITestResult result) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	public void onStart(ITestContext context) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	public void onFinish(ITestContext context) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public int hashCode() {
-		// TODO Auto-generated method stub
-		return super.hashCode();
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		// TODO Auto-generated method stub
-		return super.equals(obj);
-	}
-
-	@Override
-	protected Object clone() throws CloneNotSupportedException {
-		// TODO Auto-generated method stub
-		return super.clone();
-	}
-
-	@Override
-	public String toString() {
-		// TODO Auto-generated method stub
-		return super.toString();
-	}
-
-	@Override
-	protected void finalize() throws Throwable {
-		// TODO Auto-generated method stub
-		super.finalize();
-	}
-
-	
-
-}
-
-
-#####class 3 - where the test/main code is there -- class name ke upar yeh jarur use karo--->@Listeners(Utility.CustomListener.class) ..yaha CustomListener.class woh class hai jis mein aapne interface (ITestListner) implement kiya h 
-
-
-
-@Listeners(Utility.CustomListener.class)
-public class FileUpload {
-	
-WebDriver driver;
-	
-	@BeforeTest
-	public  void setUp() {
-		driver= BrowserSetup.StartApplication(driver, "Chrome");
-	}
-	
-	
-	
-	@Test	
-	public void uploadFunctionality() throws IOException, InterruptedException {
-		driver.get("http://demo.guru99.com/test/upload/");
-		WebElement chooseFile = driver.findElement(By.xpath("//*[@id='uploadfile_0']"));
-		
-		chooseFile.sendKeys("C:\\Users\\e5584133\\Desktop\\Bala Ji.jpg");
-		
-		WebElement acceptnce = driver.findElement(By.xpath("//input[@type='checkbox11']"));
-		
-				
-		acceptnce.click();
-		
-		WebElement submitBtn = driver.findElement(By.id("submitbutton"));
-		submitBtn.click();
-		
-		
-		
-		
-	}
 ===============================================================================================================================================
 
 Question: How is Webdriver beneficial over Selenium Server?
@@ -1820,15 +1608,6 @@ Ams
 a = a + b;
 b = a - b;
 a = a - b;
-===============================================================================================================================================
-Q:*****What is the difference between String s = "Test" and String s = new String("Test")? Which is better and why?
-
-Ans -
-In general, String s = "Test" is more efficient to use than String s = new String("Test").
-
-In the case of String s = "Test", a String with the value “Test” will be created in the String pool. If another String with the same value is then created (e.g., String s2 = "Test"), it will reference this same object in the String pool.
-
-However, if you use String s = new String("Test"), in addition to creating a String with the value “Test” in the String pool, that String object will then be passed to the constructor of the String Object (i.e., new String("Test")) and will create another String object (not in the String pool) with that value. Each such call will therefore create an additional String object (e.g., String s2 = new String("Test") would create an addition String object, rather than just reusing the same String object from the String pool).
 ===============================================================================================================================================
 11. What is the difference between type keys and type commands?
 
@@ -2093,17 +1872,7 @@ Enviromnemt
 Collection
 
 ===============================================================================================================================================
-Q: What is chai ?
-
-Ans - Chai is a BDD / TDD assertion library for node and the browser that can be delightfully paired with any javascript testing framework.
-
-To install chai ---> npm install chai
-
-Chai has several interfaces that allow the developer to choose the most comfortable. The chain-capable BDD styles provide an expressive language & readable style, while the TDD assert style provides a more classical feel.
-
-
-
-===============================================================================================================================================
+==============================================================================================================================
 Q: Can multiple assertions be added in same test in postman 
 
 Ans Yes 
@@ -2177,70 +1946,6 @@ class ThrowExcep
 
 
 ===============================================================================================================================================
-
-Q: When to use  concat and when to use plus in strings ?
-
-
-public class Gfg {
-    public static void main(String args[])
-    {
-        String s = "Gfg";
-        s = s.concat("! is the best.");
-        System.out.println(s);
-    }
-}
-
-Output :: Gfg! is the best.
-
------
-public class Gfg {
-    public static void main(String args[])
-    {
-        String s1 = "Gfg";
-        String s2 = "! is the best";
-  
-        String s3 = s1 + s2;
-  
-        System.out.println(s3);
-    }
-}
-
-Output :: Gfg! is the best.
-
-
-
----------->Number of arguments the concat() method and + operator takes: <------------------
-
-concat() method takes only one argument of string and concat it with other string.
-
-+ operator takes any number of arguments and concatenates all the strings.
-
-
-public class GFG {
-    public static void main(String[] args)
-    {
-        String s = "Geeks", t = "for", g = "geeks";
-  
-        System.out.println(s + t + g);
-        System.out.println(s.concat(t));
-    }
-}
-
-Output :
-Geeksforgeeks
-Geeksfor
-
-
----------------<Performance<----------------------
-concat() method is better than + operator because it creates a new object only when the string length is greater than zero(0) but + operator always a creates a new string irrespective of length of string.
-
-===============================================================================================================================================
-
-chrome-extension://gphandlahdpffmccakmbngmbjnjiiahp/file:///C:/Users/e5584133/Desktop/INT_GEM/AllinoneQAInterviewQuestions.pdf
-
-
-===============================================================================================================================================
-==============================================================================================================================================
 How to check if a button is enabled on the page?
 
 isenabled();
@@ -2382,17 +2087,6 @@ public static void main(String[] args)
 
 
 ===============================================================================================================================================
-Q:Difference in Automation testing/Tester and SDET (Software Design Engineer in test)
-Automation Testing can be referred to role/designation as well as it is the term use to differentiate between Manual Testing and Automation Testing. You can say that I am in Automation Testing, I am Automation Tester, I am a Test Developer,Test Automation proffessional etc. But yes when it comes to the term SDET(Software Development/Design Engineer in Test) This refers to a role which has expertise in below aspects of Automation Testing (not mandatorily all but most of it):
-
-Automation Framework Designing-Selenium, Cucumber, Siquili, AutoIT, RPM, Rest-Assured API, OK HTTP, etc
-
-Coding/Scripting (Java,C#, Python, Pearl, Ruby etc)
-
-CICD pipeline (continuous Integration Continuous Development/Delivery)- Jenkins, Maven,Bamboo etc. DevOps tools and practices -GitHub, Ansible, Docker etc.
-
-Apart from all above, SDET must also be aware of QA practices, Like Agile, Waterfall, STLC SDLC, defect lifecycle, Diff Types of Testings, Testing situational dealings, Test Plan and artifacts etc.
-==================================================================================================================================================================
 Q:What are the different types of Exploratory testing techniques?
 
 Exploratory Testing as the name suggests is based on the tester exploring the website or app to be able to make it better with time. It is a substantial activity in an Agile software development, where the development and the testing cycles go hand in hand.
@@ -2594,13 +2288,6 @@ Ams -
 List &lt;WebElement&gt; framesList = driver.findElements(By.xpath("//iframe"));
 
 List &lt;WebElement&gt; framesList = driver.findElements(By.xpath("//iframe"));
-===============================================================================================================================================
-Q:How do u get the width of the textbox ?
-
-Ans -
-driver.findElement(By.xpath(“xpath of textbox ”)).getSize().getWidth();
- 
-driver.findElement(By.xpath(“xpath of textbox ”)).getSize().getHeight();
 ===============================================================================================================================================
 Q:Open a browser in memory means whenever it will try to open a browser the browser page must not come and can perform the operation internally.
 
@@ -2922,13 +2609,7 @@ Q:ive the example for method overload in WebDriver.
 
 Ans- frame(string), frame(int), frame(WebElement).
 ===============================================================================================================================================
-Q:How do u get the width of the textbox ?
-
-Ans -
-driver.findElement(By.xpath(“xpath of textbox ”)).getSize().getWidth();
- 
-driver.findElement(By.xpath(“xpath of textbox ”)).getSize().getHeight();
-===============================================================================================================================================
+======================================================================================================
 Q: What is the difference between oath 1 and oath 2?
 
 Ans - oAuth1 - 4 paramaters are passed ike consumer key , secret key and 2 more 
@@ -4296,26 +3977,6 @@ Actions act = new Actions(driver);
    act.sendKeys(Keys.RETURN).build().perform();
 
 ===============================================================================================================================================
-Q:Define all in the api's 
-
-
-
-Response.header("XYZ")------------Get a single header value associated with the given name. If the header is a multi-value header then you need to use Headers.getList(String) in order to get all values.
-
-
-Response.headers------------The response headers. If there are several response headers with the same name a list ofthe response header values are returned.
-
-
-Response.path("")------------Get a value from the response body using the JsonPath or XmlPath syntax
-
-Response.body().asString()------------Returns the response body
-
-Response.getBody().prettyPrint()------------Returns the response body
-
-
-RestAssured.given().queryParam(“xyz”,”abc”)--------------------- Passing the query parameter as a pre condition
-
-===============================================================================================================================================
 Q:Diff between URL and URI ?
 
 URL -URL (Uniform Resource Locator) is often defined as a string of characters that is directed to an address. It is a very commonly used way to locate resources on the web. URL is a type of URI.
@@ -4424,86 +4085,6 @@ Q:How do u know your URL and query parameters and path parameters are working or
 Q:Error code for authentication and Authorization
 
 Ans - 401
-
-===============================================================================================================================================
-Q:Simple exaple for reference - read it !!
-
-@Test
-public void test_ResponseHeaderData_ShouldBeCorrect() {
-        
-    given().
-    when().
-        get("http://ergast.com/api/f1/2017/circuits.json").
-    then().
-        assertThat().
-        statusCode(200).
-    and().
-        contentType(ContentType.JSON).
-    and().
-        header("Content-Length",equalTo("4567"));
-}
-
-----------------------
-Test
-public void test_NumberOfCircuits_ShouldBe20_Parameterized() {
-        
-    String season = "2017";
-    int numberOfRaces = 20;
-        
-    given().
-        pathParam("raceSeason",season).
-    when().
-        get("http://ergast.com/api/f1/{raceSeason}/circuits.json").
-    then().
-        assertThat().
-        body("MRData.CircuitTable.Circuits.circuitId",hasSize(numberOfRaces));
-}
-----------------------------------
-@Test
-public void test_APIWithBasicAuthentication_ShouldBeGivenAccess() {
-        
-    given().
-        auth().
-        preemptive().
-        basic("username", "password").
-    when().
-        get("http://path.to/basic/secured/api").
-    then().
-        assertThat().
-        statusCode(200);
-}
-
-------------------------------------------
-@Test
-public void test_APIWithOAuth2Authentication_ShouldBeGivenAccess() {
-        
-    given().
-        auth().
-        oauth2(YOUR_AUTHENTICATION_TOKEN_GOES_HERE).
-    when().
-        get("http://path.to/oath2/secured/api").
-    then().
-        assertThat().
-        statusCode(200);
-}
-
-------------------------------------------------
-@Test
-public void test_Md5CheckSumForTest_ShouldBe098f6bcd4621d373cade4e832627b4f6() {
-    
-    String originalText = "test";
-    String expectedMd5CheckSum = "098f6bcd4621d373cade4e832627b4f6";
-        
-    given().
-        param("text",originalText).
-    when().
-        get("http://md5.jsontest.com").
-    then().
-        assertThat().
-        body("md5",equalTo(expectedMd5CheckSum));
-}
-
-
 ===============================================================================================================================================
 Q:Example of headless browser 
 
@@ -7869,44 +7450,6 @@ Types Exceptions found in selenium
 Limitations of selenium
 
 ===============================================================================
-3.how to rerun failed test cases apart from failed test report
-Method 1 - Run a testNg.XML file ---> check testOutput folder ---> look for testng-failed.xml>> Run as TestNg. This will now only re-run the fail testcase(s).
-
-
-Method 2 -By implementing TestNG IRetryAnalyzer
-There are many reasons for testcases to fail. Some of them could be:
--Element not visible,
--Stale element,
--Time out exception etc.
-
-If testcases have failed for above reasons, then we can easily re-run such testcases in TestNg by implementing the IRetryAnalyzer class. The steps are explained further below.
-
-import org.testng.IRetryAnalyzer;
-
-import org.testng.ITestResult;
-
-public class RetryFailedTestCases implements IRetryAnalyzer {
-
-    private int retryCnt = 0;
-
-    //You can mention maxRetryCnt (Maximium Retry Count) as per your requirement. This example uses 2 which means that for any failed testcases it retires the run twice.
-
-    private int maxRetryCnt = 2;
-
-    //This method will be called everytime a test fails. It will return TRUE if a test fails and need to be retried, else it returns FALSE
-
-    public boolean retry(ITestResult result) {
-
-        if (retryCnt < maxRetryCnt) {
-
-            System.out.println(“Retrying ” + result.getName() + ” again and the count is ” + (retryCnt+1));
-
-            retryCnt++;
-
-            return true;
-
-        }
-===============================================================================
 Program to print the number of occurrences of each character in the string "abcdab"
 
 ===============================================================================
@@ -8852,19 +8395,6 @@ Response res = given().ContentType(ContentType.JSON).body().when().Post("");
 How would you get to the next sibling?
 tr/td[@class='user’]/following-sibling::td
 ===========================================================================================================================================
-2) Difference between extends Thread vs implements Runnable in Java? (detailed answer)
-The difference comes from the fact that you can only extend one class in Java, which means if you extend the Thread class you lose your opportunity to extend another class, on the other hand, if you implement Runnable, you can still extend another class.
--------------------------------------------------------------------------------------------------------------
-15) Can we throw an exception manually? If yes, how?
-
-Yes, we can throw an exception manually using throw keyword. Syntax for throwing an exception manually is
-
-throw InstanceOfThrowableType;
-
--------------------------------------------------------------------------------------------------------------
- ◦ How the webdriver will understand which script to run on which thread ?
-Ans: Refer java ThreadSafe 
--------------------------------------------------------------------------------------------------------------
 How to locate a eliminate which will only load when you scroll the webpage and also the position of element varies everytime?
 Ans: Refer selenium JS executor, scroll based on visibility of element.
 
@@ -9559,18 +9089,7 @@ Ans :
 1.Requirements are more understandable as you gets continuos feedback from client 
 2.Delievry are done at quite faster rate - deliverying the deliverables in every sprint whihc happens every week or biweekenly 
 ===============================================================================================================================================
-Devops bascially integrate the development with operations 
-Dvelopment includes - Plan , code , build , test 
-
--------Intergrate using jenkins / Bamboo with below phases ---------
-Deploy , operate , monitor  
-
-
-This helps o make speedy and more perfectly and early feedaback can be expected using devops in agile .
-
-If code fails after test (stage 4 ) then code is resent bak to dev , else ushe hum deploy kar dete hain (step 6).
-
-===============================================================================================================================================
+=========================================================================================================================================
 Q:Properties of hashmap 
 Lets say there is a hashmap , for which jis key ki hum value nikal rhe hain .Woh key exists he nahe karti to value kya hogi 
 
@@ -11213,53 +10732,7 @@ Ans : Header - Provides you a single header associated with single header ("key"
 
 headers will provide list of headers  ("key","Value" ,"key","Value"  , "key","Value" ....).Here you have to pass multiple values and it will further return multiple values 
 ===========================================================07-Oct-2021======================================================================
-*********Q:What will be the output of the program 
-
-Ans public class One{
-
-Static{
-System.out.println("Hello");
-}
-
-{
-System.out.println("World");
-}
-
-Main method-----{
-
-}
-
-}
-
-
-Ans : Hello
-
-===============================================================================================================================================
-*********Q:What is the output 
-
-public class One{
-
-int a =100;
-b=10;
-
-Static{
-System.out.println("Hello");
-}
-
-if(a>=b){
-System.out.println("Nipun");
-}
-
-
-Main method-----{
-
-}
-
-}
-
-
-Ans : Hello
-Nipun (kyn ki donno mein se ek bhe condition chalegi to ho jaeyga print)
+gi to ho jaeyga print)
 ===============================================================================================================================================
 Q:Example of upcasting 
 
@@ -13007,11 +12480,7 @@ Ans ::
 Q:Is the JVM platform-independent.
 Ans - No
 ===========================================================27-Oct-2021==========================================================================
-Q:Can you explain RequestSpecification request = RestAssured.given();
-
-Ans -RequestSpecification is an interface that allows you to specify how the request will look like. This interface has readymade methods to define base URL, base path, headers, etc. We need to use given() method of RestAssured class to get a reference for RequestSpecification. 
-Also , it will hep us to modify the request like adding header , chnaging some parameter 
-===============================================================================================================================================
+==========================================================================
 Q: What you will validate in headers of the api ?
 
 Ans : we can verify the count , content , content-type etc . Since this header will be in form of key -Value pair 
@@ -13071,18 +12540,6 @@ Q:What is story point in agile
 Ans : Caluclating the story point in the basis of the complexity of the task , how much difficiult it is , how much hours / efforts it will consume ,based on that story points are calculated .
 
 Say if you are test simple UI .you can take 1-2 story points , however when end to end flow needs to be checked then you may consume 405 story points 
-
-===============================================================================================================================================
-Q:Why static imports , why we need and what will happen agar yeh na ho to
-
-Ans : Static import karne se (jo hum imports mein static keyword use karte hain ) , uska advantage yeh hota ki aapk kisi bhe package se koi bhe method kisi aur pacjage mein bula sakte ho without even importing the package .
-
-simply aise kar, jaise package 1 mein 2 methods hain method1 , method2 
-
-aap ko yeh package 2 mein bulana hai to using static in the import ypou can directly do 
-
-method1();
-methpd2();
 
 ===============================================================================================================================================
 Q:Form Authentication ?
@@ -13695,17 +13152,7 @@ Q:What do you mean by defect detection percentage in software testing?
 Defect detection percentage (DDP) is a type of testing metric. It indicates the effectiveness of a testing process by measuring the ratio of defects discovered before the release and reported after the release by customers.
 
 For example, let’s say, the QA has detected 70 defects during the testing cycle and the customer reported 20 more after the release. Then, DDP would be: 70/(70 + 20) = 72.1%
-===============================================================================================================================================
-Q:How to run the maven project from command line 
 
-Ans : 1.Download dependency maven surefire plugin and add in pom.xml file 
-2.Go to commnd line --> go to your project 
-3.Run cmds 
-mvn clean 
-mvn install 
-mvn test 
-
-You are good to go !!!
 
 ===============================================================================================================================================
 Q:
@@ -14958,91 +14405,930 @@ Ans : git log --oneline
 
 
 ===============================================================================================================================================
-Q:Checking the commits as of now 
+Q:Checking what is commited in a particular file as of now 
 
 Ans : git show (filename)
 ===============================================================================================================================================
-Q:
+Q:Restore a file in git 
 
-
+Ans : git restore --staged filename
 ===============================================================================================================================================
-Q:
+Q:**********How to rerun / make testNG run the failed test cases 
+
+Ans : For this you can use RetryAnalyzer Interface . 
+
+Make a class and extend this retry analyser and copy the copy from official site of testNG 
+
+Above each test write --->
+@Test(retryAnalyzer= classname.class)
+
+Example ::
+	@Test(priority=1 , retryAnalyzer = com.Utility.RunFailedTestCases.class)
+	public void TestCase_VerifyColorChange() {
+		ColorChange CC = PageFactory.initElements(driver, ColorChange.class);
+		CC.google();
+		
+	}
+			
+
+or else 
+you can do - for one time 
+@BeforeMethod(retryAnalyzer= classname.class)
 
 
+For help refer : https://testng.org/doc/documentation-main.html#rerunning
+
+
+Full code 
+
+public class RunFailedTestCases  implements IRetryAnalyzer {
+	 
+	  private int retryCount = 0;
+	  private static final int maxRetryCount = 3;
+	 
+	  
+	  public boolean retry(ITestResult result) {
+	    if (retryCount < maxRetryCount) {
+	      retryCount++;
+	      return true;
+	    }
+	    return false;
+	  }
+	}
+	
+==== jaha es code ko bulana hai us class mein do like 	
+
+	@Test(priority=1 , retryAnalyzer = com.Utility.RunFailedTestCases.class)
+	public void TestCase_VerifyColorChange() {
+		ColorChange CC = PageFactory.initElements(driver, ColorChange.class);
+		CC.google();
+		
+		
+App logs mein dekh lo woh dikh dega jo fail test case hai ushe kitni baar chalaya 
+
+===============================================
+    Default test
+    Tests run: 1, Failures: 1, Skips: 0, Retries: 3
+===============================================
+		
 ===============================================================================================================================================Q:
+Q:===============================================================================================================================================
+Q:How to run the maven project from command line 
+
+Ans : 1.Download dependency maven surefire plugin and add in pom.xml file 
+2.Go to commnd line --> go to your project 
+3.Run cmds 
+mvn clean 
+mvn install 
+mvn test 
+
+You are good to go !!!
+
+===============================================================================================================================================
+Q:Q:What is difference between Class and Structure?
+
+Ans - A class is a user-defined blueprint or prototype from which objects are created. Basically, a class combines the fields and methods(member function which defines actions) into a single unit.
+
+A structure is a collection of variables of different data types under a single unit. It is almost similar to a class because both are user-defined data types and both hold a bunch of different data types.
+===============================================================================================================================================
+Q:Q:118. Can an Interface be defined in a Class?
+Ans -
+Yes, you can define an interface inside a class and it is known as a nested interface. You can't access a nested interface directly; you need to access (implement) the nested interface using the inner class or by using the name of the class holding this nested interface.
+
+===============================================================================================================================================
+Q:140.Can we re-throw an Exception in Java?
+
+Ans -
+When an exception is cached in a catch block, you can re-throw it using the throw keyword (which is used to throw the exception objects).
+
+Ex1 - 
+try {
+   int result = (arr[a])/(arr[b]);
+   System.out.println("Result of "+arr[a]+"/"+arr[b]+": "+result);
+}
+catch(ArithmeticException e) {
+   throw e;
+}
+
+
+Ex 2 -
+try {
+   int result = (arr[a])/(arr[b]);
+   System.out.println("Result of "+arr[a]+"/"+arr[b]+": "+result);
+}
+catch(ArrayIndexOutOfBoundsException e) {
+   throw new IndexOutOfBoundsException();
+}
+===============================================================================================================================================
+Q:146.What are the disadvantages of Multithreading?
+
+And - Difficult in debussing 
+Difficult in writing code 
+Difficulty of managing concurrency
+The task of managing concurrency among threads is difficult and has the potential to introduce new problems into an application.
+
+===============================================================================================================================================
+Q:Q:ArrayList, LinkedList, and Vector are all implementations of the List interface. Which of them is most efficient for adding and removing elements from the list? Explain your answer, including any other alternatives you may be aware of.
+
+Ans 
+
+Out Of the three, LinkedList is generally going to give you the best performance. Here’s why:
+
+ArrayList and Vector each use an array to store the elements of the list. As a result, when an element is inserted into (or removed from) the middle of the list, the elements that follow must all be shifted accordingly. Vector is synchronized, so if a thread-safe implementation is not needed, it is recommended to use ArrayList rather than Vector.
+
+LinkedList, on the other hand, is implemented using a doubly linked list. As a result, an inserting or removing an element only requires updating the links that immediately precede and follow the element being inserted or removed.
+
+However, it is worth noting that if performance is that critical, it’s better to just use an array and manage it yourself, or use one of the high performance 3rd party packages such as Trove or HPPC.
+
+===============================================================================================================================================
+Q:Q:*****What is the difference between String s = "Test" and String s = new String("Test")? Which is better and why?
+
+Ans -
+In general, String s = "Test" is more efficient to use than String s = new String("Test").
+
+In the case of String s = "Test", a String with the value “Test” will be created in the String pool. If another String with the same value is then created (e.g., String s2 = "Test"), it will reference this same object in the String pool.
+
+However, if you use String s = new String("Test"), in addition to creating a String with the value “Test” in the String pool, that String object will then be passed to the constructor of the String Object (i.e., new String("Test")) and will create another String object (not in the String pool) with that value. Each such call will therefore create an additional String object (e.g., String s2 = new String("Test") would create an addition String object, rather than just reusing the same String object from the String pool).
+
+===============================================================================================================================================
+Q:Q: How will you use Selenium to upload a file?
+
+Ans - If the file is on the same machine or in a mapped network drive, it is really straightforward: We have to just type the ‘path’ of the file in the FileUpload control.
+
+Example:
+
+driver = webdriver.Firefox()
+element = driver.find_element_by_id("fileUpload")
+element.send_keys("C:\myfile.txt")
+===============================================================================================================================================
+Q:Q:Whta is Authentication and Authorization ?
+
+Ans - Authentication - makes sure valid user has logined or not .yeh aapke user name , pass check karega aur tabhi enter karne dega ek site mein 
+
+Authorization - Authority to perfoem some action .lets suppose 2 user logined hai ek site mein , one can see / view all the elmenets on UI .however second has authority/permission to even edit the data 
+
+===============================================================================================================================================
+Q:Type of Autherizations 
+
+1.Basic authentications---Simple user name and password .Here main chanllange is security , it is not safe to transfer data using basic auth.Request sent to server shold have key value pair , where key is  represented by authentication , value are credentials .
+2.Token and Bearer--- Server provides token to client , har baar naya milega .you eill get the result in Key Value pair .Key-Authorization and Value is the token value
+3.OAuth
+
+
+Basic Autherizations ::
+Key 						Value 
+Authorization               Basic vE9889KHIITLMN (Basic means here basic authentication is used , vE9889KHIITLMN this is Base 64 value).
+
+Postman takes the keyvalue of username:password and converts to base64  format
+===============================================================================================================================================
+Q: What is chai ?
+
+Ans - Chai is a BDD / TDD assertion library for node and the browser that can be delightfully paired with any javascript testing framework.
+
+To install chai ---> npm install chai
+
+Chai has several interfaces that allow the developer to choose the most comfortable. The chain-capable BDD styles provide an expressive language & readable style, while the TDD assert style provides a more classical feel.
+
+
+
+Chai assertion library is an external javascript library used to write assertions. Compared to what we write directly in javascript, this assertion library needs less time & effort and easy use.
+
+pm.test("If 100 equal to 200", function(){  
+    pm.expect(100).to.eql(200);  
+}); 
+===============================================================================================================================================
+Q:Q: Can multiple assertions be added in same test in postman 
+
+Ans Yes 
+
+pm.test("Random", function () {
+ pm.response.to.have.status(200);
+    pm.response.to.have.header.length(2);
+	 pm.response.to.have.jsonBody();
+});
+
+===============================================================================================================================================
+Q:Q: When to use  concat and when to use plus in strings ?
+
+
+public class Gfg {
+    public static void main(String args[])
+    {
+        String s = "Gfg";
+        s = s.concat("! is the best.");
+        System.out.println(s);
+    }
+}
+
+Output :: Gfg! is the best.
+
+-----
+public class Gfg {
+    public static void main(String args[])
+    {
+        String s1 = "Gfg";
+        String s2 = "! is the best";
+  
+        String s3 = s1 + s2;
+  
+        System.out.println(s3);
+    }
+}
+
+Output :: Gfg! is the best.
+
+
+
+---------->Number of arguments the concat() method and + operator takes: <------------------
+
+concat() method takes only one argument of string and concat it with other string.
+
++ operator takes any number of arguments and concatenates all the strings.
+
+
+public class GFG {
+    public static void main(String[] args)
+    {
+        String s = "Geeks", t = "for", g = "geeks";
+  
+        System.out.println(s + t + g);
+        System.out.println(s.concat(t));
+    }
+}
+
+Output :
+Geeksforgeeks
+Geeksfor
+
+
+---------------<Performance<----------------------
+concat() method is better than + operator because it creates a new object only when the string length is greater than zero(0) but + operator always a creates a new string irrespective of length of string.
+===============================================================================================================================================
+Q:2) Difference between extends Thread vs implements Runnable in Java? (detailed answer)
+The difference comes from the fact that you can only extend one class in Java, which means if you extend the Thread class you lose your opportunity to extend another class, on the other hand, if you implement Runnable, you can still extend another class.
+-------------------------------------------------------------------------------------------------------------
+15) Can we throw an exception manually? If yes, how?
+
+Yes, we can throw an exception manually using throw keyword. Syntax for throwing an exception manually is
+
+throw InstanceOfThrowableType;
+
+-------------------------------------------------------------------------------------------------------------
+ ◦ How the webdriver will understand which script to run on which thread ?
+Ans: Refer java ThreadSafe 
+-------------------------------------------------------------------------------------------------------------
+Q:throwable +
+Throwable is a super class for all types of errors and exceptions in java. This class is a member of java.lang package. 
+===============================================================================================================================================
+Q:Q:How to get the number of frames on a page ?
+
+Ams -
+List &lt;WebElement&gt; framesList = driver.findElements(By.xpath("//iframe"));
+
+List &lt;WebElement&gt; framesList = driver.findElements(By.xpath("//iframe"));
+===============================================================================================================================================
+Q:How do u get the width of the textbox ?
+
+Ans -
+driver.findElement(By.xpath(“xpath of textbox ”)).getSize().getWidth();
+ 
+driver.findElement(By.xpath(“xpath of textbox ”)).getSize().getHeight();
+===============================================================================================================================================
+Q:Q:Can you explain RequestSpecification request = RestAssured.given();
+
+Ans -RequestSpecification is an interface that allows you to specify how the request will look like. This interface has readymade methods to define base URL, base path, headers, etc. We need to use given() method of RestAssured class to get a reference for RequestSpecification. 
+Also , it will hep us to modify the request like adding header , chnaging some parameter 
+===============================================================================================================================================
+Q:Q:Define all in the api's 
+
+
+
+Response.header("XYZ")------------Get a single header value associated with the given name. If the header is a multi-value header then you need to use Headers.getList(String) in order to get all values.
+
+
+Response.headers------------The response headers. If there are several response headers with the same name a list ofthe response header values are returned.
+
+
+Response.path("")------------Get a value from the response body using the JsonPath or XmlPath syntax
+
+Response.body().asString()------------Returns the response body
+
+Response.getBody().prettyPrint()------------Returns the response body
+
+
+RestAssured.given().queryParam(“xyz”,”abc”)--------------------- Passing the query parameter as a pre condition
+===============================================================================================================================================
+Q:Q:Simple exaple for reference - read it !!
+
+@Test
+public void test_ResponseHeaderData_ShouldBeCorrect() {
+        
+    given().
+    when().
+        get("http://ergast.com/api/f1/2017/circuits.json").
+    then().
+        assertThat().
+        statusCode(200).
+    and().
+        contentType(ContentType.JSON).
+    and().
+        header("Content-Length",equalTo("4567"));
+}
+
+----------------------
+Test
+public void test_NumberOfCircuits_ShouldBe20_Parameterized() {
+        
+    String season = "2017";
+    int numberOfRaces = 20;
+        
+    given().
+        pathParam("raceSeason",season).
+    when().
+        get("http://ergast.com/api/f1/{raceSeason}/circuits.json").
+    then().
+        assertThat().
+        body("MRData.CircuitTable.Circuits.circuitId",hasSize(numberOfRaces));
+}
+----------------------------------
+@Test
+public void test_APIWithBasicAuthentication_ShouldBeGivenAccess() {
+        
+    given().
+        auth().
+        preemptive().
+        basic("username", "password").
+    when().
+        get("http://path.to/basic/secured/api").
+    then().
+        assertThat().
+        statusCode(200);
+}
+
+------------------------------------------
+@Test
+public void test_APIWithOAuth2Authentication_ShouldBeGivenAccess() {
+        
+    given().
+        auth().
+        oauth2(YOUR_AUTHENTICATION_TOKEN_GOES_HERE).
+    when().
+        get("http://path.to/oath2/secured/api").
+    then().
+        assertThat().
+        statusCode(200);
+}
+
+------------------------------------------------
+@Test
+public void test_Md5CheckSumForTest_ShouldBe098f6bcd4621d373cade4e832627b4f6() {
+    
+    String originalText = "test";
+    String expectedMd5CheckSum = "098f6bcd4621d373cade4e832627b4f6";
+        
+    given().
+        param("text",originalText).
+    when().
+        get("http://md5.jsontest.com").
+    then().
+        assertThat().
+        body("md5",equalTo(expectedMd5CheckSum));
+}
+===============================================================================================================================================
+Q:Q:Why static imports , why we need and what will happen agar yeh na ho to
+
+Ans : Static import karne se (jo hum imports mein static keyword use karte hain ) , uska advantage yeh hota ki aapk kisi bhe package se koi bhe method kisi aur pacjage mein bula sakte ho without even importing the package .
+
+simply aise kar, jaise package 1 mein 2 methods hain method1 , method2 
+
+aap ko yeh package 2 mein bulana hai to using static in the import ypou can directly do 
+
+method1();
+methpd2();
+===============================================================================================================================================
+Q:Devops bascially integrate the development with operations 
+Dvelopment includes - Plan , code , build , test 
+
+-------Intergrate using jenkins / Bamboo with below phases ---------
+Deploy , operate , monitor  
+
+
+This helps o make speedy and more perfectly and early feedaback can be expected using devops in agile .
+
+If code fails after test (stage 4 ) then code is resent bak to dev , else ushe hum deploy kar dete hain (step 6).
+======================================================Added on 11-Nov -21 =====================================================================
+Q:Constructor and type of constructor 
+Q:Can a class implements two interfaces .
+Q:Can a absract class can have final modifier ?----------No , it cannot be even private or final 
+****Q:diff in length() and length 
+
+Ans : Length() - is a method and is used to find the length of string / number of character in the string 
+length - is a variable and is used to measure the size of array 
+
+Q: Diff between actions and action 
+Q:Return type of dataprovider ----> it is 2-Dimensional array object
+
+ 
+Q:Reasons for which element is not visible on the page 
+Ans : 1.Element may be hidden (Ask dev to make it visible in the DOM)
+2.Elements may be in some frame 
+
+
+Q:
+===============================================================================================================================================
+Q:*********Q:What will be the output of the program 
+
+Ans public class One{
+
+Static{
+System.out.println("Hello");
+}
+
+{
+System.out.println("World");
+}
+
+Main method-----{
+
+}
+
+}
+
+
+Ans : Hello
+
+===============================================================================================================================================
+*********Q:What is the output 
+
+public class One{
+
+int a =100;
+b=10;
+
+Static{
+System.out.println("Hello");
+}
+
+if(a>=b){
+System.out.println("Nipun");
+}
+
+
+Main method-----{
+
+}
+
+}
+
+
+Ans : Hello
+Nipun (kyn ki donno mein se ek bhe condition chalegi to ho jaeyga print)
+===============================================================================================================================================
+Q:Q:Which function is used to get the current date?
+
+Ans-CURDATE()
+CURTIME()
+NOW()
+
+===============================================================================================================================================
+Q:Agar ek he line mein show karna hai kya kya Viewing the Staged and Unstaged Changes  kiya hai to 
+
+Ans : git log --oneline
+
+
+===============================================================================================================================================
+ ◦ How the webdriver will understand which script to run on which thread ?
+Ans: Refer java ThreadSafe 
+-------------------------------------------------------------------------------------------------------------
+Q:Q:Define all in the api's 
+
+
+
+Response.header("XYZ")------------Get a single header value associated with the given name. If the header is a multi-value header then you need to use Headers.getList(String) in order to get all values.
+
+
+Response.headers------------The response headers. If there are several response headers with the same name a list ofthe response header values are returned.
+
+
+Response.path("")------------Get a value from the response body using the JsonPath or XmlPath syntax
+
+Response.body().asString()------------Returns the response body
+
+Response.getBody().prettyPrint()------------Returns the response body
+
+
+RestAssured.given().queryParam(“xyz”,”abc”)--------------------- Passing the query parameter as a pre condition
+===============================================================================================================================================
+What is 503 status code?
+503 Service Unavailable. The server is currently unable to handle the request due to a temporary overloading or maintenance of the server
+===============================================================================================================================================
+Q:--How to find duplicate element in the dropdown
+
+List<WebElement> options = driver.findElement(By.xpath("//*[@id='unmappedTech']")).findElements(By.tagName("option"));
+
+HashSet<String> HSS = new HashSet<>();
+
+for (WebElement option : options) {
+    if (HSS.contains(option.getText()))
+        System.out.println("Duplicate found");
+    else
+        HSS.add(option.getText());
+}
+===============================================================================================================================================
+Q: What Modifiers Can Be Used with A Local Inner Class
+
+Ans-Since the local inner class is not associated with Object, we can't use private, public or protected access modifiers with it. The only allowed modifiers are abstract or final
+===============================================================================================================================================
+Q:Default server port for running appium 
+
+Ans : 4723 , you can also change it ,Howwver this is default 
+===============================================================================================================================================
+Q:Pair wise testing 
+
+Ans : Testing is carried out on basis of different combinations . 
+===============================================================================================================================================
+
+https://www.softwaretestingo.com/restful-api-web-services-interview-questions/
+https://www.softwaretestingo.com/java-selenium-programs/
+https://www.softwaretestingo.com/testing-interview-questions/
+https://www.softwaretestingo.com/basic-selenium-interview-questions/
+https://www.softwaretestingo.com/selenium-real-time-interview-questions/
+https://www.softwaretestingo.com/selenium-webdriver-interview-questions/
+https://www.softwaretestingo.com/testng-interview-questions/
+https://www.softwaretestingo.com/framework-interview-questions/
+https://www.softwaretestingo.com/core-java-interview-questions/
+https://www.softwaretestingo.com/java-interview-questions/
+https://www.softwaretestingo.com/selenium-tutorial/
+https://www.softwaretestingo.com/java-selenium-programs/
+https://www.softwaretestinghelp.com/api-testing-interview-questions-and-answers/
+
+===============================================================================================================================================
+Q:Maximum scanerio we can declare in single feature file 
+
+Ans : 10
+===============================================================================================================================================
+Q:How many test will run at a time in parallel execution?
+Ans : depends on thread count, basically test case count/ threadcount.
+===============================================================================================================================================
+Q:Sprint Life cycle ?
+
+Ans : Story -> To Do -> In Progress -> Done 
+===============================================================================================================================================
+Q:17.What is the difference between vector list and arraylist
+
+Vector is synchronized.
+Vector increments 100% means doubles the array size if the total number of elements exceeds than its capacity.
+Vector is slow because it is synchronized
+
+
+ArrayList is not synchronized.
+ArrayList increments 50% of current array size if the number of elements exceeds from its capacity.
+ArrayList is fast because it is non-synchronized.
+
+===============================================================================================================================================
+Q:Use of javac ?
+Ans : The javac command reads source files that contain module, package and type declarations written in the Java programming language, and compiles them into class files that run on the Java Virtual Machine.
+===============================================================================================================================================
+Q:What is use of intern() method ?
+Ans : The method intern() creates an exact copy of a String object in the heap memory and stores it in the String constant pool. Note that, if another String with the same contents exists in the String constant pool, then a new object won't be created and the new reference will point to the other String.
+
+===============================================================================================================================================
+Q:Why we cannot crate an object of abstract and interface ?
+Ans : No, you cannot create an instance of an abstract class because it does not have a complete implementation. 
+The purpose of an abstract class is to function as a base for subclasses. It acts like a template, or an empty or partially empty structure, you should extend it and build on it before you can use it.
+===============================================================================================================================================
+Q:What is the Diference between header and headers ?
+Ans : Header - Provides you a single header associated with single header ("key","Value") .It taskes string and return string 
+
+
+headers will provide list of headers  ("key","Value" ,"key","Value"  , "key","Value" ....).Here you have to pass multiple values and it will further return multiple values 
+===========================================================07-Oct-2021======================================================================
+Q:Example of upcasting 
+
+Ans :
+short a = (short) 1000000000;
+float a = (float) 10000.993893929;
+===============================================================================================================================================
+Q:If long is converted to int , what type of Casting is it .Up/Down or Narrowing/Widening 
+
+Ans : Down /Narrowing 
+===============================================================================================================================================
+Q:43 : Can we declare class as protected?
+Answer : No, You can not declare class as protected.
+===============================================================================================================================================
+Q:Find out the lenght w/o using length method --------- using tocharArray[] , 
+===============================================================================================================================================
+Q:*****Q:What is JVM memory components ------> Stack , heap memory . Stack will have static data say static variables , static methods , heap will have non static variables and methods 
+===============================================================================================================================================
+Q:What is the return type of split ?
+Ans : String[]
+===============================================================================================================================================
+Q:Which purpose does the OPTIONS method serve for the RESTful Web services?
+
+Ans : The OPTIONS Method lists down all the operations of a web service supports. It creates read-only requests to the server.
+===============================================================================================================================================
+Q::Differenve between hashset and Linked hashset ?
+Ans : 
+
+HashSet is an unordered & unsorted collection of the data set, whereas the LinkedHashSet is an ordered and sorted collection of HashSet.
+HashSet does not provide any method to maintain the insertion order. Comparatively, LinkedHashSet maintains the insertion order of the elements.
+HashSet is slightly faster than the LinkedHashSet. But both provide almost similar performance,
+=================================================Added on 12 -Nov -21 ========================================================================
+Q:Exaplain TDD 
+Q: Refractoring -- Making the code clean without changing the actual implementation
+Q:String builder and String Buffer .Which one is thread safe , which is more faster & efficient 
+Q: JVMOutofMemory error
+Q:Default time in Implicit wait 
+
+Q:git checkout filename , use of this ?======> ab aapne jaise ek baar file commit kar di , aur woh file ka content aapke folder se udh gya to aap yeh command run kar do us file ka content wapis aa jaeyga .
+
+git checkout filename
+
+Q:git checkout -f ----> ab aapne jaise ek baar file commit kar di , aur woh file ka content aapke folder se udh gya to aap yeh command run kar do us file ka content wapis aa jaeyga . -f last mein karne se aapki saari files ka content wapis aa jaeyga , agar ek filename mention karoge to woh particular file ka content aa jaeyga 
+
+
+Q:git log --oneline ---what is the use of this command 
+
 Q:
 
 ===============================================================================================================================================
-Q:
+Q:How will youdefine dependendency/ dependent on a particular method in testnG and cucumber 
+
+Ans 
+TestNG 
+========
+@Test
+public void test1(){
+
+}
+
+@Test(dependsOnMethod="test1")
+public void test1(){
+
+}
+
+
+==========
+Cucumber
+==========
+@Before("tagName")----------------------This will run before this  scanerio 
+public void test1(){
+
+}
+
+@Test(dependsOnMethod="test1")----------------------This will run before each  scanerio 
+public void test1(){
+
+}
+===============================================================================================================================================
+Q:Q:What is the difference between ClassNotFoundException and NoClassDefFoundError in java?
+
+ClassNotFoundException is an exception that occurs when you try to load a class at run time using Class. ... NoClassDefFoundError is an error that occurs when a particular class is present at compile time, but was missing at run time.
+===============================================================================
+Q:]3. Why it is not possible to do method overloading by changing return
+type of method in java?
+
+Overloading is the mechanism of binding the method call with the method body dynamically based on the parameters passed to the method call. ... It is not possible to decide to execute which method based on the return type, therefore, overloading is not possible just by changing the return type of the method.
+===============================================================================
+preceding-Selects all nodes that appear before the current node in the document, except ancestors, attribute nodes and namespace nodes
+
+following-Selects everything in the document after the closing tag of the current node
+
+following-sibling-Selects all siblings after the current node
+
+descendant -Selects all descendants (children, grandchildren, etc.) of the current node
+===============================================================================================================================================
+Q:What is blank final variable? Can we initialize the blank final variable?
+
+🅰 A variable that is declared as final and not initialized at a time of declaration is known as a blank final variable.
+
+Yes, if it is non-static then we can declare in the constructor. If it is static blank final variable, it can be initialized only in the static block.
+===============================================================================================================================================
+Q:Q: How to take screen shot of failed test cases in testNG 
+
+
+#####Class 1 - create simple class and esmein screenshot ka as usual wala code likho 
+
+
+public class CaptureScreenShot {
+
+public static  WebDriver driver;
+	
+	
+	public static WebDriver takeScreenShot(WebDriver driver) throws IOException, InterruptedException
+	{
+		try {
+	    File scr=((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+	    
+	    String pathToCollectSS = System.getProperty("user.dir");
+	    
+	    File dest= new File(pathToCollectSS + "/ScreenShots/" +timestamp()+".png");
+	    
+	    FileUtils.copyFile(scr, dest);
+	
+	}
+	catch (Exception e) {
+		System.out.println("Handle Exception");
+	}
+		return driver;
+		
+	}
+	
+	public static String timestamp() {
+	    return new SimpleDateFormat("yyyy-MM-dd HH-mm-ss").format(new Date());
+	}
+
+}
+
+
+
+
+#####Class 2 - ek naey class banao -> by any name : implements ItestListner .Now right click on ItestListner in the class name and go to source ---> override implemented 
+
+
+public class CustomListener implements ITestListener {
+
+	public static WebDriver driver;
+	
+	// Not all the methods are abstarct and are from interface ITestListner -> Right
+	// click on ItestListner and go to source and Override/implement
+	
+	
+
+	public void onTestStart(ITestResult result) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public static  WebDriver  onTestSuccess(ITestResult result,WebDriver driver) {
+		System.out.println("Pass Test Case!!!!");
+		
+		try {
+			CaptureScreenShot.takeScreenShot(driver);
+		} catch (Exception e) {
+			
+			e.printStackTrace();
+		}
+		return driver ;
+	}
+	
+
+	public void onTestFailure(ITestResult result) {
+		System.out.println("Failed Test Case!!!!");
+		
+		try {
+			CaptureScreenShot.takeScreenShot(driver);
+		} catch (Exception e) {
+			
+			e.printStackTrace();
+		}
+	}
+
+	public void onTestSkipped(ITestResult result) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void onTestFailedButWithinSuccessPercentage(ITestResult result) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void onTestFailedWithTimeout(ITestResult result) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void onStart(ITestContext context) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void onFinish(ITestContext context) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public int hashCode() {
+		// TODO Auto-generated method stub
+		return super.hashCode();
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		// TODO Auto-generated method stub
+		return super.equals(obj);
+	}
+
+	@Override
+	protected Object clone() throws CloneNotSupportedException {
+		// TODO Auto-generated method stub
+		return super.clone();
+	}
+
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return super.toString();
+	}
+
+	@Override
+	protected void finalize() throws Throwable {
+		// TODO Auto-generated method stub
+		super.finalize();
+	}
+
+	
+
+}
+
+
+#####class 3 - where the test/main code is there -- class name ke upar yeh jarur use karo--->@Listeners(Utility.CustomListener.class) ..yaha CustomListener.class woh class hai jis mein aapne interface (ITestListner) implement kiya h 
+
+
+
+@Listeners(Utility.CustomListener.class)
+public class FileUpload {
+	
+WebDriver driver;
+	
+	@BeforeTest
+	public  void setUp() {
+		driver= BrowserSetup.StartApplication(driver, "Chrome");
+	}
+	
+	
+	
+	@Test	
+	public void uploadFunctionality() throws IOException, InterruptedException {
+		driver.get("http://demo.guru99.com/test/upload/");
+		WebElement chooseFile = driver.findElement(By.xpath("//*[@id='uploadfile_0']"));
+		
+		chooseFile.sendKeys("C:\\Users\\e5584133\\Desktop\\Bala Ji.jpg");
+		
+		WebElement acceptnce = driver.findElement(By.xpath("//input[@type='checkbox11']"));
+		
+				
+		acceptnce.click();
+		
+		WebElement submitBtn = driver.findElement(By.id("submitbutton"));
+		submitBtn.click();
+		
+		
+		
+		
+	}
+===============================================================================================================================================
+Q:Q:
+
+Get , Post request sidhi hit maaro
+Put , ;patch , delete mein parameter lagao at the end say https://localhost:8080/VermaData/1
 
 
 ===============================================================================================================================================
-Q:
+Q:Api mein body kis kis http method emin nahe jaeygi
 
-
+Ans  GET , Delete 
 ===============================================================================================================================================
-Q:
+Q:Q:How to capture only Selected value from the drop-down
 
-
+Ans -Select select = new Select (d);
+		select.getAllSelectedOptions()
 ===============================================================================================================================================
-Q:
+Q:Q: how to concat two matrics?
 
-
+Ans -
+public static void main(String[] args)   
+{  
+int[] firstArray = {23,45,12,78,4,90,1};        //source array  
+int[] secondArray = {77,11,45,88,32,56,3};  //destination array  
+int fal = firstArray.length;        //determines length of firstArray  
+int sal = secondArray.length;   //determines length of secondArray  
+int[] result = new int[fal + sal];  //resultant array of size first array and second array  
+System.arraycopy(firstArray, 0, result, 0, fal);  
+System.arraycopy(secondArray, 0, result, fal, sal);  
+System.out.println(Arrays.toString(result));    //prints the resultant array  
+}  
+}  
 ===============================================================================================================================================
-Q:
+Q:Q:Difference in Automation testing/Tester and SDET (Software Design Engineer in test)
+Automation Testing can be referred to role/designation as well as it is the term use to differentiate between Manual Testing and Automation Testing. You can say that I am in Automation Testing, I am Automation Tester, I am a Test Developer,Test Automation proffessional etc. But yes when it comes to the term SDET(Software Development/Design Engineer in Test) This refers to a role which has expertise in below aspects of Automation Testing (not mandatorily all but most of it):
 
+Automation Framework Designing-Selenium, Cucumber, Siquili, AutoIT, RPM, Rest-Assured API, OK HTTP, etc
 
+Coding/Scripting (Java,C#, Python, Pearl, Ruby etc)
+
+CICD pipeline (continuous Integration Continuous Development/Delivery)- Jenkins, Maven,Bamboo etc. DevOps tools and practices -GitHub, Ansible, Docker etc.
+
+Apart from all above, SDET must also be aware of QA practices, Like Agile, Waterfall, STLC SDLC, defect lifecycle, Diff Types of Testings, Testing situational dealings, Test Plan and artifacts etc.
+=====================================================================================================================================================Q:Git command to remove file from stagging area ya commit karne ke baad aaap usko remove/delete karna chahate ho to 
+
+Ans : git rm --cached filename 
 ===============================================================================================================================================
-Q:
+Q:Git command to remove file from harddisk as well .
 
-
-===============================================================================================================================================
-Q:
-
-
-===============================================================================================================================================
-Q:
-
-
-===============================================================================================================================================
-Q:
-
-
-===============================================================================================================================================
-Q:
-
-
-===============================================================================================================================================
-Q:
-
-
-===============================================================================================================================================
-Q:
-
-
-===============================================================================================================================================
-Q:
-
-
-===============================================================================================================================================
-Q:
-
-
-===============================================================================================================================================
-
-
-===============================================================================================================================================
-Q:
-
-
-===============================================================================================================================================
-Q:
-
-
-===============================================================================================================================================
-===============================================================================================================================================
-Q:
-
+Ans : git rm -f filename
 
 ===============================================================================================================================================
 Q:

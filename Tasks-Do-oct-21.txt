@@ -1,7 +1,6 @@
 Move element from source to dest without using action class 
 
 git ammend *****
-git restore *****
 framework explain*****
 API chaining 
 Captcha automate ****
@@ -14,8 +13,6 @@ Handle the Tooltip Java Selenium (Verify Tooltip)
 Upload File Using Selenium WebDriver
 Download File Using In Selenium
 Writing into excel
-Selenium grid 
-Captcha automate
 Write Screenshot code 
 
 
@@ -29,16 +26,11 @@ https://www.softwaretestingo.com/selenium-webdriver-interview-questions/
 
 =====================================
 Grouping in testNG
-Run failed test case in textNG
-collections ****########
 Q:Find out the lenght w/o using length method*****
 Verify the Dropdown values are in sorted or not 
 Read Text file #########
-Read image in selenium #########
-Batch file for Selenium project #########
 
 
-Verify Drop Values are In Sorting Order
 Get Web page Links Using Selenium
 Download File Using In Selenium
 64. How to check the image is loaded correctly or not on the page?
