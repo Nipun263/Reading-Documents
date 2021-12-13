@@ -1,0 +1,151 @@
+
+https://www.softwaretestingo.com/restful-api-web-services-interview-questions/
+https://www.softwaretestingo.com/java-selenium-programs/
+https://www.softwaretestingo.com/testing-interview-questions/
+https://www.softwaretestingo.com/basic-selenium-interview-questions/
+https://www.softwaretestingo.com/selenium-real-time-interview-questions/
+https://www.softwaretestingo.com/selenium-webdriver-interview-questions/
+https://www.softwaretestingo.com/testng-interview-questions/
+https://www.softwaretestingo.com/framework-interview-questions/
+https://www.softwaretestingo.com/core-java-interview-questions/
+https://www.softwaretestingo.com/java-interview-questions/
+https://www.softwaretestingo.com/selenium-tutorial/
+https://www.softwaretestingo.com/java-selenium-programs/
+https://www.softwaretestinghelp.com/api-testing-interview-questions-and-answers/
+
+===============================================================================================================================================
+					Start from Rest API Real Time Interview Questions
+https://www.softwaretestingo.com/restful-api-web-services-interview-questions/					
+					
+=============================================================================================================================================== 
+*API Interview Questions*
+
+1) How to parse a json
+2) How to parse a xml
+3) How to Insert key:value based upon some searching criteria
+4) Write code for conversion of json to xml and xml to json
+5) what do you mean by query parameter and path parameter 
+6) what is the difference between put and patch
+7) what are the validation while API automation
+8) Explain your framework(Rest Assured)
+9) what do you mean my object notation and array notation in json
+10) write code for json Read
+11) what do you mean by POJO why we use POJO
+12) what do you mean by authentication and what are the types of authentication while API testing
+13) what is the difference between URI and URL
+14) how do you store result and use further in groovy scripting
+15) what do you mean by Test runner in groovy scripting
+16) what is the Rest service architecture
+17) what is the soap service architecture
+18) what is the soap ui work hirarchy
+19) how to set and get property using groovy scripting
+20) what do you mean by jsonsluper and xmlholder 
+21) how to convert json to Hashmap 
+22) what do you mean by Data source Data Sink and Data Source loop and why do we use it 
+23) how to handle SSL in SoapUI
+24) what are the different type of properties in SoapUI how you declare using groovy scripting
+25) What is the main thing while API automation.
+26) what do you mean by Webservices and why do we use Webservices.
+27) what is the difference between soap and Rest.
+28) what do you mean by UDDI .and what do you mean by WSDL.
+29) what are the different type of HTTP Methods.
+30) how to parse a list from a json for example there is json and there are multiple IDs how you will parse all the IDs from json and how you will parse a particular I'd from that json.
+
+------------------------------------------------------------------------->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+How to Sort employee class using Comparator?
+what is Dictionary in java?
+WAP to Reverse Number
+WAP to count a duplicate character in String
+WAP to count no of the word in String
+WAP to String is palindrome or not
+WAP to remove the duplicate element in Array
+WAP to remove duplicate Character in String
+WAP to Bubble Sort
+WAP to Insertion Sort
+WAP to Selection Sort
+WAP to Count vowels in String
+WAP to no is binary or not
+WAP to no is factorial
+WAP to Find largest no in Array
+WAP reverse number
+WAP to find second no of ArrayList
+WAP to Sort Array?
+
+
+
+What is a keyword? List some keywords?
+What are literals?
+How can you declare constant variables in java?
+What is call by value and call by reference?
+What is the instance variable hiding?
+
+
+
+----------------------------------Start--------------------------------------------------------->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+7. What  are the oops concept ? explain them each with real world examples
+8.Write a program so that when ever u create a object ... u get to know how many object u have created 
+9. What is singleton classes ?
+10.What is difference  between .equals() , (==)  and compare-to();
+11. What is the difference   between hash code and equals
+13.Write a program to get substring of string  ex: javais good ... so result : avais
+14.Write a program to reverse the string 
+13. Wap for binary search 
+14.What is the use of package 
+15. Why we use interface and abstract 
+16.We have 2 interface both have print method , in my class i have implemented the print method , how u wil get to know that i have implemented the first interface and how u will use it .. if u want to use it 
+17.What is the difference between vector list and arraylist
+18. Wifference between hashmap and hash table, what is synchronization , how it is achieved 
+19. What is the use of collection, when we use it 
+20. What is priority queue in collection , what is the use , how u have use in your project 
+21.Where  to use hashmap and hashtable
+22. Where u have use the concept of interface and abstract in your framework
+
+   				
+	
+How to file attachment with out Autoit scripts ?
+How to run the test scripts with mulitiple browser ?
+
+
+What is difference between Web services testing and API Testing
+Difference between XML and HTML
+Difference between Xpath and XQuery
+Types of Properties and their syntaxes
+
+What is Data Source Test step
+Explain about JDBC process
+How to Connect JDBC to SOAP UI
+What is Connection String in JDBC
+Difference between SOAP UI FREE v/s SOAP UI PRO
+What is Data Sink and Data gen test steps in soapui pro
+How to Transfer value using Property Transfer
+What is Mock services
+How to do Service mocking
+What is the process of SOAP UI Testing
+What is WSDL
+What are the parameters are in WSDL
+Explore the WSDL
+Is WSDL is necessary for SOAP UI
+Why HTTP is important in webservices
+What is Endpoint?
+What is HTTP method and HTTP Status codes
+Explain different types of HTTP methods and Usages
+Explain about different Status codes
+Types of HTTP Status codes
+What is Request Header ? and its format?
+What is Response Header ? and Its format?
+What are tool are available for SOAP testing
+Do u have experience in Load Testing
+How to test Load Testing
+What is TPS, Response Time and Breakeven point
+Absolute vs Relative Xpath?
+What is Name Space and its usage
+How to write Xpath for access attributes ?
+SOAP UI Architecture
+How to generate Reports in Free Version
+
+
+20. WAP to check duplicate characters in a string.
+
+
+

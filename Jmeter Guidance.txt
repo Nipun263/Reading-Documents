@@ -1,0 +1,903 @@
+Jmeter:
+
+Jmeter - Apache Jmeter is used for load testing , we test how much load my app can take ,I mean kitne users hone ke baad bhe aap break nahe ho rhi .
+Jmeter is used for testing web apps/FTP apps .Nowadays it is also used for DB testing , functional testing , server test etc .
+
+
+It is a java open source software that is used for performance of an application .It is used for load testing .
+
+===>In jmeter everything comes under test Plan ,jo bhe mention karna hai you need to mention under test plan .Inside test plan we have test case 
+Test plan will test how test case will run , it will tell about series of steps .A test plan will have one or more thread .<=====
+
+************File created in jmeter will have extension jmx *****************
+----------------------------------------------------------------------------------------------------------------------------------
+Pre requiste  and for downloading JMETER :
+========================================
+
+1.Latest Version of jmeter (5.4.0)
+2.Java should be installed on system.Java 8 or more should be there 
+Check java version by doing java -version
+3.Download jmeter from <apache-jmeter-"latest_version"> from official website 
+4.Unpack it 
+5.Go to folder <apache-jmeter-"latest_version">
+6.Go to bin 
+6.Double click on "Jmeter" (Window batch file)
+8.Jmter GUI will open 
+
+*****No need to install , just after downloading --- unzip the same and then copy it in drive(where ever you want)
+
+----------------------------------------------------------------------------------------------------------------------------------
+Run the Jmeter  :
+========================================
+1.Go to driver in your computer ---  where the Jmeter is there 
+2.Go to bin folder 
+3.Open command prompt here 
+4.Run the command jmeter.bat 
+5.Give sometime 
+6.GUI will automatically open 
+
+----------------------------------------------------------------------------------------------------------------------------------
+Why jmeter ?
+
+Ans : Lets suppose you are said to test load testing on a website say https://www.amazon.in .Now ek user se karn ho to aap manually hit maarke dekh lo , agar yeh 10 users ke liye hai tab bhe aap manually kar doge , but in case agar yeh 10 lakh users ke liye hai to in that case aap manually nahe kar sakte aur agar kar bhe lo to itne users ke liye pehle hardware arrage karo , aur agar kar bhe diya to sabko ek saath hit karna hai thats not possible .
+So we have jmeter to solve our purpose .This software will create dummy load for each user .
+
+----------------------------------------------------------------------------------------------------------------------------------
+========================================
+Creating firstJob in Jmeter  
+========================================
+Lets test the website https://www.google.com
+
+===>In jmeter everything comes under test Plan ,jo bhe mention karna hai you need to mention under test plan .Inside test plan we have test case 
+Test plan will test how test case will run , it will tell about series of steps .A test plan will have one or more thread .<=====
+
+1.Creat test plan (Thread ke under --> right click -> Add -> Sampler -> http request 
+Note Thread mein paramter set kar lena jaise number of threads , ramp up period , loop count )
+
+2.Under test plan you can add number of elements 
+3.Under each test plan we have maily Threads , Ramp up period , loop count 
+
+A single test plan can have multiple thread group / other elements 
+
+1.)Number of Threads ----> Kitne users/thread parallel mein run karne hain 
+	=================
+
+2.)Ramp Up Period ---->kitne time mein , thread mention kiye hain chalane hain.Lets say Ramp up period = 1000 , number of users =10.That
+	===================    means 1000/10 = 100 seconds .That means our 10 users should be up and running within 100 sec or we can say every thread will start in 100 seconds .
+
+
+
+
+example : Number of Threads = 200 , Ramp up period = 2000 .Than 2000/200 = 10 , that means every thread will start in 10 seconds .
+
+
+
+
+3.)Loop Count --->Kiti baar ek thread run karna hai , example loop count = 3 .That means every request will be sent 3 times .If it is 5 , then every 
+	============
+					request will be sent 5 times 
+
+
+Note : Thread/User is one of the same thing 
+
+
+Action to be taken after a sampler error -----> 
+1.Continue ---> Agar aapne 10 users ke liye ramptime set kiya hai 100 , to ab har users ko 100/10 = 10 sec lagenge ek complete karne mein , in case 
+itni requests mein se agar koi fail bhe ho jaey to next request lega and so on .This is continue option .Ignore the error and continue next request
+
+2.Start Next loop - Lets suppose there is a thread and under  that we have 2 requests .Each request has loop count =5 , that means donno request har user ke litye 5-5 baar chalegi .Now agar ek request kahi fail ho gayi to woh apni baki remaning loops ko run nahe karegi aur next request par jump kar degi
+
+
+3.Stop Thread -- Agar kis thread mein issue aa gya to usko stop kar denge aur next thread par run kar lenge 
+
+
+4.
+==================================================================================================================================================
+Crtl+E ---> clean everything 
+
+===========================================================Lecture 2 =============================================================================
+Whenever we create any request under http request we have the following options 
+
+1.Redirect Automatically .ab jaise site hai , http://www.mintox.com 
+esko hit karne par , ek he user ke liye 2 records banege .ek mein 200 ok ayega disre mein status code : 307 aayega 
+eska matlab hai jab aap koi request bhejte hain server par to wh kuch return karta hai like status code , body , ya even kuch url (woh jo 307 wala hai na that is a URL). Dnt worry yeh peeche chalta rehta hai dnt worry about it .agar aap es option ko click karoge to aapko woh backend par nahe dikhega that means aapko ek he record dekhega (200 ok wala ) .dusra nahe dikega 
+
+2.Follow redirects : 
+ab jaise site hai , http://www.mintox.com 
+esko hit karne par , ek he user ke liye 2 records banege .ek mein 200 ok ayega disre mein status code : 307 aayega 
+eska matlab hai jab aap koi request bhejte hain server par to wh kuch return karta hai like status code , body , ya even kuch url (woh jo 307 wala hai na that is a URL). Dnt worry yeh peeche chalta rehta hai dnt worry about it .agar aap es option ko click karoge to aapko woh backend par donno  dikhega that means aapko ek dono record  dekhega (200 ok wala as well as 307 wala ) .dusra nahe dikega 
+****this is the only diff between two options*****
+
+
+3.Under the thread group (created on top of reuests) uske andar yeh options hain 
+
+--Delay thread creation until needed ---> jitne bhe thread hain unko kuch resources chaiye honge jaise space ya kuch bhe .To agar yeh option unticked hai to woh saare thread start hone se pehle he vailable rakhega resources ko , aur agar yeh ticked hai to woh tab lega woh tab resources ko ekathe karega jab required hoga to 
+
+
+4.Under the thread group (created on top of reuests) uske andar yeh options hain 
+
+--Specify thread life :: ab aap chahate hain chahe kitne bhe users/thread ho woh ek time ke baad jmeter band ho jaey say after (1 hour) to yeh option help karegi 
+	--Duration : kitne time ke liye chalani hai say it is 3600 seconds to means 1 hour 
+	--Start Up delay(seconds)-- jaise if it 10 sec , then means ki yeh 10 sec wait karega fir yeh jitna (duration - jo upar diya hai ) utna chalega , fir yeh fir 10 second wait karega fir yeh fir 3600 second chalega and so on . es ke yeh faeyda hai ko agar 2 lakh user ke liye chalana hai aur agar woh kahi fail ho jati hai to mentioned time ke baad band ho jaey else nahe to woh chalata rhega 
+******Note : jab bhe yeh feature use karna hai always keep in mind 
+
+=======================================================Lecture 3 ===================================================================================
+========================================================FTP request ================================================================================
+FTP request : jab kabhi file download ya upload func check karni ho to yeh use karenge say kisi government ki site par photo/ form upload ya download karna hai .TO us case mein , download ya upload check karne waqt we use file transfer (FTP)
+
+1.Name - any name 
+2.Server name - jaha file uplaod ya download karni hai
+3.Port Number - waise by defualt khali chod do , in case khali chodege tab woh by default wala that is 21 number le lega 
+4.Remote file - Jo us server se file download karni hai uaka naam or ya jab upload karni hai to us server par ja ke kis naam se file save ho woh naam do
+5.Local file - jo aapne apni machine se file upload karni hai uska path say c:/deskptop/jemeter/abc.txt  ya download hone ke baad kis folder mein save ho aur kis naam se woh de sakte hain 
+6.get---> jab aapko download karna hai 
+7.Put --> select when you have to uplad file 
+8.User binary ---> jab aapko .tar ya .zip .gz file upload ya donload karni hai tab select karo
+9.Save file in Response -----> agar response save karna hai to yeh select karo..mind this yeh select karne se no doubt logs to ban jaynge but memory bhe lega 
+10.Login Config 
+username -- jaise koi server se file access karnse aap username and password daaalte ho na woh daaalo
+password 
+
+ *********** Sample site aap le lo :: test.rebex.net ***********
+
+
+App view tree mein dekh sakte ho , us mein yeh he pta chal jaeyga konsi file thi aur kaha se pick hui aur kaha copy hui 
+
+Note : 
+Jab file download karni hao to get option select karo aur jab upload kaeni hai to put select karo 
+
+======================================================================================================================================================
+
+========================================================JDBC Request ================================================================================
+Main things required are 
+1.JDBC connection :: used to make connection to DB  
+2.JDBC Request :: used to hit request like select insert etc to DB 
+
+JDBC connection Configuration karne ke liye ---> Right click on test plan ----> Add ---> config element ----> JDBC configuration connection 
+Pop up will open 
+
+Sample sql server site ---> https://www.db4free.net/
+
+username : nipuntestdb 
+password: Sanjeev43
+
+
+
+Name -- give any name say JDBC configuration 
+Scroll down till option , DataBase  connection Configuration
+
+Download jar mysqlconnector-java 
+After downloading this jar --> go to folder jaha jmter installed hai ,go to lib directory and paste that jar here 
+Please restart your jmeter 
+
+1.)DataBase URL :: jdbc:mysql://db4free.net:3306/nipuntestdb
+Explain 
+jdbc:mysql/servername:portnumber/DBname
+
+example ---> jdbc:mysql://db4free.net:3306/nipuntestdb
+
+2.)JDBC Driver class :: Select -> com.mysql.jdbc.Driver
+
+3.)Username :: username (jo aapke db ka login hai say nipuntestdb)
+
+4.)Password :: Password (jo aapke db ka password hai say *******)
+
+In the option Visible name for Created Prod :: pass the name :: yaha ek uniqua naam do aur wahi naam jab aap JDBC request hit karoge na us mein bhe option (visible name of pool declared in a JDBC connection configuration ) mein dena hai .Tabhi ushe pta chalega kis jdbc request ke liye konsi jdbc configuration uthani hai , kal ko ho sakta hai 10 jdbc config ho .
+
+
+5.)Ab upar dekho eshe window mein (JDBC connection config ) mein --> 
+Variable name for created pool : yaha koi bhe naam de do example config1 ya jo bhe .a yahi naam aapne aopne jdbc sampler mein dena hai .taki us sampleer ko pta chal jaey konsi configuration follow karni hai .in actual scanerio ho sakta hai 100 jdbc sampler ho aur 100 he config ho , to mapping eshe hogi (koi issue aaye to recording session3 , time 31:00 min dekh lena )
+
+JDBC sampler mein ek field hai variable name decalerd in the JDBC connection cofig yaha wohi naam rakho 
+
+Aur yar Query type select karo lo (apni request ) mein , neeche query bhe likh lo chahe select ki ya insert ki ya jo bhe ho 
+
+
+6.)Connection Properties - keep it khali(Blank)
+
+
+Now create a JDBC request 
+1.Name : ANy Name 
+2.Variable name of pool declared in JDBC connection config :: yaha woh naam do jo aapne jdbc ki config mein variable name diya hai 
+3.Query type : select / update/delete koi bhe select kar lo 
+4.In the textbox below write the query 
+Example SELECT `Name` FROM `SampleTableNipun` WHERE Name = 'Nipun'
+
+
+=========================================================Lecture 4 ===============================================================================
+JSR223 Request ::
+==============
+
+Es tarah ki request tab use hogi , jab ek ka response dusre request mein use hogi .ek ka result se kuch nikala aur dusri request mein use karna and 2nd ka 3rd mein and so on ..
+
+1.)ctx: it contains context of current thread.jaise us thread ka kuch id hoga , kuch detail hogi ya kuch output hogi .Esko aap JSR223 mein under script likh saKte ho 
+
+Under this site (Official site of jmeter)
+https://jmeter.apache.org/api/org/apache/jmeter/threads/JMeterContext.html
+
+Class jmter context ke methods likhe hain , yeh hum use karenge jaise getProperties() , 	getCurrentSampler() aur bhe bht hain 
+
+
+2.)vars : kaey variables aap use kar sakte hain JSR223 request mein jaise ctx , vars , props etc 
+
+3.args : Input arguments ke liye 
+
+variables of the jmeter are available under 
+https://jmeter.apache.org/api/org/apache/jmeter/threads/JMeterVariables.html
+
+yaha bhe kaey methods hain ek baar dekh lo 
+
+
+4.Cache complied script if vaialble ---> es option ko tick karne se aap cache menmory mein jo bhe save hoga to ushe use kar lega instead of sending new request 
+
+
+5.)Props : property ke liye , jmeter ke installation folder mein prop file hoti hai , usse variables (property) ko extract karne ke liye we use this 
+
+Note : Download plugins-manager.jar and put it into lib/ext directory, then restart JMeter.
+
+
+
+=============================================================Lecture 6============================================================================
+
+Preprocessor : JDBC 
+====================
+
+1.Under any  request say HTTP  add JDBC pre processor 
+Right click on any request say HTTP---> Add -> Preprocessor -> JDBC 
+
+2.Once this preprocessor is added 
+
+-->Name : Any Name 
+-->VariableName : Yaha ek unique naame dena hai ,a ctually aapke yaha 5 request chal rhi hai say .ab es variable naam se pta chalega konsi run karni hai 
+-->Query type : Can be Select , Insert ya koi bhe ho sakti hai 
+
+3.Variable  Name  : All parametrs of sql seperated by comma . 
+Jaise aapki query hai select empid, empname from emp;
+
+ab empid, empname ya for sirf empid or sirf empname jo bhe aapko chaiye us query se wph yaha ayega under paramter value
+
+
+4.Query timeout : kitne seconds mein query hit honi chaiye else woh fail kar dega (Na bhe doge tab bhe chalega)
+
+For example :: 
+1.We choose a free DB https://www.db4free.net/phpMyAdmin/
+
+Username : nipuntestdb
+Password : Sanjeev43
+(Note : Yeh khulne mein time lega)
+
+
+2.Create a table here and run any query , woh query aap JDBC (JMETR) mein copy kar dena 
+
+
+3.Take one http request jiske neeche yeh JDBC preprocessor add kiya than
+
+4. us http request mein Http Reqtst : get/post / ya jo bhe karna hai karo 
+proptocol : https/https depends on site 
+server name : site name exampl : mintox.com or google.com
+
+5.path :: /${Name_2} ;;;;Nte : Name_2 esliye likha hai kyn ki name to varoalename diya tha , aur _2 matlab record mein se 2nd value chaiye
+Note path mein woh ayega jo aapne jdbc preprocess se variable name option mein save karyaha hai exmaple empname, empid ya sirf empname 
+
+aur han _2/_1_3 lagana padega _2 means second record leke ayega sql query se and so on...
+
+
+
+
+===========================================================Lecture 7===============================================================================
+Post Processor ::
+=================
+These are used to execute action after request is executed . It can perfom some action on your response or extract some values from response 
+
+Type pf Post Processors ::
+
+1.Regular Expression extractor --> You can extract n number of values from the response . All the values will be comma seperated .
+	============================
+	Example : "CustomerName":"(.*$)",.*"CustomerId":"(.*$)",.*"LicenseNumber":"(.*$)"
+	
+	Here 
+	Group1 =CustomerName
+	Token1 =(.*$)
+	
+	Group2 =CustomerId
+	Token2 =(.*$)
+	
+	Group3 =LicenseNumber
+	Token3 =(.*$)
+	
+.* in the above example means jaha se customerid start hoga usse pehle kuch bhe charactsrs ho sakte hain ..we are saying that customername ke baad kuch he charactsrs ho sakte hain till cusotmerID tak 
+
+
+In Regular Expression extractor there are 4 options as listed below 
+
+1.Main Sample and Sub Sample -- yeh jo aap regular expresiion will run on main sample(jo main response aaya ) and sub sample ( Jo redirection ke baad request jata hai , jaise aapne dekha hoga kaey baar http request mein 2 output aati hai ) 
+2.Main Sample only 
+3.Sub Sample only 
+4.Jmter Variable Name to use 
+
+
+Field to check::
+1.Body  -- full body response se jo mili hai 
+2.Body(Unescaped) -- kaey baar body mein kaey aise characters aate hain ushe yeh display nahe karta , agar yeh option select kiya to to it will show those also
+3.Body as document 
+4.Response Header 
+5.URL 
+6.Response code - response code mein kuch dekhna hai to 
+7.Response Message - msg mein dekhna hai to yeh select karos=
+
+
+Name of Created Variable :: kuch bhe naam de do 
+Regular expression :: To find the regular expression --> go to site https://regexr.com/   ---> 
+Template :: jaise ek value chaiye todo $1$ , agar 2 values extract karni hai to do $2$ and so on 
+
+
+to do 
+1.go to any site say https://www.mintox.com/
+2.Now inspect any element of this site 
+3.Jo wndow khul hai us mein htmp tab pat click karo
+4.Right clik and edit as html 
+5.Copy all the content 
+6.Now go to site https://regexr.com/
+7.Copy the html content here under text 
+8.Expression mein aapko woh expression banana hai jaise aapko mentioned example mein dekho neeche 
+
+src="https://b.clarity.ms/s/0.6.29/clarity.js"></script><script async="" src="https://www.clarity.ms/tag/8bmy2wm1bj?ref=gtm2"></script><script type="text/javascript" async="" src="https://ssl.google-analytics.com/ga.js"></script><script async="" src="https://www.googletagmanager.com/gtm.js?id=GTM-56Z7RTS"></script><script src="/theme/_assets/libs/jquery/jquery.min.js">
+
+an aapko src="......yeh saare record chaoye to you will do 
+
+src="(.*)">
+
+yaha src=" ....yaha se har record start ho rha hai 
+(.*)---this will show ki kuch bhe ho sakta hai end tak 
+">---yaha yeh kjatam ho rha hai 
+
+
+
+
+Now to to create post processing record 
+1.Go to jmeter 
+2.Create HTTP request , protocol mein http/https do ; https request=get/put/post/delete  ; servername mein mintox.com
+3.Add view result tree and view result in table 
+4.Add a new regular expresssion extractor 
+5.in regular expresssion extractor 
+Name of created variabkle : Any name 
+Regular expression : copy yhr expression jo aapne website https://regexr.com/mein banaya tha 
+Template $1$ --> agar $1$ means ek value niakalni hai jaise humne mintox.com mein src="...... yeh record mein value niakali h 
+match number : konsi match chaiye , might be 20 matches mile ,to agar 4th chaoye to likh 4 , agar 5th to likho 5 
+
+
+6.Now create http request under it
+7.In path of that http request pass ${variablename jo aapne rakha tha regular expression extractor mein}
+
+
+
+Note ::
+Agar 4 cheeze nikalni hai to ushe har ko ek group kehte hain 
+
+to aapne regular expression wali post request mein template mein yeh karna hai $1$2$3$
+Name of variable created mein karo jo bhe nikalna hai uska unique naam de do exampke  ---- Customername:customerid:customerlocation 
+
+uska regular expression bhe aise banega ---> src="(.*)">.*"paramerter="abd>.* ------yaha .* es liye use kiya hai pta ni kuch bhe ho sakta hai 2 cheezo ke beech 
+===================================================================================================================================================
+	
+Jmeter:
+
+Jmeter - Apache Jmeter is used for load testing , we test how much load my app can take ,I mean kitne users hone ke baad bhe aap break nahe ho rhi .
+Jmeter is used for testing web apps/FTP apps .Nowadays it is also used for DB testing , functional testing , server test etc .
+
+
+It is a java open source software that is used for performance of an application .It is used for load testing .
+
+===>In jmeter everything comes under test Plan ,jo bhe mention karna hai you need to mention under test plan .Inside test plan we have test case 
+Test plan will test how test case will run , it will tell about series of steps .A test plan will have one or more thread .<=====
+
+************File created in jmeter will have extension jmx *****************
+----------------------------------------------------------------------------------------------------------------------------------
+Pre requiste  and for downloading JMETER :
+========================================
+
+1.Latest Version of jmeter (5.4.0)
+2.Java should be installed on system.Java 8 or more should be there 
+Check java version by doing java -version
+3.Download jmeter from <apache-jmeter-"latest_version"> from official website 
+4.Unpack it 
+5.Go to folder <apache-jmeter-"latest_version">
+6.Go to bin 
+6.Double click on "Jmeter" (Window batch file)
+8.Jmter GUI will open 
+
+*****No need to install , just after downloading --- unzip the same and then copy it in drive(where ever you want)
+
+----------------------------------------------------------------------------------------------------------------------------------
+Run the Jmeter  :
+========================================
+1.Go to driver in your computer ---  where the Jmeter is there 
+2.Go to bin folder 
+3.Open command prompt here 
+4.Run the command jmeter.bat 
+5.Give sometime 
+6.GUI will automatically open 
+
+----------------------------------------------------------------------------------------------------------------------------------
+Why jmeter ?
+
+Ans : Lets suppose you are said to test load testing on a website say https://www.amazon.in .Now ek user se karn ho to aap manually hit maarke dekh lo , agar yeh 10 users ke liye hai tab bhe aap manually kar doge , but in case agar yeh 10 lakh users ke liye hai to in that case aap manually nahe kar sakte aur agar kar bhe lo to itne users ke liye pehle hardware arrage karo , aur agar kar bhe diya to sabko ek saath hit karna hai thats not possible .
+So we have jmeter to solve our purpose .This software will create dummy load for each user .
+
+----------------------------------------------------------------------------------------------------------------------------------
+========================================
+Creating firstJob in Jmeter  
+========================================
+Lets test the website https://www.google.com
+
+===>In jmeter everything comes under test Plan ,jo bhe mention karna hai you need to mention under test plan .Inside test plan we have test case 
+Test plan will test how test case will run , it will tell about series of steps .A test plan will have one or more thread .<=====
+
+1.Creat test plan (Thread ke under --> right click -> Add -> Sampler -> http request 
+Note Thread mein paramter set kar lena jaise number of threads , ramp up period , loop count )
+
+2.Under test plan you can add number of elements 
+3.Under each test plan we have maily Threads , Ramp up period , loop count 
+
+A single test plan can have multiple thread group / other elements 
+
+1.)Number of Threads ----> Kitne users/thread parallel mein run karne hain 
+	=================
+
+2.)Ramp Up Period ---->kitne time mein , thread mention kiye hain chalane hain.Lets say Ramp up period = 1000 , number of users =10.That
+	===================    means 1000/10 = 100 seconds .That means our 10 users should be up and running within 100 sec or we can say every thread will start in 100 seconds .
+
+
+
+
+example : Number of Threads = 200 , Ramp up period = 2000 .Than 2000/200 = 10 , that means every thread will start in 10 seconds .
+
+
+
+
+3.)Loop Count --->Kiti baar ek thread run karna hai , example loop count = 3 .That means every request will be sent 3 times .If it is 5 , then every 
+	============
+					request will be sent 5 times 
+
+
+Note : Thread/User is one of the same thing 
+
+
+Action to be taken after a sampler error -----> 
+1.Continue ---> Agar aapne 10 users ke liye ramptime set kiya hai 100 , to ab har users ko 100/10 = 10 sec lagenge ek complete karne mein , in case 
+itni requests mein se agar koi fail bhe ho jaey to next request lega and so on .This is continue option .Ignore the error and continue next request
+
+2.Start Next loop - Lets suppose there is a thread and under  that we have 2 requests .Each request has loop count =5 , that means donno request har user ke litye 5-5 baar chalegi .Now agar ek request kahi fail ho gayi to woh apni baki remaning loops ko run nahe karegi aur next request par jump kar degi
+
+
+3.Stop Thread -- Agar kis thread mein issue aa gya to usko stop kar denge aur next thread par run kar lenge 
+
+
+4.
+==================================================================================================================================================
+Crtl+E ---> clean everything 
+
+===========================================================Lecture 2 =============================================================================
+Whenever we create any request under http request we have the following options 
+
+1.Redirect Automatically .ab jaise site hai , http://www.mintox.com 
+esko hit karne par , ek he user ke liye 2 records banege .ek mein 200 ok ayega disre mein status code : 307 aayega 
+eska matlab hai jab aap koi request bhejte hain server par to wh kuch return karta hai like status code , body , ya even kuch url (woh jo 307 wala hai na that is a URL). Dnt worry yeh peeche chalta rehta hai dnt worry about it .agar aap es option ko click karoge to aapko woh backend par nahe dikhega that means aapko ek he record dekhega (200 ok wala ) .dusra nahe dikega 
+
+2.Follow redirects : 
+ab jaise site hai , http://www.mintox.com 
+esko hit karne par , ek he user ke liye 2 records banege .ek mein 200 ok ayega disre mein status code : 307 aayega 
+eska matlab hai jab aap koi request bhejte hain server par to wh kuch return karta hai like status code , body , ya even kuch url (woh jo 307 wala hai na that is a URL). Dnt worry yeh peeche chalta rehta hai dnt worry about it .agar aap es option ko click karoge to aapko woh backend par donno  dikhega that means aapko ek dono record  dekhega (200 ok wala as well as 307 wala ) .dusra nahe dikega 
+****this is the only diff between two options*****
+
+
+3.Under the thread group (created on top of reuests) uske andar yeh options hain 
+
+--Delay thread creation until needed ---> jitne bhe thread hain unko kuch resources chaiye honge jaise space ya kuch bhe .To agar yeh option unticked hai to woh saare thread start hone se pehle he vailable rakhega resources ko , aur agar yeh ticked hai to woh tab lega woh tab resources ko ekathe karega jab required hoga to 
+
+
+4.Under the thread group (created on top of reuests) uske andar yeh options hain 
+
+--Specify thread life :: ab aap chahate hain chahe kitne bhe users/thread ho woh ek time ke baad jmeter band ho jaey say after (1 hour) to yeh option help karegi 
+	--Duration : kitne time ke liye chalani hai say it is 3600 seconds to means 1 hour 
+	--Start Up delay(seconds)-- jaise if it 10 sec , then means ki yeh 10 sec wait karega fir yeh jitna (duration - jo upar diya hai ) utna chalega , fir yeh fir 10 second wait karega fir yeh fir 3600 second chalega and so on . es ke yeh faeyda hai ko agar 2 lakh user ke liye chalana hai aur agar woh kahi fail ho jati hai to mentioned time ke baad band ho jaey else nahe to woh chalata rhega 
+******Note : jab bhe yeh feature use karna hai always keep in mind 
+
+=======================================================Lecture 3 ===================================================================================
+========================================================FTP request ================================================================================
+FTP request : jab kabhi file download ya upload func check karni ho to yeh use karenge say kisi government ki site par photo/ form upload ya download karna hai .TO us case mein , download ya upload check karne waqt we use file transfer (FTP)
+
+1.Name - any name 
+2.Server name - jaha file uplaod ya download karni hai
+3.Port Number - waise by defualt khali chod do , in case khali chodege tab woh by default wala that is 21 number le lega 
+4.Remote file - Jo us server se file download karni hai uaka naam or ya jab upload karni hai to us server par ja ke kis naam se file save ho woh naam do
+5.Local file - jo aapne apni machine se file upload karni hai uska path say c:/deskptop/jemeter/abc.txt  ya download hone ke baad kis folder mein save ho aur kis naam se woh de sakte hain 
+6.get---> jab aapko download karna hai 
+7.Put --> select when you have to uplad file 
+8.User binary ---> jab aapko .tar ya .zip .gz file upload ya donload karni hai tab select karo
+9.Save file in Response -----> agar response save karna hai to yeh select karo..mind this yeh select karne se no doubt logs to ban jaynge but memory bhe lega 
+10.Login Config 
+username -- jaise koi server se file access karnse aap username and password daaalte ho na woh daaalo
+password 
+
+ *********** Sample site aap le lo :: test.rebex.net ***********
+
+
+App view tree mein dekh sakte ho , us mein yeh he pta chal jaeyga konsi file thi aur kaha se pick hui aur kaha copy hui 
+
+Note : 
+Jab file download karni hao to get option select karo aur jab upload kaeni hai to put select karo 
+
+======================================================================================================================================================
+
+========================================================JDBC Request ================================================================================
+Main things required are 
+1.JDBC connection :: used to make connection to DB  
+2.JDBC Request :: used to hit request like select insert etc to DB 
+
+JDBC connection Configuration karne ke liye ---> Right click on test plan ----> Add ---> config element ----> JDBC configuration connection 
+Pop up will open 
+
+Sample sql server site ---> https://www.db4free.net/
+
+username : nipuntestdb 
+password: Sanjeev43
+
+
+
+Name -- give any name say JDBC configuration 
+Scroll down till option , DataBase  connection Configuration
+
+Download jar mysqlconnector-java 
+After downloading this jar --> go to folder jaha jmter installed hai ,go to lib directory and paste that jar here 
+Please restart your jmeter 
+
+1.)DataBase URL :: jdbc:mysql://db4free.net:3306/nipuntestdb
+Explain 
+jdbc:mysql/servername:portnumber/DBname
+
+example ---> jdbc:mysql://db4free.net:3306/nipuntestdb
+
+2.)JDBC Driver class :: Select -> com.mysql.jdbc.Driver
+
+3.)Username :: username (jo aapke db ka login hai say nipuntestdb)
+
+4.)Password :: Password (jo aapke db ka password hai say *******)
+
+In the option Visible name for Created Prod :: pass the name :: yaha ek uniqua naam do aur wahi naam jab aap JDBC request hit karoge na us mein bhe option (visible name of pool declared in a JDBC connection configuration ) mein dena hai .Tabhi ushe pta chalega kis jdbc request ke liye konsi jdbc configuration uthani hai , kal ko ho sakta hai 10 jdbc config ho .
+
+
+5.)Ab upar dekho eshe window mein (JDBC connection config ) mein --> 
+Variable name for created pool : yaha koi bhe naam de do example config1 ya jo bhe .a yahi naam aapne aopne jdbc sampler mein dena hai .taki us sampleer ko pta chal jaey konsi configuration follow karni hai .in actual scanerio ho sakta hai 100 jdbc sampler ho aur 100 he config ho , to mapping eshe hogi (koi issue aaye to recording session3 , time 31:00 min dekh lena )
+
+JDBC sampler mein ek field hai variable name decalerd in the JDBC connection cofig yaha wohi naam rakho 
+
+Aur yar Query type select karo lo (apni request ) mein , neeche query bhe likh lo chahe select ki ya insert ki ya jo bhe ho 
+
+
+6.)Connection Properties - keep it khali(Blank)
+
+
+Now create a JDBC request 
+1.Name : ANy Name 
+2.Variable name of pool declared in JDBC connection config :: yaha woh naam do jo aapne jdbc ki config mein variable name diya hai 
+3.Query type : select / update/delete koi bhe select kar lo 
+4.In the textbox below write the query 
+Example SELECT `Name` FROM `SampleTableNipun` WHERE Name = 'Nipun'
+
+
+=========================================================Lecture 4 ===============================================================================
+JSR223 Request ::
+==============
+
+Es tarah ki request tab use hogi , jab ek ka response dusre request mein use hogi .ek ka result se kuch nikala aur dusri request mein use karna and 2nd ka 3rd mein and so on ..
+
+1.)ctx: it contains context of current thread.jaise us thread ka kuch id hoga , kuch detail hogi ya kuch output hogi .Esko aap JSR223 mein under script likh saKte ho 
+
+Under this site (Official site of jmeter)
+https://jmeter.apache.org/api/org/apache/jmeter/threads/JMeterContext.html
+
+Class jmter context ke methods likhe hain , yeh hum use karenge jaise getProperties() , 	getCurrentSampler() aur bhe bht hain 
+
+
+2.)vars : kaey variables aap use kar sakte hain JSR223 request mein jaise ctx , vars , props etc 
+
+3.args : Input arguments ke liye 
+
+variables of the jmeter are available under 
+https://jmeter.apache.org/api/org/apache/jmeter/threads/JMeterVariables.html
+
+yaha bhe kaey methods hain ek baar dekh lo 
+
+
+4.Cache complied script if vaialble ---> es option ko tick karne se aap cache menmory mein jo bhe save hoga to ushe use kar lega instead of sending new request 
+
+
+5.)Props : property ke liye , jmeter ke installation folder mein prop file hoti hai , usse variables (property) ko extract karne ke liye we use this 
+
+Note : Download plugins-manager.jar and put it into lib/ext directory, then restart JMeter.
+
+
+
+=============================================================Lecture 6============================================================================
+
+Preprocessor : JDBC 
+====================
+
+1.Under any  request say HTTP  add JDBC pre processor 
+Right click on any request say HTTP---> Add -> Preprocessor -> JDBC 
+
+2.Once this preprocessor is added 
+
+-->Name : Any Name 
+-->VariableName : Yaha ek unique naame dena hai ,a ctually aapke yaha 5 request chal rhi hai say .ab es variable naam se pta chalega konsi run karni hai 
+-->Query type : Can be Select , Insert ya koi bhe ho sakti hai 
+
+3.Variable  Name  : All parametrs of sql seperated by comma . 
+Jaise aapki query hai select empid, empname from emp;
+
+ab empid, empname ya for sirf empid or sirf empname jo bhe aapko chaiye us query se wph yaha ayega under paramter value
+
+
+4.Query timeout : kitne seconds mein query hit honi chaiye else woh fail kar dega (Na bhe doge tab bhe chalega)
+
+For example :: 
+1.We choose a free DB https://www.db4free.net/phpMyAdmin/
+
+Username : nipuntestdb
+Password : Sanjeev43
+(Note : Yeh khulne mein time lega)
+
+
+2.Create a table here and run any query , woh query aap JDBC (JMETR) mein copy kar dena 
+
+
+3.Take one http request jiske neeche yeh JDBC preprocessor add kiya than
+
+4. us http request mein Http Reqtst : get/post / ya jo bhe karna hai karo 
+proptocol : https/https depends on site 
+server name : site name exampl : mintox.com or google.com
+
+5.path :: /${Name_2} ;;;;Nte : Name_2 esliye likha hai kyn ki name to varoalename diya tha , aur _2 matlab record mein se 2nd value chaiye
+Note path mein woh ayega jo aapne jdbc preprocess se variable name option mein save karyaha hai exmaple empname, empid ya sirf empname 
+
+aur han _2/_1_3 lagana padega _2 means second record leke ayega sql query se and so on...
+
+
+
+
+===========================================================Lecture 7===============================================================================
+Post Processor ::
+=================
+These are used to execute action after request is executed . It can perfom some action on your response or extract some values from response 
+
+Type pf Post Processors ::
+
+1.Regular Expression extractor --> You can extract n number of values from the response . All the values will be comma seperated .
+	============================
+	Example : "CustomerName":"(.*$)",.*"CustomerId":"(.*$)",.*"LicenseNumber":"(.*$)"
+	
+	Here 
+	Group1 =CustomerName
+	Token1 =(.*$)
+	
+	Group2 =CustomerId
+	Token2 =(.*$)
+	
+	Group3 =LicenseNumber
+	Token3 =(.*$)
+	
+.* in the above example means jaha se customerid start hoga usse pehle kuch bhe charactsrs ho sakte hain ..we are saying that customername ke baad kuch he charactsrs ho sakte hain till cusotmerID tak 
+
+
+In Regular Expression extractor there are 4 options as listed below 
+
+1.Main Sample and Sub Sample -- yeh jo aap regular expresiion will run on main sample(jo main response aaya ) and sub sample ( Jo redirection ke baad request jata hai , jaise aapne dekha hoga kaey baar http request mein 2 output aati hai ) 
+2.Main Sample only 
+3.Sub Sample only 
+4.Jmter Variable Name to use 
+
+
+Field to check::
+1.Body  -- full body response se jo mili hai 
+2.Body(Unescaped) -- kaey baar body mein kaey aise characters aate hain ushe yeh display nahe karta , agar yeh option select kiya to to it will show those also
+3.Body as document 
+4.Response Header 
+5.URL 
+6.Response code - response code mein kuch dekhna hai to 
+7.Response Message - msg mein dekhna hai to yeh select karos=
+
+
+Name of Created Variable :: kuch bhe naam de do 
+Regular expression :: To find the regular expression --> go to site https://regexr.com/   ---> 
+Template :: jaise ek value chaiye todo $1$ , agar 2 values extract karni hai to do $2$ and so on 
+
+
+to do 
+1.go to any site say https://www.mintox.com/
+2.Now inspect any element of this site 
+3.Jo wndow khul hai us mein htmp tab pat click karo
+4.Right clik and edit as html 
+5.Copy all the content 
+6.Now go to site https://regexr.com/
+7.Copy the html content here under text 
+8.Expression mein aapko woh expression banana hai jaise aapko mentioned example mein dekho neeche 
+
+src="https://b.clarity.ms/s/0.6.29/clarity.js"></script><script async="" src="https://www.clarity.ms/tag/8bmy2wm1bj?ref=gtm2"></script><script type="text/javascript" async="" src="https://ssl.google-analytics.com/ga.js"></script><script async="" src="https://www.googletagmanager.com/gtm.js?id=GTM-56Z7RTS"></script><script src="/theme/_assets/libs/jquery/jquery.min.js">
+
+an aapko src="......yeh saare record chaoye to you will do 
+
+src="(.*)">
+
+yaha src=" ....yaha se har record start ho rha hai 
+(.*)---this will show ki kuch bhe ho sakta hai end tak 
+">---yaha yeh kjatam ho rha hai 
+
+
+
+
+Now to to create post processing record 
+1.Go to jmeter 
+2.Create HTTP request , protocol mein http/https do ; https request=get/put/post/delete  ; servername mein mintox.com
+3.Add view result tree and view result in table 
+4.Add a new regular expresssion extractor 
+5.in regular expresssion extractor 
+
+Name of created variabkle : Any name 
+Regular expression : copy yhr expression jo aapne website https://regexr.com/mein banaya tha 
+Template $1$ --> agar $1$ means ek value niakalni hai jaise humne mintox.com mein src="...... yeh record mein value niakali h 
+match number : konsi match chaiye , might be 20 matches mile ,to agar 4th chaoye to likh 4 , agar 5th to likho 5 
+
+
+6.Now create http request under it
+7.In path of that http request pass ${variablename jo aapne rakha tha regular expression extractor mein}
+
+
+
+Note ::
+Agar 4 cheeze nikalni hai to ushe har ko ek group kehte hain 
+
+to aapne regular expression wali post request mein template mein yeh karna hai $1$2$3$
+Name of variable created mein karo jo bhe nikalna hai uska unique naam de do exampke  ---- Customername:customerid:customerlocation 
+
+uska regular expression bhe aise banega ---> src="(.*)">.*"paramerter="abd>.* ------yaha .* es liye use kiya hai pta ni kuch bhe ho sakta hai 2 cheezo ke beech 
+===========================================================Lecture 8 ======================================================================
+	
+Es se opehle wale lecture mein post processing mein regular expression use kiya tha na ,us mein aap ek he cheez nikal rhe the example src="(.*)></script>
+
+Agar ek se zyada cheeze nikalni ho to ,example src="(.*)></script><script type="(.*)" async=""
+es example mein (.*) do baar hai , that means pehle ke aage bhe kuch hai jo aap search karna chahate ho aur us baad ek aur jagah yehi hai ki aap kuch aur search karna chahate ho , es case mein in regular exp(post processing) wale mein do mention the fields as
+
+
+
+Name of created variabkle : Any name like 
+Regular expression : copy yhr expression jo aapne website https://regexr.com/mein banaya tha 
+Template $1$ --> agar $1$ means ek value niakalni hai jaise humne mintox.com mein src="...... yeh record mein value niakali h 
+match number : konsi match chaiye , might be 20 matches mile ,to agar 4th chaoye to likh 4 , agar 5th to likho 5 
+
+
+Note :: Yeh abhi btana hai sir ne ---- pending hai yeh----
+
+
+===== ==== ===== =====
+Lecture 8 :
+======================
+JSR223 Post Processor :: This is exactly the same as JSR223 Pre Processor 
+JSR223 Request ::
+==============
+
+Es tarah ki request tab use hogi , jab ek ka response dusre request mein use hogi .ek ka result se kuch nikala aur dusri request mein use karna and 2nd ka 3rd mein and so on ..
+
+1.)ctx: it contains context of current thread.jaise us thread ka kuch id hoga , kuch detail hogi ya kuch output hogi .Esko aap JSR223 mein under script likh saKte ho 
+
+Under this site (Official site of jmeter)
+https://jmeter.apache.org/api/org/apache/jmeter/threads/JMeterContext.html
+
+Class jmter context ke methods likhe hain , yeh hum use karenge jaise getProperties() , 	getCurrentSampler() aur bhe bht hain 
+
+
+2.)vars : kaey variables aap use kar sakte hain JSR223 request mein jaise ctx , vars , props etc 
+
+3.args : Input arguments ke liye 
+
+variables of the jmeter are available under 
+https://jmeter.apache.org/api/org/apache/jmeter/threads/JMeterVariables.html
+
+yaha bhe kaey methods hain ek baar dekh lo 
+
+
+4.Cache complied script if vaialble ---> es option ko tick karne se aap cache menmory mein jo bhe save hoga to ushe use kar lega instead of sending new request 
+
+
+5.)Props : property ke liye , jmeter ke installation folder mein prop file hoti hai , usse variables (property) ko extract karne ke liye we use this 
+
+Note : Download plugins-manager.jar and put it into lib/ext directory, then restart JMeter.
+
+*****************************************************************************************************************************************************
+JDBC Post Processor ::
+It is same as JDBC Pre Processor - jaise aapka test ho gaya ab jaise chahate hain ki jo bhe record bane hai DB mein usko delete kar de 
+
+
+Example 
+1.Make on JDBC pre processor request :: Now add one record in this using insert query
+2.Make on JDBC post processor request :: Now Delete the above record here using Delete query
+3.Make a simple jdbc request and use select in this and check if the record is deleted or not 
+
+
+
+*****************************************************************************************************************************************************
+JSON Extractor - Post Processor :: Used for getting the parameter from the response ( jo bhe response json mein ayega)
+==============
+
+Right click on thread --> Post Processor --> JSON extractor(New window for json extracto should open up)
+Name : Any name say json extractor 
+Apply to : this is somewhat same ki main sample se lena hai ya main+sub se and so on ....
+
+1.)Name of Variable Created :Jo jo variable extract karna hai jaise userid , if multiple values extract karni hai to do like userid: username
+
+2.)JSON Paht Expression : yaha mention karo jaise upar 2 values chaiye to karo $.userid:$.usernama , agar 3 values chaiye to karo $.userid:$.username:$.clientId
+
+3.)Match No:konsa match chaiye , jaise 5 records mile jin mein say userid , username , client id hai to agar 1 mention karoge to pehle wala record ayega , agar 2 kiya hai to dusri value extract karega , agar -1 menion karoge to sabhe values/records extract karogo
+
+4.)Compute concentation : if this is checked then ,if many results are found then this will concat them using ',' seperator and store it in variable anmed <varibale> All.
+
+5.)Default value : ab jaise aapne 2 variable ki values found karni hai jaise username , userid from json response .In that case aap kuch bhe naam user karo say Match_0:Match_1 , agar 3 variables find karne hai to kuch bhe karo naam jaise First:Second:Third
+
+
+
+
+===================================================================Session 10============================================================================
+Session 10::
+=============
+Assertions : used to validate the particular response in corrospond to some value .Jaise kuch validate karna hai response code is 200 or not , ya kuch body se validate karna hai to woh validate hoga .
+
+We will cover -->
+
+Response Assertions 
+JSON Assertions 
+Duration Assertions 
+Beanshell assertions Assertions 
+Size Assertions 
+JSR223 Assertions 
+
+
+
+1.Response Assertions --> Used to add and compare pattern strings against one or many values of server response .
+Response mein we will check koi particular pattern dekhna hai , ya koi text contain karta hai ,ta status code etc .
+You can use not operator to make negative check.
+
+To add response assertion --> Right click on any request say http ---> assertions --> Response Assertion 
+
+Elements in Response assertion
+================================
+1.Name : Any Name 
+2.Apply to -> Main /Main+Sub /Sub sample only /Jmeter variable 
+3.Fields to test -->ya validate karna hai response ya text ya response message .Agar response code check karna hai to do Response code (You can choose one at a time)
+4.Pattern matching rule ---> exact match karna hai ya kuch contain wala use karna hai woh dekh lena .yeh option to editable banane ke liye field to test mein koi bhe option select karo and then click add after giving text in this text box 
+5.Custom failure message --> yaha kuch bhe message likh do , in case aapka assertion fail hua to yeh message display karega 
+6.Pattern to text----> mein aap pass karoge values like 200 , ya kuch bhe body se jo aap validate karwana chahte ho
+
+
+Note : Pattern to text mein you can pass multiple values also . it will validate multiple values .Multiple values add karne ke liye add button par click karke add karte rhe 
+
+7.Not : means jo bhe aap patern de rhe ho Pattern to text mein woh nahe hona chaiye 
+8.Or :Pattern to text mein you can pass multiple values also . it will validate multiple values .Multiple values add karne ke liye add button par click karke add karte rhe  .Or select karne par ya to pehli nahe to dusri cndition satisify honi chaiye
+
+9.Ignore status : if clicked , then chahe pass ho ya fail woh jo bhe aapne pattern to text mein pass kiya usko check jarur karega 
+
+
+
+
+In case aapko 304 cheeze validate karwani hai say statuscode // kuch data in response //header etc to aap apni http request mein 3-4 he respone assertions add karo and then run the progm 
+
+
+
+=====================================================================================================================================================
+=====================================================================================================================================================
+
+
+
+
+
+
+

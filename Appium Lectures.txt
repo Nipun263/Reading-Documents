@@ -1,0 +1,175 @@
+https://www.youtube.com/watch?v=mAylNVddfJc&list=PLhW3qG5bs-L8npSSZD6aWdYFQ96OEduhk&index=1
+
+Raghav pal ka lecture dekhna you tube par
+
+---------------------------------------------------------------------------------------------------------------------------------------------
+Why Appium ?
+
+Appium is a platform to automate mobile apps . we can aiutomate native ,web and hybrid apps .Appium can run on windows , ios and andriod and can work on languages like java , ruby , phython , c#
+
+Same UI script can be used in mobile testing also .Appium cannot automate any andriod sets which have version less then 4.2 ya api level 17 se upar ho else seleniod use karo.We in that case need seleniod(yeh bhe ek appium jaisa ek toool hota hai ).Version above android version 4.2 or API level above 17 can be tested with both android and selenoid 
+---------------------------------------------------------------------------------------------------------------------------------------------
+Appium is used to automate the mobile apps (native/hybrid).It is a free ware tool and is build on top of selenium.
+Appium in fact is server which allows interaction between selenium and android /ios mobile .It is build on node JS .Advantages of using node js ->
+example we are sending 100 commands to server , server takes sometime to execution each command and hence will consume time to execute 100 commands might be like 200 seconds . Agar yeh commnads node js mein hogi , to aap ek saath he execute kar sakte ho .Node js mein serevr execution ko fast kar deta hai  (login padh lena -https://www.udemy.com/course/appium-selenium-for-mobile-automation-testing/learn/lecture/3170958#overview)
+
+
+**************
+Selenium/Webdriver Script/Appium Client  - scripts can be in any progmng lanuguage  ------(JSON Protocol)-----------> Appium(Server)  ---------using UI Automator it helps to interacts with mobile-------> Android/IOS
+
+
+Appium server interacts with mobile via UI automator (if working on Android mobile)
+
+
+Appium client are client libraries written in any programming language say java /phython/ruby/ or ny other language .
+
+
+Selenium interacts with Appium via JSON Protocol , Appium(Server) uses (UI Automator/UI Automation- these are framework to interacts with mobile) 
+
+In reverse Mobile interacts with Appium(Server) and further Appium(Server) interacts with selenium 
+---------------------------------------------------------------------------------------------------------------------------------------------
+Q: Why UI automator and UI automation when we have appium to intercat with mobile 
+Ans - We have selenium which has some code written with couple of commands for UI automation .Now to use same commands for Mobile automation , then it is suggested to use appium infact 
+
+Example click commands hai selenium mein jaise for UI auomation , same click command we have in appium also . plus appium hs got some additional commands like swipeup , swipedopwn and others .
+---------------------------------------------------------------------------------------------------------------------------------------------
+Appium working :
+
+
+Selenium/Ecipse ----interacts with -----> Appium ------------interacts with -----> Android SDK ----interacts with -----> Mobile Device 
+
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+***********Installation Steps / Software to be installed for using appium ::*************
+=============================================================================
+
+====>
+1.Check if the node js and npom is installed or not 
+
+Go to cmd line , npm --version
+Go to cmd line , node --version
+you can also ---> where node or where npm 
+
+else install it !!
+
+
+
+
+=====>
+2.Install appium with node.js 
+for this you can download from command line using the cmd --->> 
+npm install -g appium
+
+
+
+
+
+========>
+3.Check if appium is installed on system or not by ruuning the mentioned commands 
+appium --version 
+where appium 
+
+Note : You can also download it from net and install it in your laptop.
+Jab Install karoge to launch ya to khud kar lena ya apne aap launch ho jaeyga , click on start server 
+
+Host-> 0.0.0.0
+Port ->4723
+
+
+
+==========>
+4.Check appium installation done successful and dependencies are installed 
+Appium doctor : Helps to check appium installation 
+
+
+Run the following command in cmd prompt ---> install appium-doctor 
+
+or 
+
+Agar nahe chal rhi upar wali command , to rehne do . You can skip this step 
+
+==========================================================================================================================================
+==========================================================================================================================================
+=================================================Steps to connect mobile==================================================================
+==========================================================================================================================================
+==========================================================================================================================================
+Pre Requiste :
+
+Java Should be installed on laptop(prefer to install java 8 , kaey baar java 11 mein issue aa jate hain) , check in cmd line java -version
+Mobile phone 
+Cable to connect mobile with laptop
+Free Space in mobile 
+
+
+--- --- --- --- --- --- --- --- ---
+
+1.Download SDK 
+2.Unzip folder and extract platform tools 
+3.Rename the folder name from cmdline-tools to tools, and place it under $C:/Android/cmdline-tools
+now it will look like $C:/Android/cmdline-tools/tools
+4.Open the command prompt under the folder 
+$C:/Android/cmdline-tools/tools/bin
+5.Run the command 
+sdkmanager "platform-tools" "platforms;android-28"
+
+Please Note : 28 can be anything like dependes on your mobile version example of you are using android 11 - then this will be 30 .Yeh waise api level hai
+Appium can run only over api level more than 17 , uske neeche seleniod use karna padega (par woh bht purane version mobile ki baat hai - leve it)
+
+
+6.Go to same folder 
+C:\Android yaha platform toools and platform ka folder ban gaya hoga 
+
+
+7.Set Env Variables 
+ANDROID_HOME = location of android-sdk folder .Yeh naya variable banna lena naam usko ANDROID_HOME  dena and path mein android-sdk folder ka dena .jaise C:\Android
+
+Also , set the path for platform-tool folder which is in C driver under android folder 
+
+
+
+8.Go to your mobile settings 
+
+ABout phone -> build number -> CLick this for 7 timees (you will get message , you are a developer)
+
+Also , Go to mobile settings -> developer options -> enable usb debugging
+
+
+
+9.Connect your mobile to laptop
+and 
+run in cmd line 
+adb devices (Adb means android debug bridge)
+
+This will show your device 
+
+like this 
+
+C:\Users\nipunverma>adb devices
+List of devices attached
+607e28cd        unauthorized
+
+
+==================================================================================================================================================
+==================================================================================================================================================
+==================================================================================================================================================
+==================================================================================================================================================
+===========================================================16-Aug-21==============================================================================
+Working on first appium project 
+1.Download eclipse 
+2.Create Java Project 
+3.Add appium and selenium libraries 
+4.Connect your mobile and verify in cmd promp using the command adb devices , your mobile is showing or not 
+5.Start appium server 
+6.Write code & Run!!!! (Add dependency while writing code)
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,56 @@
+Move element from source to dest without using action class 
+
+git ammend *****
+framework explain*****
+API chaining 
+Captcha automate ****
+read bar code 
+Batch File in selenium *****
+Email in jenkins 
+extent reports 
+Listners 
+Handle the Tooltip Java Selenium (Verify Tooltip)
+Upload File Using Selenium WebDriver
+Download File Using In Selenium
+Writing into excel
+Write Screenshot code 
+
+
+
+https://www.softwaretestingo.com/java-selenium-programs/
+
+https://www.softwaretestingo.com/testing-interview-questions/
+
+https://www.softwaretestingo.com/selenium-webdriver-interview-questions/
+
+
+=====================================
+Grouping in testNG
+Q:Find out the lenght w/o using length method*****
+Verify the Dropdown values are in sorted or not 
+Read Text file #########
+
+
+Get Web page Links Using Selenium
+Download File Using In Selenium
+64. How to check the image is loaded correctly or not on the page?
+
+
+
+
+
+
+
+https://www.softwaretestingo.com/restful-api-web-services-interview-questions/
+https://www.softwaretestingo.com/java-selenium-programs/
+https://www.softwaretestingo.com/testing-interview-questions/
+https://www.softwaretestingo.com/basic-selenium-interview-questions/
+https://www.softwaretestingo.com/selenium-real-time-interview-questions/
+https://www.softwaretestingo.com/selenium-webdriver-interview-questions/
+https://www.softwaretestingo.com/testng-interview-questions/
+https://www.softwaretestingo.com/framework-interview-questions/
+https://www.softwaretestingo.com/core-java-interview-questions/
+https://www.softwaretestingo.com/java-interview-questions/
+https://www.softwaretestingo.com/selenium-tutorial/
+https://www.softwaretestingo.com/java-selenium-programs/
+https://www.softwaretestinghelp.com/api-testing-interview-questions-and-answers/
