@@ -1,0 +1,87 @@
+//There is a string ,         String input = "Nipun439Verma900Selenium12"; Output needs to be done like //O/P required is nupiN439amreV900muineleS12 //All zeros at back 
+//Missing num in array 
+//1 to 100 without loop 
+//Multiply 2 number without inbuild func
+//concat two matrics **##
+//Swap two numbers **##
+//String reverse **##
+//palindrome **##
+//Anagram **##
+//Factorial **##
+//Swap 2 strings **##
+//Star Pattern **##
+//How to get the special characters from the String +++ String input = "abcd&*46482#$@";
+// find length of email id with and without mength method **##
+//Check presence of vowels in a string and also find the number of each voewels  **##
+//Missing num in arrat **##
+//Take out spaces from  Nipun     Verma  **##
+//Get Element from Set **##
+//WAP to remove duplicate Character in String and eliminate the duplicate chr from the string and take the single char out of the two duplicates **##
+//Find larger of two number without using if conditon **## 
+//Fabonia  **## 
+//csv **##
+//PDF  **##
+//4.How to ensure the list is sorted or not 
+//Find Missing number in the array **##
+//All zeros at last **##
+//Prime **##
+//Find char out of the String NipunVe84939rma **##
+//RemoveComma **##
+//String input = "I work in exilant"; and Output required is "I krow ni tnalixe".  **##
+//Convert array to arraylist  String[] geeks = {"Rahul", "Utkarsh","Shubham", "Neelam"}; **##
+//Write a program to merge two sorted arrays?  **##
+//palindrome **##
+//Progm to fidn the missing integer from 1 to 10 **##
+//Presence of Voewels in a String   **##
+//Text File **##
+//All zeros at last  **##
+//Progrm to dislay the first non repetive chaarcter in the string **##
+//Excel **##
+//How do you verify that the given list of numbers on a web page is sorted in ascending order? **##
+//Terminary condition **##
+//How to find the size of small letters in the String  **##
+// WAP to print 1 to 100 without using for loop **##
+//All zeros at back 
+//miss num in array 
+ //DataProvider and Excel 
+ //Excel and HshMap
+//Print 1 10 100 without for loop
+//Q:Write a java program to take a string and return the duplicate characters as a String 
+//Write into excel
+//Count of each num in a array  
+//InfiniteLoopExample 
+//PropertyFile Reader 
+//JSON to XML  
+//XML to JSON  
+ 
+//Count of each string  String input = "My Name is Nipun Verma";
+//Find larger of two number without using if conditon  
+//Q:String input = "aabiipp33qww"; Needs output as a2b1i2p232q1w2  
+//String input = "Nipun23"; get the number only (JO mprgan)   
+//Anagram 
+//Sort the weekdays using the Treeset  
+//Reverse a array in subset of three 
+//Q:Write a java program to take a string and return the duplicate characters as a String 
+//Sort this array  int [] arr = new int [] {5, 2, 8, 7, 1}; 
+//CombineMultipleStringsAndMakeACommonString   
+//Get particular element from Set and List 
+//HashMap with excel 
+//Excel
+//Shift All Zero Elements to Right Side of the Array - Java
+//WAP to remove the duplicate element in Array 
+//text 
+//Get particular element from string 
+//JSONFIle Reader  
+//Dataprovder and Excel
+//Q:String input = "I work in exilant"; and Output required is "I krow ni tnalixe".
+ 
+//code for duplicating a string by using hashmap  
+ 
+ 
+//Dataprovder and HashMap  
+//Compare two lists 
+//HashMap to pass multiple data jaise naveen ne btaya tha 
+//Duplicate in the DD 
+//Parallel test in cucumber and testNG 
+//String array to String 
+//HashMap & excel Integration

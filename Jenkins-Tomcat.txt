@@ -1,0 +1,459 @@
+Jenkins Details ::
+
+Download from jenkins site - war file 
+
+java -jar jenkins.war
+
+-----When you want to use the jenkins ----
+
+1.Go to path where jenkins is installed eg : C:\Projects\JenkinsInstallation
+2.To Start Jenkins Server 
+java -jar jenkins.war
+
+username : Nipun263
+password : Sanjeev43
+
+http://localhost:8080/
+ 
+-----------------------------------------------------------------------------------------------------------
+************To verify jenkins is indtalled or not *********************
+Before using jenkins pehle jenkins server on kar lo using this java -jar jenkins.war ( cd woh path do jaha war file padi hai ) fir run karna
+ java -jar jenkins.war
+
+1.Go to browser 
+2.type http://localhost:8080/ 
+3.Verify if jenkins opens or not 
+4.First time when you will hit above address it will share one time intial admin key 
+5.Go to path and pass it here 
+6.Install plugins and you are good to go
+-----------------------------------------------------------------------------------------------------------
+================================Configuration to be done on jenkins when using for first time===================================
+1.Go to https://localhost:8080
+2.Click on manage jenkins 
+3.Click on configure system 
+4.Yaha apne aap path set hoga , dekho jaise jenkins ka -----home directory ka 
+Number of execution - kitne thread chalane hai , you may set it like 2 /3 /4 kitni jobs chalani hai 
+
+Email mein apna id set kar lo , jab bhe job run hogi ya fail hogi you will get mail (all under system config only)
+
+SMTP server: smtp.gmail.com
+Default user e-mail suffix:  blank chodo
+
+Click on Advanced -> Check on checkbox use smtp authentication ----> Pass yopur email id and password 
+Click use SSL
+SMTP port : 465 
+
+
+
+5.Go to manage jenkins -> Global tool config 
+Add path for JDK --->Clickk on Add JDK --> Check the checkbox (Install automatically) --> Add installer -> select Install java from website --> 
+
+
+Add path for GIT --->
+
+
+-----------------------------------------------------------------------------------------------------------
+
+-----Tip in case you forgot the jenkins password ------
+1.Go to Directory 
+C:\Users\e5584133\.jenkins
+
+2.Search for config-xml file 
+3.Open it 
+4.Search for  <useSecurity>true</useSecurity>
+
+make it as 
+
+ <useSecurity>false</useSecurity>
+ 
+5.close the jenkins 
+6.Go to cmd prompt --> cd (directory path jaha jenkins installed hai) ---> run the command (java -jar jenkins.war) 
+7.Go to jenkins portal (https://localhost:8080)
+8.Manage jenkins ---> System configuration --> Configure System 
+9.Change password 
+10.Now change the config file tag jo point 2 and 3 ,4 mein kiya tha 
+
+========================================================================================================================
+Agar job ko har ek min baad chalana hai to 
+Go to configure project (jis par bhe aap kaam kar rhe ho )-----> configre -----> Build trigger ----> Build periodically --> in text box pass 
+*****
+========================================================================================================================
+If you want to make jenkins used by partiulr roles/person then go to manage jenkins add a plugin --> search plugin by name role (authentication se related wala install karo)
+
+To check if the installation has been successfully done , just go to Manage jenkins ----> Configure Global Security ----->check under authenticaltion -> role based ----> click on it  
+
+*****you can manage roles / users -- all under manage jenkins -> manager users 
+========================================================================================================================
+Steps to download Tomcat server 
+
+1.Go to google -> type download apache tomcar server for windows 
+2.Note no need to  install , you will get zip file (Yaha xore ke neeche jo zip wala hai woh download karo)-Dnt download zip jo source code distributions ke neeche hai 
+3.Unzip it 
+4.Go to config folder inside it and Open file server.xml 
+5.Change 8080 to say 8282 , kyn ki 8080 used by jenkins else server clash ho jaeyga 
+6.Create user for tomcat and same needs to be passed to jenkins (uski config mein)
+7.For step 6 ---->Go to apache tomcat unzipped file , jo upar li thi --->Go to config folder inside it and Open file tomcat-users 
+8.Add these lines just above </tomcat-users> [Last mein add karni hai second last line mein]
+
+<role rolename="manager-script"/>
+ <user username="tomcat" password="tomcat" roles="manager-script"/>
+
+9.Start the tomcat server 
+10.Go to bin folder of  the apache tomcat folder , jo upar liya hai (Jaha unzipped file copy ki this apache download ke baad uski baat kar rha hu)
+11.Set the dnvironment variable for tomcat upto bin flder like C:\Program Files\apache-tomcat-8.5.71\bin
+11.Open cmd prompt here 
+12. write cmd startup.bat , ya es folder mein ja ke yaha cmd prompt kholo aur startup wali file drag and drop maaro
+13.GO to browser and type localhost:8282
+14.
+15.Yaha apacha tomcat ka main page khul jaeyga 
+
+17.Now to integrate apache with jenkins download plugin in jenkins by going to manage jenkins ---> plugin name : deploy to container
+18.Now after running the script , you will get war file , agar nahe mil rhi to apni pom mein war dependency add karo 
+
+
+At the top , jaha se start hui hai pom add this line 
+
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>RestAPI_Auto</groupId>
+	<artifactId>RestAPI_Auto</artifactId>
+	<packaging>war</packaging>---------------------------------------------------------------------------------------------
+	<version>1.0.0-SNAPSHOT</version>
+	
+	
+
+Now add the mentioned dependency
+
+			
+	<dependency>
+	    <groupId>org.apache.maven.plugins</groupId>
+	    <artifactId>maven-deploy-plugin</artifactId>
+	    <version>2.8.2</version>
+	</dependency>
+	
+	
+       
+
+19.After runnign the script in jenkins , read its console out and get the war file path ( Please keep the maven targets as install)
+20.Copy this file 
+21.Now go to project on jenkins ---> configure ----> scroll down till post-build actions 
+22.Select from DD - deplot to container 
+23.In War/Ear files pass --->>>  
+**/*.war 
+24.contentpath - name of application , you can give any name 
+25.container -> tomcat ka version do like 8.5( jo aap use kar rhe ho)
+26.credentials mein apne credentials do 
+27.tomcat url mein aap do				http://localhost:8282
+28.To check if the project get deployed or not 
+29.Go to tomcat server 
+30.Append the contextpath (Step 24 wala )after the tomcat url like 
+https://localhost:8282/RestAssured
+
+
+						==========Master/Source and Agent/Slave Config=========
+In case if you want to configure master-slave configuration , in that case you need to enable the JNLP ports
+
+31. Go to jenkins -> manage jenkins -> Configure global Security and search for TCP port for inbound agents
+32.Click on Random option on the Agents -- this will make it enable 
+33.Save it 
+34.Go to jenkins -> manage jenkins -> manage nodes and clouds
+35.CLik on new nodes
+36.Give any name say windowsnode
+37.CLick permamnent agent 
+38.Pop up khulega pass the info
+39.Name and desciption - wnatever you want say windowsnode
+40.Remote note dir : yaha woh path rakho jaha aap slave rakhna chahate ho , since we are doing it on same machine/laptop to mera master jenkins C drive mein hai , this i will keep in another driver say D or E or F jonsi bhe hai aapke system mein 
+41.label mein bhe kuch bhe naam de do say windowsnode
+42.In launch method from dd select lauch agent via java web start 
+43.Availablity - Select - keep this agent online as much as possible 
+44.Save it !!!!
+45.Copy the command jo yaha aayi hai , kahi bhe copy karke rakh lo and click on agent link of this commadn to download agent file 
+Note : By default aap jaha bhe ho , come out of that 
+example you are in c driver ---->
+C:/users/Dummy/
+
+cd ../..
+cd windows
+f:
+
+
+
+
+46.Copy this agent file from download folder to slave window (jaha jenkins ka folder banna hai ) - JO APNE D/E/F drivee mein banaya hai
+47.Go to cmd prompt 
+48.Yaha woh path copy karo jenkins folder ka jo aapne slave ke liye (D/E/F drive ) mein banaya hai 
+49.Run the ommand jo aapne step 45 mein copy ki thi 
+
+Example command will be like this 
+
+java -jar agent.jar -jnlpUrl http://localhost:8080/computer/Nipun_Slave_Machine_Local/jenkins-agent.jnlp -secret 4cad70d7d6d6b591c9c54e79fd8b53f6af1d0c39202c8ffd0af0473672893834 -workDir "F:\SlaveMachine_Jenkins"
+
+
+50.Aap D/E/F drive mein jo jenkins ka folder bananya tha , us mein dekho kuch hua hoga 
+
+
+for confirmation ki slave connected hai ya nahe - pehle to cmd prompt mein dikh jaeyga ya aap jenkins --> manage jenkins ---> configure nodes and clouds ---> ab yaha dekho aapki slave ke aage koi error nahe hoga (agar nahe cpnnected hogi to yeh red error show karega )
+
+
+
+Now runnign the code on partiular slave 
+51.Go to jenkins -> create a new free style job 
+52.jab sab kar lo search for Restrict where this project can run , yaha woh naam do jo aapne slave mein diya hai 
+53.Save it 
+54.Run the Job
+55.Ab aap slave ke folder mein dekh lo workspace ka folder ban gaya hoga 
+56.
+
+
+
+					========Taking Backup of configuration to avid lossing config in case of any h/w failure==============
+					
+1.One dirty/easy way is to take the backup of the directory 
+C:\Program Files\Jenkins ( We have all the configs saved in the backup file)
+
+Lets go with a good approach 
+
+					
+1.Go to jenkins -> manage jenkins ->Manage Plugins ->  Download a plugin named backup
+2.Install this plugin 
+3.To make sure plugin is installed successfully 
+go to jenkins -> Manage jenkins -> Backup manager 
+4.Click on Backup manager ---> SetUp 
+5.In the field : Backup diretcory mention any directory jaha backup chaiye 
+6.Format = zip , filename template - any name ,verbose mode ko tick karo
+7.Slect (yes) in the checbox no shutdown 
+8.Under option Backup content- sabko tick karo (Includes/excludes ) mein kuch mat dena 
+8.Click Save 					
+9.No click on Backup Hudson configuration (It will start taking backup)
+10.To confirm backup happended , us path mein jao jo aapne upar steps mein mention kiya hai 
+
+
+Note : In future kabhoi system crash ho jata hai ya kabhi backup lene ki jarururat ho to 
+Go to jenkins -> Manage jenkins -> backup -> resture wale ko click karke kar lo				
+					
+					
+========================================******Pipelines in Jenkins*************==========================================================
+Ek buid ko dusri par depend karna ---> if one passes then dusri chale ---> agar dusri chale then third chale and so on
+
+Option 1 - 
+Go to your projevt in jenkins -> configure (jaha aap git/ baki cheezo ka  ka path dete ho woh congif) ----> post build action -->Build other projects 
+-> give project name and save , same way dsure project mein ja ke thesre ka de do and so on 
+
+Option 1 itni sahi nahe hai jab 500 jobs ho to soche ek ek ke liye karoge 
+
+
+option 2 -
+Manage jenkins -> Manage plugins -> Under available -> Search and  Download plugin Delivery pipeline plugin
+
+
+1.Go to jenkins --> Click Dashboard ---> yaha dekho all hai na saari jobs ke uoar ---> uske saath + sign hai na click it 
+2.Give any view name --> Select Delivery Pipeline View ---> Click Ok 
+
+3.New oage will open 
+4.Under pipeline --> click add component ---> Give any name 
+5.Enable start of new pipeline build -- select yes 
+5.In dropdown intial job ---> select woh wali job jo sabse pehle chalani hai [Note yaha bhe option 1 karna padega , nahe to aap to sorf 2 he jobs chala paoge ] .agar zyada zhalani hai to option 1 wala karo
+6.Final mein woh mention karo jo baad mein chalani hai 
+7.Sav it , aap aapko pipeline mil jaeygi 
+8.Pipline dekhne ke liye -> go to jenkins -> dashboard ---> upar dekho all ke saath 
+
+
+
+
+=======================******Run jenkins Automatically after each commit *************==========================================================
+
+1.Go to jenkins -> Manage Jenkins --> Manage Plugins ---> Search plugin (github integration )
+2.Install it 
+3.Go to jenkins project jo bhe aapko configure karna hai , under option build trigger ---> check the option GitHub hook trigger for GITScm polling
+
+3.Go to your git hub (project - which you want to integrate with jenkins)
+4.In git hub project --> go to settings ---> WebHooks 
+5.In step 4 , under webhooks ---> Add webhooks ---> add a url ( Jenkins ka appended by github-webhook/) in the option Payload URL*
+
+example : http://localhost:8080/github-webhook/
+
+In content type - select application/json 
+
+Which events would you like to trigger this webhook? -- select just the push event
+
+6.Click on Add webhook 
+7.Now configure the project in the jenkins (jaise normal karte hain , agar already kiya hua hai to rehne do .Bus ek naya commit karo git par and see if jenkins work or not)
+
+
+
+========================================================================================================================
+
+
+
+========================================================================================================================
+*******Note ====================================Jenkins Installation====================================================
+Jab pehli baar jenkins use karoge to after jenkins installation ---> jenkins server run karna use above command ---> it will ask you for password ---> password cmd promt mein yeh paath dega yaha se copy karke daal dena example :: C:\Users\nipunverma\.jenkins\secrets\initialAdminPassword
+
+ya ho sakta hai aap jab 
+https://localhost:8080    to woh admin oassword puche , look above aisa kuch path mentioned hoga C:\Windows\System32\config\systemprofile\AppData\Local\Jenkins\.jenkins\secrets
+
+yaha se intial password mil jeyga 
+
+
+1.Go to Jenkins portl / UI 
+2.Click on Manage jenkins 
+3.Go to global tool configuration 
+4.Provide path of JDK 
+5.Also configure and provide path of GIT 
+6.Maven path to be given 
+7.Plugins need to be installed - Go to manage jenkins -> Manage plugins :: Pleasse add plugins like git , github ,maven intergration , github integration 
+8.
+********************************************************************************************************************************************************************************
+********************************************************************************************************************************************************************************
+********************************************************************************************************************************************************************************
+****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************
+********************************************************************************************************************************************************************************
+********************************************************************************************************************************************************************************
+****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************
+********************************************************************************************************************************************************************************
+********************************************************************************************************************************************************************************
+********************************************************************************************************************************************************************************
+********************************************************************************************************************************************************************************
+********************************************************************************************************************************************************************************
+********************************************************************************************************************************************************************************
+********************************************************************************************************************************************************************************
+*******=============================================================Git and Git Hub=========================================================***********
+
+Git Details 
+
+username : Nipun263
+password : Sanjeev43
+
+https://github.com/Nipun263/AutomationOnlineSiteRepo
+
+
+
+======Steps to commit new code in master branch
+
+Pre requiste 
+
+1.create a maven project 
+2.download jenkins war file and run in cmd prompt 
+3.run the command java -jar jenkins.war( jaha war file oadhi hai us path se run karna )
+4.hit the url - http://localhost:8080
+5.pass the user name and password 
+6.download git --> type in google msysgit (https://gitforwindows.org/) & download it -->to confirm it is install -open cmd prompt ->type git --version
+-also download git extension & download it (this is UI)- helps to use git without use of command line
+7.install it 
+8.create a free account of git 
+9.create repository - go to git URL and click on new repository(give any name) and copy it 
+--Now once you save the new repository click on Save 
+--you will get new URL 
+--copy it 
+--Now go to eclipse 
+10.now copy the url attained in step 8 
+11.go to ellipse ->right click on project ->teams ->share project -> create directory (Pass the Repository name - any name which you want should reflect on GIT UI) -Click Save
+12.go to ellipse ->right click on project ->teams ->commit (while commiting pass some comments )
+13.go to ellipse ->right click on project ->teams ->show in repository
+14.go to ellipse ->right click on project ->teams ->right  click on remote ->create remote ->provide the git url (step 10 ) ,pass username and password - gitwala 
+Note - Step 14 will only be done and remote option will only be visible if step 13 is followed 
+clicking on remote pop up will open ->no need to change origin ->click OK -> pass the URL (jo git se milega jiski directory bani hai )-> copy the URL here 
+Pass the username and password of git here 
+Now save and push 
+-you will see a pop up after pusing the changes , with repository name in message details 
+-yeh master ka link hoga
+15.Open the git URL and refresh and check your changes
+
+
+
+=============Steps to push some changes 
+1.go to ellipse ->right click on project ->teams ->commit (while commiting pass some comments )
+2.go to ellipse ->right click on project ->teams ->show in repository
+3.go to git repository tab (whihc will open by itself) --> Expand Branches ->Expand Local -> right click on the file whihch you want to push ->
+pass the user name and password 
+regresh the github url and check changes 
+
+
+*****Squence of commands ****
+Git Init --this is used to create a git hidden file in the folder where you have your project && Note : go to that folder -view -shown hidden files ==Hidden file .git will get formed
+Git status -here the untracked files will be there / tracked files will be green (jo commit ho chuki hai)
+Git add --this is used to add the file --to make the files ready to commit (add all fiels to stage )
+Git status --green wali tracked hogi ya stage state mein hongi ---red wali means they are untracked 
+Git commit ---apne local mein push karna ====> git commit -m "Intial commit" =====> m is used in the command for message
+Git log - yeh btaeyga ki kon kon se commit hue hai aapne 
+
+git remote add origin https://github.com/Nipun263/FirstRepository.git
+Now do git remote -v ======> to check how many remote directories you have 
+Git push --pushing code to repository
+
+
+Squence of commands to be used when using git from command line ::
+1.git init --used to intialise / create a git file in the folder where you have the project
+2.git status ----> used to tell which files are tracked or untracked (yet to move to index)
+3.git add . ====> . at the end will add all the files in the folder to local repository.
+4.git commit -m "Give any name - this will reflect against the commit done"
+5.Now we need to create a repository on the remote server 
+git remote add origin https://github.com/Nipun263/FirstRepository.git ( the last https://address comes from git hub - where you have created a repository)
+6.git remote -v ----> this will tell all the remote repository we have on the git hub.
+7.git push **name example orgin** main =====> main es liye taki woh master mein jaey 
+
+
+Note :: in case while commiting you thing this file should not be there in commit then you can tek out that file from tracked to untracked using the below command 
+git rm --cached filename
+
+8.Generating SSH key 
+advantage using ssh over https -you are not asked to pass credentials again and again 
+ssh-keygen-t rsa -c "your email id"
+
+example 
+ssh-keygen-t rsa -c "nipunverma60@gmail.com"
+
+
+9.Branches 
+git branch ---- to check how many bracnhes are there
+if there will be default branch then the output ll be master
+
+10.To create a new branch 
+git branch branchname(you can give any name)
+
+11.switch from one branch to another 
+git checkout branchname(jis par jana hai)'
+
+you will get message 
+
+C:\Users\e5584133\Desktop\GITNEW>git checkout Nipun
+Switched to branch 'Nipun'
+M       src/test/java/Runner/TestRunner.java
+M       src/test/java/com/stepDefination/ExistingUserLoginFunc.java
+
+C:\Users\e5584133\Desktop\GITNEW>
+
+
+12.else if you want to create and go to that branch in one shot then use 
+git checkout -b branchname(jis mein jana hai ya jo naeyi create karni hai)
+
+
+13.use git branch everytime time to check the branches this project has 
+Note -Green colored branch means where you are at present
+
+14.for merging the file from one branch to other 
+-pehle us branch mein jao jaha merge chaiye 
+n run 
+git merge branchname(jis mein se merge chaiye)
+
+
+15.Clone the project - means taking the latest from git hub 
+there are 3 options user can get on git hub 
+1-download zip(on extreeme right side)
+2-clone on desktop
+3-Using cmd prompt ****
+
+make one folder on the desktop jaha project chaiye say folder ABC 
+now in the cmd prompt - enter this folder 
+get clone ***Clone URL --you can get from git hub***
+
+================================================================Dev Ops Lectures*===================================================================
+For jenkins to run --pehle start wali batch file run karo
+configure project 
+copy file karo --->copy /y C:\Windows\System32\config\systemprofile\AppData\Local\Jenkins\.jenkins\workspace\MarchProjectWorkIntergration\target\MavenTestNGProject-1.0.0-SNAPSHOT.war C:\apache-tomcat-9.0.43\webapps
+
+
+=====================================================================================================================================================
+

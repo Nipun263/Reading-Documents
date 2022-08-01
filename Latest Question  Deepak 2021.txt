@@ -1,0 +1,562 @@
+29. What is the Executor framework?
+
+
+79. Which type is used in collections to add all the primitive data types?
+
+
+85. Example: With the help of Scanner class, we have to take five inputs(u can take any random number) Like 5, 45, 50, 52, 91
+88. Write a code where there are 2 set’s of a key-value pair, print the value only if keys and values are the same
+112. Write a program to print the values of an array using any loop?
+120. What is bubble sort can you write one program. .?
+128. How to handle elements like Ajax?
+175. Can you write a build.Xml
+199. How to Verify palindrome or not?
+201. How do you handle keystrokes in Selenium?
+214. When we execute test cases in the grid where results will be stored in node or hub?
+215. which selenium web driver version you have used in your project?
+216. What is the port no? We use and why is it used?
+222. so first you have to sort it in some order & then print the missing numbers
+228. How to configure proxy explicitly.
+
+
+
+
+
+
+245. Now you have to print the missing numbers between all the numbers. Like 6 to 44 then 46 to 49 than 51 than 53 to 90.
+250. There are five tabs on the home page of a Website. You need to navigate to each tab and verify the page is loaded. Write optimal logic.
+251. What is your role in this framework explain it in detail?
+252. Write Swapping of numbers
+253. Write a syntax to initialize the webdriver?
+254. What will be the output of FOR loop
+255. Tell me the internal flow of the Set implementation class with one example
+256. TestNG related questions
+257. Given one String like “My name is ABC” and asked to reverse “ABC is named My”
+258. Explain SDLC?
+259. What are the types of inheritance in java?
+260. How do you compare the image in some path of drive and image on the page?
+261. Annotations in TestNG
+262. Explain your last company project framework?
+263. What is the difference between pom and page factory?
+264. Which agile methodology do you use?
+265. What is web services testing?
+266. Tell me some Exceptions you have faced in selenium? How you handle them?
+267. Scenario: if the submit button contains one of 3 frames on a page, how will you handle this?
+268. How to refresh the web page?
+269. When will u do regression testing?
+270. How to handle dynamically changing ids/elements?
+271. How to handle duplicate elements?
+272. The 2nd column contains the different names for those links present in the 1st column. now based on the 2nd column click on the required link in the 1st column how will you do it.
+273. what is a Select class? when to use?
+
+274. Difference between Actions and Action?
+275. Features of Java.
+276. write a code to read data from excel?
+277. What are Different types of locators are available in selenium?
+249. What is the difference between product backlog and sprint backlog?
+278. Scenario: there is a submit button on the page it has an id property. by using id we got element not found an exception, how will you handle this situation. what might be the problem in this case.
+279. What is the interface?
+280. Where do you use a hashmap?
+281. Hooks and tags
+282. Difference between Abstract class and Interface
+283. Where do you store the script and data regarding the framework?
+284. How do you get the text value from the drop-down
+285. Difference between JUnit and TestNG
+286. Difference between Abstract class and Interface
+287. Explain about automation cycle?
+288. What is Jenkins?
+289. How to do grouping in TestNG?
+290. What are the waits available in Selenium?
+291. Story estimation.
+292. public void m1(int a){}
+293. Explain ur framework
+294. What is your contribution to your framework?
+295. What are the Testing levels and in which role you are currently?
+296. What does 1 series stand for similarly 2,3 and 4 series in HTTPS code stand for?
+297. FrameWork and advantage of PageFactory classes
+298. Write a program to print a pyramid
+299. What are the different types of polymorphism?
+300. Where does automation fit into the testing flow?
+301. What is implicitly wait, explicitly wait, webdriver wait, Thread.sleep
+302. Upload file using Auto-It.
+303. Write syntax to get the text from the table
+304. Questions about XPath.
+305. How You debug your code manually or using any automation for that?
+306. How do you inspect elements?
+307. Write code to print “A1B2C3D4E5………..Z26”?
+308. Will findelements throw an error when the element is not found?
+309. What is the difference between smoke and sanity testing?
+310. Which java &amp; selenium version are you using?
+311. How to perform the Drag and Drop operation?
+312. Where do you upload test results?
+313. How to select a value in the DropDown list? what are the different ways to select?
+314. Diff b/w Array and ArrayList?
+315. Explain the framework you have used?
+316. Explain absolute and relative XPath with an example
+317. Why string is immutable
+318. Data providers?
+319. What is the difference between the final and the finally?
+320. How to fetch data last row from webtable. (webtable is Dynamically changing)
+321. now based on 2nd td tag find tr tag element. write XPath for it.
+322. Write code to print the given pattern?
+323. What is the problem with thread.sleep in code?
+324. what are the difficulties/challenges you have faced while Automation?
+325. Selenium grid
+326. How to reverse a string? write code
+327. Different explicit wait conditions in selenium?
+328. Diff b/w while and do-while?
+329. Is it possible to compare two images with sikuli?
+330. What is the difference between length and length() in Java?
+331. Difference between interface and abstract class
+332. For(sopln”welcome”; sopln”to”;sopln”java”)?
+333. Manual testing concepts like bug life cycle, an agile methodology which is following in your organization?
+334. How to switch from frame to main window tel syntax?
+335. Can I write try to block single means without using try-catch or try-finally
+336. Write sorting program
+337. Explain the project framework
+338. What is a string class? Why is the string called immutable?
+339. Write a program using exception handling to click on a button.
+340. What is a Checked & Unchecked exception?
+341. Different types of HTTPS code?
+342. What are the Actions class and its methods?
+343. what is the Defect life cycle?
+344. Where did you use Abstract class in your project and why didn’t you go for Interface?
+345. Difference between Map and Set. Additional questions related to Map and Set
+346. How to call a function of a class without creating an object?
+
+347. Can we write [] in front like  []a?
+348. Write dynamic x path
+349. How do you get to know if the developer has fixed the issues or not?
+350. Scenario: There are 10 pages in the same window, an image is present on any page out of ten pages in the same window.
+351. Why Set<Iterator> you have used for handling window Handles
+352. What are the keywords used in the feature file? What is the use of the keyword “background” in a feature file?
+353. If we wanna do data-driven with testng what are all annotations required?
+354. Diff b/w list and set?
+355. what is overloading and overriding?
+356. Have you ever written test cases in your projects?
+357. What is an abstract class?
+358. What is nonfunctional testing?
+359. What are the types of waits in selenium webdriver?
+360. What is a retrospective meeting?
+361. What is the Page factory? How to create an object of the class using page Factory class, Write code?
+362. What is auto it? how will you execute auto it codes in selenium?
+363. What is assert
+364. Write a program to find prime no. Or not?
+365. What is the Page Object Model(POM)? what is the advantage and disadvantage of POM?
+366. How do you handle if XPath is changing dynamically?
+367. How to synchronize collection classes?
+368. How to conduct cross-browser testing Parallels in TestNG?
+369. How do you manage reports in your framework
+370. How to handle Mouse hover?
+371. How to delete cookies?
+372. How do you handle dynamic web elements?
+373. Difference between before test and before a method
+374. what is JavascriptExecuter?
+375. Read data from file find the duplicate word and count them and sort them in descending order
+376. Explain abt parallel testing
+377. What is the difference between String, String buffer & String Builder?
+378. Is multi-level inheritance is possible in java? give reason.
+379. Can you write a dynamic XPath
+380. Have u used an action class? Where u have used Action class? Write code for the same
+381. Explain oops concepts.
+382. Explain your project and framework
+383. What is Abstraction? How to achieve abstraction.
+384. What do the product owner and scrum master do?
+385. How to generate dynamic XPath?
+386. Have integrated selenium with other tools like Maven, Jenkins, etc..?
+387. Is multiple inheritances is possible in java? tel reasons.
+388. Write code to establish a JDBC connection?
+389. Explain your framework
+390. Write a method that returns boolean to check elements present on a webpage.
+391. Pom
+392. What is the difference between Final, Finally & Finalize?
+393. WAP to find out the second minimum and second maximum numbers from an array without sorting the array?
+394. What are all interfaces available in selenium?
+395. What is the string buffer class?
+396. How you do parallel testing in BDD cucumber?
+397. What is get, post in rest API?
+398. What is the feature file & step definition in cucumber?
+399. 3 Scenarios are given we need to write code to automate it?
+400. Write down any test script that you are currently working on in your company.
+401. Tell syntax for the sikuli code.
+402. How to handle Duplicate feature file
+403. How to read Properties file in selenium?
+404. What is Abstraction?
+405. Scenario: when we have many same Xpaths and we need to select a particular one. what we do.
+406. What is static and non-static?
+407. What is @DataProviders
+408. what is Automation? why Automation? when to start Automation? how to identify which scenarios to be automated?
+409. What is the difference between static and instance variables?
+410. Suppose one element is there, which will appear after 20 sec. We have given an explicit wait of 10 sec to that element and an implicit wait of 20 sec in that class, then what will happen? will it show an exception or what?
+411. What is the difference between smoke and sanity testing?
+
+412. How you can scroll using JS.
+413. what is the Selenium Grid?
+414. But if the user entered the number, not in any order Like 5, 2, 98, 50, 16
+415. Duplicate elements in a string program?
+416. What is the difference between get() & navigate().to() method?
+417. Can we write our own conditions for explicit wait??
+418. What is the Page Object Model? How are you using it in your project?
+419. Write a basic selenium script
+420. Write down the hierarchy of collection
+421. What is the listener in TestNG? List those listeners which you used in your company?
+422. what is the use of sleep()?
+423. How to handle elements which have no attribute inside the tag?
+424. Write a syntax to select a value from the drop-down
+425. Difference between Default and Protected
+426. Where to use Comparable and where to use Comparator did you ever used in your project
+427. How to prioritize test cases in TestNG?
+428. Scenario: der are two methods in the same class with the same name with different arguments and different access modifiers. like
+429. Assert vs verify
+430. How to handle Ajax UI.
+431. What is the test design you have used to write test cases?
+432. what is Encapsulation, Abstraction?
+433. What is POM.xml
+434. Difference between implicitly, explicitly, webdriver wait and thread sleep
+435. What is data binding.
+436. Who is the one who leads the agile team?
+437. If an element is loaded by taking much time how to handle this situation in selenium.
+438. Why ArrayList instead of an array?
+439. what is polymorphism?
+440. What is the use of the Map?
+441. Without having attribute write the XPath for text
+442. How to handle internationalization using selenium webdriver?
+443. Explain abstraction concept with an example
+444. If a sprint is 2 weeks, what about the automation life cycle
+445. Explain the automation framework?
+446. Write a query for self-join
+447. Issues faced in ie browser
+448. Explain method overloading and overriding with an example
+449. Difference b/w sikuli and auto it.
+450. Explain the flow of your framework?
+451. Difference between ImpliciteWait and Explicit wait.
+452. What is the difference between hashmap & linked hash map?
+453. What are the dependencies in Maven? Tags in the POM.xml file for adding dependencies?
+454. Annotations in Cucumber
+455. When your @BeforeSuite will execute?
+456. Iframe
+457. What is dry run in Cucumber?
+458. What is the difference between the array & array list?
+459. How to perform parameterization?
+460. What is multilevel inheritance? Where u have used in your framework
+461. Whats is build.xml?
+462. How to run a test case for multiple data in cucumber? how to pass multiple data for a test case in step definition?
+
+
+*MANUAL TESTING INTERVIEW QUESTION*
+
+*Following are the some basic and advanced Top Manual Testing Interview Question and answer for both beginner and experience Manual Tester.*
+
+What is Manual Testing ?
+What is Regression Testing ?
+What is JSON wire protocol
+What is JSON ?
+What is Automation Testing ?
+What is Re-Testing ?
+What is Smoke Testing?
+What is Functional Testing?
+What is Unit Testing ?
+What is User Acceptance Testing ?
+What is F rule is Web Testing?
+What is life cycle of Testing ?
+What is Sanity testing ?
+What tool is used for Manual Testing?
+What is Build ?
+What is Release?
+What is Sprint in agile?
+What is Sprint Backlog?
+What is Product backlog?
+What is the time limit of a sprint in Agile ?
+What is Agile ?
+What is User story in Manual Testing ?
+What is Test case ?
+What is Bug in Manual Testing?
+What is Epic ?
+What is Change request ?
+What is Enhancement Request?
+What are the types of bug?
+What is static testing ?
+What is Black box testing?
+What is white box testing ?
+What is Test Plan ?
+What are the contents of Test Plan ?
+What is Verification and validation ?
+What is SDLC and STLC?
+What is Equivalent Testing ?
+What is boundary testing?
+What is dynamic Testing ?
+What is difference between static testing and dynamic testing ?
+What is Integration testing ?
+What is top – bottom approach ?
+What is Bottom – Top approach ?
+What is System Testing?
+How system Testing is differed from UAT?
+What is Data Driven Testing?
+What is Test Scenario?
+What is Test Case ?
+What is Test Script ?
+What is defect ?
+What is Latent defect ?
+What is Mutation testing?
+What is Risk Analysis?
+How we can eliminate risk?
+What is Grey box Testing ?
+What is Acceptance Testing ?
+What is Non-Functional testing ?
+What is Alpha Testing ?
+What is Beta – Testing ?
+What is the difference Between Alpha Testing and Beta testing?
+What is Visual Testing?
+What is Decision Testing?
+What is Statement Testing ?
+What is Branch Testing?
+What is Control Flow Testing?
+What is Data Flow Testing ?
+What is Error Guessing?
+What is State Transition ?
+What is Decision Table ?
+What is Boundary value ?
+What is Cause – Effect ?
+What is SDLC?
+What is STLC?
+What is Advantage of manual Testing ?
+What are disadvantages od Manual testing ?
+What is Code Redundancy?
+What is Bug Leakage?
+
+
+
+Interview ques:
+
+1. java programming on array or string
+2. if there are 3 webservers and each of there api is dependent on each other but one of the server is down, how will you do testing.
+3. Selenium ques on waits, locators, window handles
+4. rest api ques, how to pass data in various forms
+5. what is your rest api framework 
+6. difference between background and hooks, if in a feature file both background and hooks are there, which one execute first.
+7. How do you handle manually, if page is showing up blank everytime.
+8. Types of collection you worked on.
+9. Selenium framework
+10. challenges while automation of api vs UI
+11. Soap ques
+12. Mockito ques
+13. which locator is best and why
+14. how to handle a defect leak during production environment
+15. What is http status codes error, 403, how do you handle it.
+
+
+
+
+Q:Q:what is difference b/w comparable and comparator?
+
+Compare :
+1.we can sort the collection on the basis of a single element such as id, name, and price.
+2.Comparable provides compareTo() method to is.
+3.Comparable affects the original class, i.e., the actual class is modified.
+
+Comparator :
+1.we can sort the collection on the basis of multiple elements such as id, name, and price etc.
+2.Comparator doesn't affect the original class, i.e., the actual class is not modified.
+3.Comparator provides compare() method to sort elements.
+
+
+
+
+
+
+
+*Questions set for the day 8 Nov*
+*UST global interview questions:*
+*Exp 5-9yrs*
+
+1. Introduce urself
+2. Explain ur project
+3. Run time polymorphism
+4. Write a program to reverse the string and cal the each chars and print the numbers. given String S1= I am a software tester
+5. can we declare constructor as private?
+6. super keyword
+7. explain Maven and how u r using it in ur project
+8. how r u preparing report in ur project
+9. Scenario: in a webpage we have one product and need to give review for the particular products. What type of testing will u perform and how many scenarios u can write from this?
+10.Localisation, globalisation and security testing.
+11 Program String are given
+Input: 4(ES)6(ESD)2(DK)
+Output: ESESESESESDESDESDESDESDESDESDDKDK
+
+
+*Difference between Git pull and Git clone?*
+We use these two commands to get changes from central repository. For the first time if you want whole central repository in your local server, we use git clone. It brings entire repository to your local server. Next time onwards you might want only changes instead of whole repository. In this case, we use Git
+pull.
+Git clone is to get whole copy of central repository
+Git pull is to get only new changes from central repository (Incremental data)
+
+*What is the difference between Git pull and Fetch?*
+We use Git pull command to get changes from central repository. In this operation, internally two commands will get executed. One is Git fetch and
+another one is Git merge.
+Git fetch means, only bringing changes from central repo to local repo. But these changes will not be integrated to local repo which is there in your server. Git merge means, merging changes to your local repository which is there in your server. Then only you can see these changes.
+So Git pull is the combination of Git pull and Git merge.
+ 
+*What is the difference between Git merge and rebase?*
+We often use these commands to merge code in multiple branches. Both are almost same but few differences. When you run Git merge, one new merge commit will be generated which is having the history of both development branches. It preserves the history of both branches. By seeing this merge
+commit, everyone will come to know that we merged two branches. If you do Git rebase, commits in new branch will be applied on top of base branch tip. There won’t be any merge commit here. It appears that you started working in one single branch form the beginning. This operation will not preserves the history of new branch.
+ 
+*What is Git Bisect?*
+Git Bisect we use to pick bad commit out of all good commits. Often developers do some mistakes. For them it is very difficult to pick that commit where mistake is there. They go with building all commits one by one to pick bad commit. But Git bisect made their lives easy. Git bisect divides all commits
+equally in to two parts (bisecting equally). Now instead of building each commit, they go with building both parts. Where ever bad commit is there, that part build will be failed. We do operation many times till we get bad commit. So Git bisect allows you to find a bad commit out of good commits. You don’t have to trace down the bad commit by hand; git-bisect will do that for you.
+ 
+
+*What is Git squash?*
+To move multiple commits into its parent so that you end up with one commit.
+If you repeat this process multiple times, you can reduce “n” number of commits to a single one. Finally we will end up with only one parent commit. We use this operation just to reduce number of commits.
+ 
+*What is Git hooks?*
+We often call this as web hooks as well. By default we get some configuration
+files when you install git. These files we use to set some permissions and notification purpose. We have different types of hooks (pre commit hooks & post commit hooks)
+Pre-commit hooks:- Sometimes you would want every member in your team to follow certain pattern while giving commit message. Then only it should allow
+them to commit. These type of restrictions we call pre-commit hooks.
+Post-commit hooks:- Sometimes, being a manager you would want an email notification regarding every commit occurs in a central repository. This kind of things we call post-commit hooks.
+In simple terms, hooks are nothing but scripts to put some restrictions.
+ 
+*What is Git cherry-pick?*
+When you go with git merge, all commits which are there in new development branch will be merged into current branch where you are. But sometimes, requirement will be in such that you would want to get only one commit form development branch instead of merging all commits. In this case we go with git cherry-pick. Git cherry-pick will pick only one commit whatever you select and merges with commits which are there in your current branch. So picking
+particular commit and merging into your current branch we call git cherry-pick.
+ 
+*What is the difference between Git and SVN?*
+SVN:-
+It is centralized version control system (CVCS) where back up copy will be placed in only one central repository.
+There is no branching strategy in SVN. You can’t create branches. So no parallel development.
+There is no local repository. So can’t save anything locally. Every time after writing code you need to push that code to central repository immediately to save changes.
+Git:-
+It is a Distributed version control system where back up copy is available in everyone’s machine’s local repository as well as a central repository.
+We can create any no of branches as we want. So we can go in parallel development simultaneously.
+Every Git repository will have its own local repository. So we can save changes
+locally. At the end of our work finally, we can push code to a central repository.
+
+
+
+
+
+
+
+
+*Technical round*
+1. Tell me about your previous experiences and projects?
+2. Explain me about your recent project?
+3. What is the difference between regression and retesting
+4. What is smoke and sanity?
+5. What are the techniques you follow to write test cases?
+6. What is the process u follow in your project?
+7. What is the defect tracking tool u use?
+8. Explain the agile process?
+9. How do u write the test cases for gmail application?
+10. What are the testing types your involved in?
+11. As a qa what's your role in the project?
+12. Do u perform white box testing?
+13. Are u involved in preparing test plan?
+14. Do u have any idea on cognos?
+15. Do u have any questions for me?
+16. Why negative testing is important?
+17. How do u ensure that 100 percent test coverage is done?
+18. How negative testing is useful?
+19. What if there are still open defects in rtm do u say 100 percent testing coverage is
+done?
+20. What is rtm?
+21. If u have less time and have too many test cases to cover then what would u do? 22. Do u have any questions for me?
+
+*Manager round*
+   Tell me something about urself?
+1. Explain me the previous experience u have ?
+2. What is ur role as qa?
+3. How close do u work with developer?
+4. What is the process used in ur project?
+5. Do u have knowledge on java/selenium?
+6. Why did u choose to be qa (tester)?
+7. Explain me the current project?
+8. Is there any particular reason for ur job change?
+9. Do u have any questions for me?
+
+
+
+*Company name:Capgemini*
+
+
+1. Roles & responsibilities.
+2. Framework explanation.
+3. What is interface
+4. What is inheritance
+5. How u achieve multiple inheritance in java.
+6. Write program to reverse a number.
+7. How you select an option in drop down.
+8. What is iframe. Write code to click on a button which is in a nested iframe.
+9. How to handle file downloading & uploading
+10. Difference between implicit wait and explicit wait.
+11. Total number of rows in a webtable.
+12. How to select a check box present in a webtable.
+13. What r webdriver exceptions
+14. How to read data from an excel file
+15. How many testing environments u have in ur organization.
+16. Write an xpath to get all the links.
+17. How to read the text on a tooltip.
+18. Check whether an element is displayed or not.
+19. There are 3 classes a b c. How to access the methods of b and c in class a.
+
+
+
+
+
+
+
+1. Tell me about yourself?
+2. Tell me about your roles and responsibilities?
+3. which framework you are using?
+4. Which jar file you are using for Datadriven and explain?
+5. How to get column from excel 3 coloumn, 2 row?
+6. How to write and send the values to text box?
+7. What is the difference between single / and // explain?
+8. How many ways identify the filed in selenium?
+9. Which is fastest?
+10. What is difference between implicit wait and explicit wait?
+11. Xpath questions?
+12. What is interface? What is the use of interface?
+13. What is abstract class?
+14. What is the difference between interface and abstract?
+15. What is static block?
+16. What is purpose of static in main method? Without static main method class will be
+working or not?
+17. One static block, one main method, one constructor what is the execution flow? 18. What is web driver? Why we use web driver?
+19. Which jar file you are using for web driver?
+20. Webdriver define in which class?
+21. What is difference between list and set?
+22. Which class define in list and set?
+23. How to select a particular value from drop down with examples and what is the
+difference between select by value and select by visible text? 24. What is hash map and hash table in collections?
+25. Class a {
+result()
+}
+Class b extends a {
+Result()
+}
+• In this scenario we calling class b method what is the output?
+• In this case how to define super keyword in your class?
+26. How to create/ call obj in interface?
+27. How to create object for static class?
+28. How to call/invoke the method of class b from your program?
+29. What are the different methods in mouse events?
+30. How to handle hover menus?
+31. What is the difference between final and finally and finalize?
+
+
+
+https://www.softwaretestingo.com/restful-api-web-services-interview-questions/
+https://www.softwaretestingo.com/java-selenium-programs/
+https://www.softwaretestingo.com/testing-interview-questions/
+https://www.softwaretestingo.com/basic-selenium-interview-questions/
+https://www.softwaretestingo.com/selenium-real-time-interview-questions/
+https://www.softwaretestingo.com/selenium-webdriver-interview-questions/
+https://www.softwaretestingo.com/testng-interview-questions/
+https://www.softwaretestingo.com/framework-interview-questions/
+https://www.softwaretestingo.com/core-java-interview-questions/
+https://www.softwaretestingo.com/java-interview-questions/
+https://www.softwaretestingo.com/selenium-tutorial/
+https://www.softwaretestingo.com/java-selenium-programs/
+https://www.softwaretestinghelp.com/api-testing-interview-questions-and-answers/
